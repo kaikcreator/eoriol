@@ -1,0 +1,15 @@
+
+$color-black: #080808;
+$color-white: #ffffff;
+$color-primary: #ff3535;
+
+$color-secondary-menu: #949292;
+
+$spacing-base: 10px;
+
+$open-sans-font: 'Open Sans', sans-serif;  
+$lora-font: 'Lora', sans-serif;  
+
+@function space-units($factor){
+    @return $spacing-base * $factor;
+}
