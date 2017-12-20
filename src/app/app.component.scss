@@ -39,6 +39,19 @@ header{
             font-size: 11px;
             font-weight: 600;
             line-height: 22px;
+
+            &:hover, &.active{
+                color: $color-black;
+            }
+
+            &:hover:after, &.active:after {
+                content: "";
+                height: 2px;
+                width: 12px;
+                display: block;
+                background: $color-black;;
+                margin-top: -2px;
+            }
         }
     }
 
@@ -54,10 +67,16 @@ header{
             border: none;
             color: $color-white;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 35px;
             letter-spacing: 2.2px;
-            text-transform: uppercase;   
+            text-transform: uppercase;
+            &:hover{
+                background-color: darken($color-primary, 10%);
+            }
+            &:active{
+                background-color: darken($color-primary, 20%);
+            }
         }
     }
 

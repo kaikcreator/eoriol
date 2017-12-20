@@ -5,4 +5,8 @@
 body{
     font-family: $open-sans-font;
     margin: 0px space-units(9);
+
+    *:focus{
+        outline-color: $color-primary !important;
+    }
 }
