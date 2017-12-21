@@ -5,10 +5,19 @@
 @import '~variables.scss';
 
 body{
+    position: relative;
     margin: 0px !important;
     font-family: $open-sans-font;
 
     *:focus{
         outline-color: $color-primary !important;
+    }
+}
+
+@media all and (min-width:1760px){
+    body{
+        max-width: 1760px;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
