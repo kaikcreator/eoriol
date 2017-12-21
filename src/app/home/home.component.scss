@@ -1,7 +1,7 @@
 @import '~variables.scss';
 
 
-.hero{
+#hero{
     height: 865px;
     display: flex;
 
@@ -30,9 +30,36 @@
             width: 414px;
             height: 87px;
             margin-top: 0px;
+            margin-bottom: 80px;
             font-size: 16px;
             font-weight: 400;
             line-height: 35px;
+        }
+
+        .anchor-link{
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $color-black;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 35px;
+            letter-spacing: 2.3px;
+
+            &:after{
+                content: "";
+                display: block;
+                background: $color-black;
+                width: 44px;
+                height: 2px;
+                position: absolute;
+                left: 0;
+                margin-top: -18px;
+                transition: all ease-out 0.15s;
+            }
+
+            &:hover:after{
+                left:40px;
+            }
         }
     }
 
