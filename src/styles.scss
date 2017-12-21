@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Lora:400,400i|Open+Sans:400,400i,600,600i,700');
+//@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500');
+
 @import '~variables.scss';
 
 body{
+    margin: 0px !important;
     font-family: $open-sans-font;
-    margin: 0px space-units(9);
 
     *:focus{
         outline-color: $color-primary !important;

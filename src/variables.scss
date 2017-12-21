@@ -1,15 +1,23 @@
+/* fonts */
+$open-sans-font: 'Open Sans', sans-serif;  
+$lora-font: 'Lora', sans-serif;  
+//$montserrat-font: 'Montserrat', sans-serif;  
 
+
+/* colors */
 $color-black: #080808;
 $color-white: #ffffff;
 $color-primary: #ff3535;
 
 $color-secondary-menu: #949292;
+$color-home-paragraph: #716767;
 
+
+/* spacing */
 $spacing-base: 10px;
-
-$open-sans-font: 'Open Sans', sans-serif;  
-$lora-font: 'Lora', sans-serif;  
-
 @function space-units($factor){
     @return $spacing-base * $factor;
 }
+$side-margin: space-units(9);
+
+

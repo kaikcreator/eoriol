@@ -1,16 +1,18 @@
 @import '~variables.scss';
 
 header{
-    margin-top: space-units(4);
+    position: absolute;
+    width: calc(100% - 2*#{$side-margin});
+    margin: space-units(4) $side-margin 0 $side-margin;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: nowrap;
 
     .logo{
-        width: 76px;
-        min-width: 76px;
-        height: 76px;
+        width: 81px;
+        min-width: 81px;
+        height: 77px;
         background-color: $color-black;
         display: flex;
         flex-direction: column;
