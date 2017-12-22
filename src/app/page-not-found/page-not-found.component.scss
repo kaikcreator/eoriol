@@ -1,0 +1,45 @@
+@import '~variables.scss';
+
+:host{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        color: $color-primary;
+        font-size: 231px;
+        font-weight: 700;
+        line-height: 39px;
+        letter-spacing: -6.24px;
+        margin-bottom: 100px;
+    }
+
+    p{
+        text-align: center;
+        color: $color-black;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 39px;
+        letter-spacing: -0.62px;
+    }
+
+    a{
+        text-align: center;
+        text-decoration: none;
+        color: $color-primary;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 35px;
+        text-transform: uppercase;
+        letter-spacing: 2.03px;    
+    }
+
+}
