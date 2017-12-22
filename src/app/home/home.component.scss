@@ -1,5 +1,24 @@
 @import '~variables.scss';
 
+.anchor-link{
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-black;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 2.3px;
+
+    &:after{
+        content: "";
+        display: block;
+        background: $color-black;
+        height: 2px;
+        margin-top: -18px;
+        transition: all ease-out 0.15s;
+    }
+}
 
 #hero{
     height: 865px;
@@ -37,24 +56,10 @@
         }
 
         .anchor-link{
-            text-transform: uppercase;
-            text-decoration: none;
-            color: $color-black;
-            font-size: 13px;
-            font-weight: 700;
-            line-height: 35px;
-            letter-spacing: 2.3px;
-
             &:after{
-                content: "";
-                display: block;
-                background: $color-black;
                 width: 44px;
-                height: 2px;
                 position: absolute;
                 left: 0;
-                margin-top: -18px;
-                transition: all ease-out 0.15s;
             }
 
             &:hover:after{
@@ -68,4 +73,68 @@
         flex:1;
         background-position-x: center;
     }
+}
+
+.white-section{
+    margin: 160px $side-margin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+        color: $color-home-header;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 37px;
+        text-transform: uppercase;
+        letter-spacing: 5.28px;
+    }
+
+    .text-description{
+        width: 691px;
+        color: $color-black;
+        font-family: $lora-font;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 37px;
+        text-align: center;
+    }
+
+    .highlights{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 80px;
+    }
+    .highlights-item{
+        color: $color-black;
+        font-size: 38px;
+        font-weight: 600;
+        line-height: 37px;
+        letter-spacing: -0.65px;
+
+        &:after{
+            content: "";
+            display: block;
+            height: 21px;
+            background-color: #ff3535;
+            opacity: 0.2;
+            width: 130%;
+            margin-left: -15%;
+            margin-top: -17px;
+        }
+    }
+
+    .anchor-link{
+        margin-top: 130px;
+        &:after{
+            width: 48px;
+            margin-left: -78px;
+        }
+
+        &:hover:after{
+            margin-left: -60px;
+        }
+    }    
 }
