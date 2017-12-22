@@ -21,3 +21,29 @@ body{
         margin-right: auto !important;
     }
 }
+
+
+button{
+    height: 43px;
+    background-color: $color-primary;
+    border: none;
+    color: $color-white;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    &:hover{
+        background-color: $color-button-hover;
+    }
+    &:active{
+        background-color: darken($color-button-hover, 10%);
+    }
+}
+
+a{
+    color: $color-primary;
+    &:hover{
+        color: $color-link-hover;
+    }
+}
