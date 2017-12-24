@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeWhiteSectionComponent } from './home-white-section/home-white-section.component';
+import { HomeBlackSectionComponent } from './home-black-section/home-black-section.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeWhiteSectionComponent,
+    HomeBlackSectionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
