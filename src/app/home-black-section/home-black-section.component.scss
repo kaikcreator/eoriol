@@ -2,7 +2,7 @@
 
 :host ::ng-deep{
     .black-section{
-        padding: 140px $side-margin;
+        padding: 135px $side-margin;
         background-color: $color-black;
         display: flex;
         justify-content: space-around;
@@ -29,9 +29,9 @@
         p{
             margin-top:0px;
             margin-bottom:0px;
-            width: 400px;
+            width: 440px;
             color: $color-home-black-section-paragraph;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 400;
             line-height: 29.5px;
         }
