@@ -1,0 +1,24 @@
+[
+    {
+        "image":"ES6-book.png",
+        "type":"book",
+        "lang":"Spanish",
+        "title":"Aprende ES6, guía práctica",
+        "description":"El libro Aprende ES6, Javascript moderno, es una guía práctica donde he recopilado las principales novedades de Javascript, estructurada por capítulos y con ejemplos de código, para que puedas profundizar sobre ES6 a tu ritmo.",
+        "price":"",
+        "old_price":"",
+        "link":"",
+        "reviews":"[]"
+    },
+    {
+        "image":"angularPRO-course.png",
+        "type":"course",
+        "lang":"Spanish",
+        "title":"Comonentes en Angular, nivel PRO",
+        "description":"Domina los componentes de Angular (Angular 2, 4 y 5) como un PRO y crea componentes técnicamente brillantes. Este curso te llevará a través de toda la complejidad de los componentes de Angular, comenzando por el nivel más básico y llegando a los casos más avanzados.",
+        "price":"23 €",
+        "old_price":"110 €",
+        "link":"https://www.udemy.com/componentes-angular-pro/?couponCode=BLOGREADER",
+        "reviews":"[]"
+    }    
+]

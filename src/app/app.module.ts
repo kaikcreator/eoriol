@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeWhiteSectionComponent } from './home-white-section/home-white-section.component';
 import { HomeBlackSectionComponent } from './home-black-section/home-black-section.component';
+import { BookCoursesService } from './services/book-courses.service';
 
 
 @NgModule({
@@ -22,12 +24,13 @@ import { HomeBlackSectionComponent } from './home-black-section/home-black-secti
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true}
     )
   ],
-  providers: [],
+  providers: [ BookCoursesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
