@@ -3,6 +3,7 @@
 :host ::ng-deep{
 
     .white-section{
+        position: relative;
         margin: 160px $side-margin;
         display: flex;
         flex-direction: column;
@@ -64,7 +65,14 @@
             &:hover:after{
                 margin-left: -60px;
             }
-        }    
+        }
+        
+        .cards{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
     }
 
 }

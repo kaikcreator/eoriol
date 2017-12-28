@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeWhiteSectionComponent } from './home-white-section/home-white-section.component';
 import { HomeBlackSectionComponent } from './home-black-section/home-black-section.component';
 import { BookCoursesService } from './services/book-courses.service';
+import { BookCardComponent } from './book-card/book-card.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { BookCoursesService } from './services/book-courses.service';
     HomeComponent,
     PageNotFoundComponent,
     HomeWhiteSectionComponent,
-    HomeBlackSectionComponent
+    HomeBlackSectionComponent,
+    BookCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),

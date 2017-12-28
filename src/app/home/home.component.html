@@ -36,7 +36,12 @@
 
 
   <app-home-white-section id="books-and-courses">
-      <h1>Books & Courses</h1>
+    <h1>Books & Courses</h1>
+    <a class="anchor-link">View All</a>
+    <div class="cards">
+        <app-book-card *ngFor="let item of bookCourseItems" [item]="item">
+        </app-book-card>
+    </div> 
   </app-home-white-section>
   
 

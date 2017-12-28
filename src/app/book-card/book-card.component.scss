@@ -1,0 +1,108 @@
+@import '~variables.scss';
+
+:host{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 349px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.09);
+    background-color: $color-white;
+
+    .content{
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 26px;
+        margin-bottom: 16px;
+    }
+    
+    .image{
+        width: 349px;
+        height: 319px;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .type{
+        color: $color-primary;
+        font-size: 14px;
+        letter-spacing: -0.15px;
+    }
+    
+    .language{
+        color: $color-card-text;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 27px;
+        span{
+            color: $color-primary;
+        }
+    }
+
+    h2{
+        color: $color-black;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 34px;
+        letter-spacing: -0.25px;
+        margin-top: 0px;
+        margin-bottom: 16px;
+    }
+    
+    p{
+        font-family: $open-sans-font;
+        width: 293px;
+        height: 69px;
+        color: $color-card-text;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 27px;
+        text-align: left;
+        margin-bottom: 45px;
+        margin-top:0px;
+    } 
+
+    footer{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 38px;
+    }
+    
+    button, .button{
+        width: 92px;
+        height: 36px;
+        color: $color-white;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 35px;
+        letter-spacing: 2.2px;        
+    }
+
+    .old_price{
+        /* Style for "52.90€" */
+        width: 47px;
+        color: $color-card-old-price;
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 35px;
+        letter-spacing: 2.2px;
+        text-decoration: line-through;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .reviews_btn{
+        margin-left: auto;
+        color: #282626;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 31.5px;
+        cursor: pointer;
+    }
+}
+

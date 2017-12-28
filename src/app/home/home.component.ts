@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookCoursesService } from '../services/book-courses.service';
+import { BookCourseModel } from '../models/book-course.model';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,13 @@ import { BookCoursesService } from '../services/book-courses.service';
 })
 export class HomeComponent implements OnInit {
 
+  public bookCourseItems:BookCourseModel[];
   constructor( public bookCourses: BookCoursesService) { }
 
   ngOnInit() {
-    console.log("book courses: ", this.bookCourses.items);
+    this.bookCourses.getItems().subscribe(list =>{
+      this.bookCourseItems = list;
+    })
   }
 
 }

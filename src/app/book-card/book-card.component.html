@@ -1,0 +1,16 @@
+<div class="image" [style.background-image]="'url(' + item.image + ')'"></div>
+
+<div class="content">
+    <header>
+        <div class="type">{{item.type}}</div>
+        <div class="language">Language: <span>{{item.lang}}</span></div>
+    </header>
+    <h2>{{item.title}}</h2>
+    <p>{{item.description}}</p>
+    <footer>
+        <a *ngIf="item.link" class="button" href="{{item.link}}" target="_blank">{{item.price || 'free'}}</a>
+        <button *ngIf="!item.link">{{item.price || 'free'}}</button>
+        <span *ngIf="item.old_price" class="old_price">{{item.old_price}}</span>
+        <span *ngIf="item.reviews.length" class="reviews_btn">See reviews</span>
+    </footer>
+</div>

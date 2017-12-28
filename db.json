@@ -1,0 +1,37 @@
+{
+    "book-courses": [
+        {
+            "image":"assets/fixtures/ES6-book.png",
+            "type":"Book",
+            "lang":"Spanish",
+            "title":"Aprende ES6, guía práctica",
+            "description":"Guía práctica con las principales novedades de ES6, con ejemplos de código, para profundizar a tu ritmo.",
+            "price":"",
+            "old_price":"",
+            "link":"",
+            "reviews":"[]"
+        },
+        {
+            "image":"assets/fixtures/angularPRO-course.png",
+            "type":"Course",
+            "lang":"Spanish",
+            "title":"Componentes Angular nivel PRO",
+            "description":"Domina los componentes de Angular (Angular 2, 4 y 5) como un PRO y crea componentes técnicamente brillantes.",
+            "price":"23 €",
+            "old_price":"110 €",
+            "link":"https://www.udemy.com/componentes-angular-pro/?couponCode=BLOGREADER",
+            "reviews":"[]"
+        },
+        {
+            "image":"assets/fixtures/ionic3-course.png",
+            "type":"Course",
+            "lang":"Spanish",
+            "title":"Aprende Ionic 3 desde cero",
+            "description":"Aprende rápido a desarrollar apps para Android y iOS partiendo de cero con metodología learning-by-doing.",
+            "price":"35 €",
+            "old_price":"195 €",
+            "link":"https://www.udemy.com/aprende-ionic-2-desde-cero/?couponCode=SOCRAZY",
+            "reviews":"[]"
+        }            
+    ]
+}
