@@ -70,3 +70,32 @@ header{
 
 }
 
+footer{
+    display: flex;
+    flex-direction: column;
+    height: 154px;
+    margin-left: $side-margin;
+    margin-right: $side-margin;
+    margin-top:6px;
+
+    hr{
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #dfdfdf;
+        width: 100%;
+        padding: 0;       
+    }
+
+    p{
+        align-self: center;
+        margin-top: auto;
+        margin-bottom: auto;
+        color: #bababa;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 27px;  
+        letter-spacing: 0.1px;      
+    }
+}
+
