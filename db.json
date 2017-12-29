@@ -33,5 +33,37 @@
             "link":"https://www.udemy.com/aprende-ionic-2-desde-cero/?couponCode=SOCRAZY",
             "reviews":"[]"
         }            
+    ],
+    "blog-posts":[
+        {
+            "title": "Angular 5 Universal: Guía rápida",
+            "image": "https://i0.wp.com/blog.enriqueoriol.com/wp-content/uploads/2017/12/AngularUniversal.png?fit=1200%2C700",
+            "date": "13 diciembre, 2017",
+            "link": "http://blog.enriqueoriol.com/2017/12/angular-universal-guia-rapida.html"
+        },
+        {
+            "title": "¿Qué es Angular Universal?",
+            "image": "https://i0.wp.com/blog.enriqueoriol.com/wp-content/uploads/2017/12/AngularUniversal.png?fit=1200%2C700",
+            "date": "4 diciembre, 2017",
+            "link": "http://blog.enriqueoriol.com/2017/12/angular-universal.html"
+        },
+        {
+            "title": "HttpClient VS Http – El nuevo servicio http de Angular",
+            "image": "",
+            "date": "15 noviembre, 2017",
+            "link": "http://blog.enriqueoriol.com/2017/11/httpclient-vs-http-angular.html"
+        },
+        {
+            "title": "Usar componentes StencilJS desde Angular",
+            "image": "",
+            "date": "25 octubre, 2017",
+            "link": "http://blog.enriqueoriol.com/2017/10/stenciljs-desde-angular.html"
+        },
+        {
+            "title": "StencilJS y el futuro de Ionic",
+            "image": "https://i2.wp.com/blog.enriqueoriol.com/wp-content/uploads/2017/09/stencilLogo.png?fit=1200%2C675",
+            "date": "18 septiembre, 2017",
+            "link": "http://blog.enriqueoriol.com/2017/09/stenciljs-y-ionic.html"
+        }                        
     ]
 }

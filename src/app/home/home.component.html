@@ -58,6 +58,15 @@
     
   <app-home-white-section id="blog">
       <h1>Blog</h1>
+    
+      <a href="https://blog.enriqueoriol.com" target="_blank" class="anchor-link">
+          View All
+      </a>
+
+      <div class="cards">
+          <app-blog-card *ngFor="let item of blogPostItems" [item]="item">
+          </app-blog-card>
+      </div>       
   </app-home-white-section>
 
 
@@ -76,10 +85,10 @@
     </app-home-black-section>
 
 
-  <app-home-white-section id="jobs">
+  <!-- <app-home-white-section id="jobs">
     <h1>Jobs</h1>
-  </app-home-white-section>
+  </app-home-white-section> -->
 
 
-  <section id="contacts"></section>
+  <section id="contact"></section>
 </article>

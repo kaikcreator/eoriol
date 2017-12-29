@@ -10,7 +10,7 @@
         justify-content: center;
         align-items: center;
     
-        h1{
+        &>h1{
             color: $color-home-header;
             font-size: 12px;
             font-weight: 600;
@@ -19,7 +19,7 @@
             letter-spacing: 5.28px;
         }
     
-        p{
+        &>p{
             width: 691px;
             color: $color-black;
             font-family: $lora-font;

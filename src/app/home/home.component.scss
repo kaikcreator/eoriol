@@ -33,7 +33,6 @@
         flex: 1; 
 
         h1{
-            height: 83px;
             color: $color-black;
             font-size: 89px;
             font-weight: 700;
@@ -75,7 +74,7 @@
     }
 }
 
-#books-and-courses{
+#books-and-courses, #blog{
     .anchor-link{
         position: absolute;
         top: 12px;

@@ -69,3 +69,57 @@ a{
         cursor: pointer;        
     }
 }
+
+.card{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 349px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.09);
+    background-color: $color-white;    
+
+    &:hover{
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.19);
+    }
+
+    .content{
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 70px;
+        overflow: hidden;
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 26px;
+        margin-bottom: 16px;
+    }
+
+    .image{
+        width: 349px;
+        height: 319px;
+        background-position: center;
+        background-size: cover;
+        flex-shrink: 0;
+    }
+    
+    h1, h2{
+        color: $color-black;
+        font-weight: 600;
+        line-height: 34px;
+        margin-top: 0px;
+    }
+    
+    h1{
+        font-size: 21px;
+        letter-spacing: -0.21px;
+        margin-bottom: 0px;
+    }
+
+    h2{
+        font-size: 18px;
+        letter-spacing: -0.25px;
+        margin-bottom: 16px;
+    }
+}

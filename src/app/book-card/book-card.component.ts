@@ -3,6 +3,7 @@ import { BookCourseModel } from '../models/book-course.model';
 
 @Component({
   selector: 'app-book-card',
+  host: {'class': 'card'},
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })

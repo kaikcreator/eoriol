@@ -13,6 +13,8 @@ import { HomeWhiteSectionComponent } from './home-white-section/home-white-secti
 import { HomeBlackSectionComponent } from './home-black-section/home-black-section.component';
 import { BookCoursesService } from './services/book-courses.service';
 import { BookCardComponent } from './book-card/book-card.component';
+import { BlogCardComponent } from './blog-card/blog-card.component';
+import { BlogPostsService } from './services/blog-posts.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { BookCardComponent } from './book-card/book-card.component';
     PageNotFoundComponent,
     HomeWhiteSectionComponent,
     HomeBlackSectionComponent,
-    BookCardComponent
+    BookCardComponent,
+    BlogCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
@@ -32,7 +35,7 @@ import { BookCardComponent } from './book-card/book-card.component';
       {enableTracing: true}
     )
   ],
-  providers: [ BookCoursesService],
+  providers: [ BookCoursesService, BlogPostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

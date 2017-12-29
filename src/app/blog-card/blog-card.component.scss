@@ -1,0 +1,29 @@
+@import '~variables.scss';
+
+
+a{
+    text-decoration: none;
+}
+
+.imageplaceholder{
+    width: 349px;
+    height: 319px;  
+    flex-shrink: 0;      
+    content: "E";
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 200px;
+    font-family: $lora-font;
+    line-height: 319px;
+    text-align: center;
+}
+
+.date{
+    color: $color-card-date;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: -0.14px;
+    width: 100%;
+    text-align: center;
+}

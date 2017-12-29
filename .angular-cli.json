@@ -9,7 +9,10 @@
       "outDir": "dist/browser",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "favicon-96x96.png"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -33,7 +36,10 @@
       "outDir": "dist/server",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "favicon-96x96.png"
       ],
       "platform": "server",
       "index": "index.html",
