@@ -11,7 +11,7 @@
   </section>
 
 
-  <app-home-white-section id="about">
+  <section class="white-section" id="about">
     <h1>About me</h1>
     <p>Soy Ingeniero de Software y CTO en Narada Robotics, una startup de Barcelona que combina su pasión por los modelos 3D, con la consultoría tecnológica en proyectos mobile, incluyendo backend, frontend y aplicaciones híbridas y nativas. También soy un apasionado de Angular, Ionic y las PWA.</p>
     <div class="highlights">
@@ -20,10 +20,10 @@
       <div class="highlights-item">Developer</div>
     </div>
     <a class="anchor-link">check my courses</a>
-  </app-home-white-section>
+  </section>
 
 
-  <app-home-black-section id="subscribe">
+  <section class="black-section" id="subscribe">
     <div>
         <h1>Subscribe and follow my writting</h1>
         <p>Never miss any content. I always try to provide the best content with useful information</p>
@@ -32,20 +32,20 @@
         <input type="email" placeholder="Enter your email">
         <button>Subscribe</button>
     </div>
-  </app-home-black-section>
+  </section>
 
 
-  <app-home-white-section id="books-and-courses">
+  <section class="white-section" id="books-and-courses">
     <h1>Books & Courses</h1>
     <a class="anchor-link">View All</a>
     <div class="cards">
         <app-book-card *ngFor="let item of bookCourseItems" [item]="item">
         </app-book-card>
     </div> 
-  </app-home-white-section>
+  </section>
   
 
-  <app-home-black-section id="trainning">
+  <section class="black-section" id="trainning">
       <div>
           <h1>I've trained teams on Angular 2+, Typescript and Ionic 2+</h1>
           <p>I am currently only taking on small and specific consulting/training work. If you are interested, contact me.</p>
@@ -53,10 +53,10 @@
       <div>
           <button>Get in touch</button>
       </div>
-  </app-home-black-section>
+  </section>
     
     
-  <app-home-white-section id="blog">
+  <section class="white-section" id="blog">
       <h1>Blog</h1>
     
       <a href="https://blog.enriqueoriol.com" target="_blank" class="anchor-link">
@@ -67,14 +67,14 @@
           <app-blog-card *ngFor="let item of blogPostItems" [item]="item">
           </app-blog-card>
       </div>       
-  </app-home-white-section>
+  </section>
 
 
   <section id="talks">
 
   </section>
 
-  <app-home-black-section id="subscribe">
+  <section class="black-section" id="subscribe">
       <div>
           <h1>Want me to speak at your event?</h1>
           <p>Contact me if you are interested. I require travel, accomodation for the duration of the event, and speaker free</p>
@@ -82,12 +82,12 @@
       <div>
           <button>Get in touch</button>
       </div>
-    </app-home-black-section>
+    </section>
 
 
-  <!-- <app-home-white-section id="jobs">
+  <!-- <section class="white-section" id="jobs">
     <h1>Jobs</h1>
-  </app-home-white-section> -->
+  </section> -->
 
 
   <section id="contact"></section>
