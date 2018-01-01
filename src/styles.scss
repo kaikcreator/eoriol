@@ -10,7 +10,7 @@ body{
     font-family: $open-sans-font;
 
     *:focus{
-        outline-color: $color-primary !important;
+        outline-color: #cccccc !important;
     }
 }
 
@@ -67,6 +67,44 @@ a{
             background-color: darken($color-button-hover, 10%);
         }
         cursor: pointer;        
+    }
+}
+
+input{
+    height: 46px;
+    padding-left: 23px;
+    padding-right: 23px; 
+    box-sizing: border-box;   
+    border: 1px solid $color-contact-borders;
+    background-color: $color-white;
+    color: $color-input-text;
+    &::placeholder{
+        color: $color-input-text;
+    }
+
+    &.ng-invalid{
+        text-align: right;
+        border: 1px solid $color-primary;
+        &::placeholder{
+            color: $color-primary;
+        }
+    }
+}
+
+select{
+    border: 1px solid $color-contact-borders;
+    background-color: $color-white;
+    color: $color-input-text;
+} 
+
+textarea{
+    box-sizing: border-box;
+    border: 1px solid $color-contact-borders;
+    resize: none;
+    padding: 23px;
+    color: $color-input-text;
+    &::placeholder{
+        color: $color-input-text;
     }
 }
 
