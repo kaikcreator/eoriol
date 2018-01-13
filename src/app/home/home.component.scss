@@ -144,12 +144,7 @@
 } 
 
 .white-section{
-    position: relative;
-    margin: 160px $side-margin;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include base-section-content;
 
     &>h1{
         color: $color-home-header;

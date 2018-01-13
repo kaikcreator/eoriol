@@ -38,3 +38,14 @@ $spacing-base: 10px;
 $side-margin: space-units(9);
 
 
+/* mixins */
+@mixin base-section-content{
+    position: relative;
+    margin: 160px $side-margin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+
