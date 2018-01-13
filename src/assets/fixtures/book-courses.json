@@ -1,24 +1,35 @@
 [
     {
-        "image":"ES6-book.png",
-        "type":"book",
+        "image":"assets/fixtures/ES6-book.png",
+        "type":"Book",
         "lang":"Spanish",
         "title":"Aprende ES6, guía práctica",
-        "description":"El libro Aprende ES6, Javascript moderno, es una guía práctica donde he recopilado las principales novedades de Javascript, estructurada por capítulos y con ejemplos de código, para que puedas profundizar sobre ES6 a tu ritmo.",
+        "description":"Guía práctica con las principales novedades de ES6, con ejemplos de código, para profundizar a tu ritmo.",
         "price":"",
         "old_price":"",
         "link":"",
         "reviews":"[]"
     },
     {
-        "image":"angularPRO-course.png",
-        "type":"course",
+        "image":"assets/fixtures/angularPRO-course.png",
+        "type":"Course",
         "lang":"Spanish",
-        "title":"Comonentes en Angular, nivel PRO",
-        "description":"Domina los componentes de Angular (Angular 2, 4 y 5) como un PRO y crea componentes técnicamente brillantes. Este curso te llevará a través de toda la complejidad de los componentes de Angular, comenzando por el nivel más básico y llegando a los casos más avanzados.",
+        "title":"Componentes Angular nivel PRO",
+        "description":"Domina los componentes de Angular (Angular 2, 4 y 5) como un PRO y crea componentes técnicamente brillantes.",
         "price":"23 €",
         "old_price":"110 €",
         "link":"https://www.udemy.com/componentes-angular-pro/?couponCode=BLOGREADER",
+        "reviews":"[]"
+    },
+    {
+        "image":"assets/fixtures/ionic3-course.png",
+        "type":"Course",
+        "lang":"Spanish",
+        "title":"Aprende Ionic 3 desde cero",
+        "description":"Aprende rápido a desarrollar apps para Android y iOS partiendo de cero con metodología learning-by-doing.",
+        "price":"35 €",
+        "old_price":"195 €",
+        "link":"https://www.udemy.com/aprende-ionic-2-desde-cero/?couponCode=SOCRAZY",
         "reviews":"[]"
     }    
 ]
