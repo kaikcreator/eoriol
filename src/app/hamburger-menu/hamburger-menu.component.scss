@@ -1,0 +1,81 @@
+@import '~variables.scss';
+
+div{
+    @media screen and (max-width: $break-small){
+        width: 17px;
+        height: 12px;        
+    }
+    width: 33px;
+    height: 23px;    
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    
+    span{
+        @media screen and (max-width: $break-small){
+            width: 14px;
+            height: 2px;
+        }        
+        width: 27px;
+        height: 3px;
+
+        display: block;
+        position: absolute;
+        background: $color-black;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+      }
+      
+      span:nth-child(1) {
+        top: 0px;
+      }
+      
+      span:nth-child(2) {
+        @media screen and (max-width: $break-small){
+            top:4px; 
+            left: 3px;      
+        }
+        top: 7px;
+        left: 6px;
+      }
+
+      
+      span:nth-child(3) {
+        @media screen and (max-width: $break-small){
+            top: 8px; 
+            left:2px;      
+        }
+        top: 14px;
+        left: 4px;
+      }
+
+      &:hover span:nth-child(2), &:hover span:nth-child(3){
+          left:0px;
+      }
+      
+      &.open span:nth-child(1){
+        @media screen and (max-width: $break-small){
+            top:4px;       
+        }
+        top: 7px;
+        left:0px;
+        transform: rotate(135deg);
+      }
+      
+      &.open span:nth-child(2) {
+        opacity: 0;
+        left: -14px;
+      }
+      
+      &.open span:nth-child(3) {
+        @media screen and (max-width: $break-small){
+            top:4px;       
+        }
+        top: 7px;
+        left:0px;
+        transform: rotate(-135deg);
+      }      
+}
