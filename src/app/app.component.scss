@@ -1,6 +1,10 @@
 @import '~variables.scss';
 
 header{
+    @media screen and (max-width: $break-large){
+        margin: space-units(4) $side-margin-medium 0 $side-margin-medium;
+        width: calc(100% - 2*#{$side-margin-medium});                
+    }
     @media screen and (max-width: $break-small){
         margin: space-units(4) $side-margin-small 0 $side-margin-small;
         width: calc(100% - 2*#{$side-margin-small});
@@ -12,6 +16,14 @@ header{
     justify-content: flex-start;
     align-items: center;
     flex-wrap: nowrap;
+
+    app-hamburger-menu{
+        display: none;
+        @media screen and (max-width: $break-large){
+            display: block;
+        }
+        margin-right: 18px;
+    }
 
     .logo{
         @media screen and (max-width: $break-small){
@@ -44,7 +56,7 @@ header{
     }
     
     nav{
-        @media screen and (max-width: $break-small){
+        @media screen and (max-width: $break-large){
             display: none;
         }
 

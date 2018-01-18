@@ -36,12 +36,13 @@ $spacing-base: 10px;
     @return $spacing-base * $factor;
 }
 $side-margin: space-units(9);
-$side-margin-small: space-units(2);
+$side-margin-medium: space-units(4);
+$side-margin-small: 4.5vw;
 
 
 /* media */
 $break-small: 600px;
-$break-large: 1024px;
+$break-large: 1060px;
 
 /* mixins */
 @mixin base-section-content{

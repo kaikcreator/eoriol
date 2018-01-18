@@ -23,15 +23,17 @@
 #hero{
     height: 865px;
     display: flex;
+    @media screen and (max-width: $break-small){
+        margin-left: 12vw;
+        margin-right: 12vw;
+    }
 
     .detail{
         @media screen and (max-width: $break-small){
-            margin-left: $side-margin-small;
-            margin-right: $side-margin-small;
-            width: calc(100vw - 40px);
-            overflow: hidden;
+            margin-left: 0;
+            margin-right: 0;
             justify-content: flex-start;
-            margin-top: 110px;
+            margin-top: 120px;
         }
         margin-left: $side-margin;
         margin-right: 2%;
@@ -41,6 +43,10 @@
         flex: 1; 
 
         .detail-name{
+            @media screen and (max-width: $break-small){
+                margin-left: -5vw;
+                margin-right: -5vw;
+            }
             position: relative;
             margin-bottom: 40px;
 
@@ -60,6 +66,9 @@
                     line-height: 20vw;
                     color: white;
                     letter-spacing: -0.97px;                  
+                }
+                @media screen and (min-width: $break-small) and (max-width: $break-large){
+                    font-size: 9vw;
                 }               
             }
 
@@ -74,11 +83,16 @@
         }
 
         p{
+            @media screen and (max-width: $break-small){
+                font-size: 13px;
+                line-height: 24px;
+                margin-bottom: 46px;
+            }
             font-family: $lora-font;
             color: $color-home-paragraph;
 
-            width: 414px;
-            height: 87px;
+            max-width: 414px;
+            //height: 87px;
             margin-top: 0px;
             margin-bottom: 80px;
             font-size: 16px;
@@ -87,13 +101,23 @@
         }
 
         .anchor-link{
+            @media screen and (max-width: $break-small){
+                padding-left: 48px;
+                position: relative;
+            }
             &:after{
+                @media screen and (max-width: $break-small){
+                    width: 23px;
+                }
                 width: 44px;
                 position: absolute;
                 left: 0;
             }
 
             &:hover:after{
+                @media screen and (max-width: $break-small){
+                    left: 20px;
+                }
                 left:40px;
             }
         }

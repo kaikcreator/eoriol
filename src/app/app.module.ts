@@ -14,6 +14,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BlogCardComponent } from './blog-card/blog-card.component';
 import { BlogPostsService } from './services/blog-posts.service';
 import { ContactComponent } from './contact/contact.component';
+import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ContactComponent } from './contact/contact.component';
     PageNotFoundComponent,
     BookCardComponent,
     BlogCardComponent,
-    ContactComponent
+    ContactComponent,
+    HamburgerMenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
