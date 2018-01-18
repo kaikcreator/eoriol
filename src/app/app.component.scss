@@ -1,6 +1,10 @@
 @import '~variables.scss';
 
 header{
+    @media screen and (max-width: $break-small){
+        margin: space-units(4) $side-margin-small 0 $side-margin-small;
+        width: calc(100% - 2*#{$side-margin-small});
+    }
     position: absolute;
     width: calc(100% - 2*#{$side-margin});
     margin: space-units(4) $side-margin 0 $side-margin;
@@ -10,6 +14,11 @@ header{
     flex-wrap: nowrap;
 
     .logo{
+        @media screen and (max-width: $break-small){
+            width: 51px;
+            min-width: 51px;
+            height: 48px;
+        }        
         width: 81px;
         min-width: 81px;
         height: 77px;
@@ -19,6 +28,12 @@ header{
         justify-content: center;
     
         h1{
+            @media screen and (max-width: $break-small){
+                font-size: 9px;
+                font-weight: 400;
+                line-height: 11px;
+                margin-left: 9px;
+            }             
             color: $color-white;
             font-family: $lora-font;
             font-size: 15px;
@@ -29,6 +44,10 @@ header{
     }
     
     nav{
+        @media screen and (max-width: $break-small){
+            display: none;
+        }
+
         display: flex;
         width: 460px;
         justify-content: space-evenly;
@@ -65,6 +84,16 @@ header{
             min-width: 172px;
             width: 172px;
             height: 43px;
+            @media screen and (max-width: $break-small){
+                min-width: 101px;
+                width: 101px;
+                height: 33px;
+                font-size: 7px;
+                font-weight: 700;
+                line-height: 35px;
+                text-transform: uppercase;
+                letter-spacing: 1.4px;
+            }            
         }
     }
 

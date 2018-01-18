@@ -25,6 +25,14 @@
     display: flex;
 
     .detail{
+        @media screen and (max-width: $break-small){
+            margin-left: $side-margin-small;
+            margin-right: $side-margin-small;
+            width: calc(100vw - 40px);
+            overflow: hidden;
+            justify-content: flex-start;
+            margin-top: 110px;
+        }
         margin-left: $side-margin;
         margin-right: 2%;
         display: flex;
@@ -32,13 +40,37 @@
         justify-content: center;
         flex: 1; 
 
-        h1{
-            color: $color-black;
-            font-size: 89px;
-            font-weight: 700;
-            line-height: 83px;
-            letter-spacing: -5px;
+        .detail-name{
+            position: relative;
             margin-bottom: 40px;
+
+            h1{
+                color: $color-black;
+                font-size: 89px;
+                font-weight: 700;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                letter-spacing: -5px;
+                @media screen and (max-width: $break-small){ 
+                    position: absolute;
+                    bottom:0px;
+                    left: 19px;
+                    margin-bottom: 0px;  
+                    font-size: 9.5vw;
+                    line-height: 20vw;
+                    color: white;
+                    letter-spacing: -0.97px;                  
+                }               
+            }
+
+            .small-picture{
+                @media screen and (max-width: $break-small){
+                    height: calc(90vw *1.1);
+                    background-image: url('/assets/hero-photo.jpg');
+                    background-position-x: center;
+                    background-size: cover;
+                }                 
+            }           
         }
 
         p{
@@ -72,7 +104,10 @@
         flex:1;
         background-position-x: center;
         background-size: cover;
-    }
+        @media screen and (max-width: $break-small){
+            display: none;
+        }        
+    } 
 }
 
 #books-and-courses, #blog{
