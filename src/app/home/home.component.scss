@@ -1,6 +1,10 @@
 @import '~variables.scss';
 
 .anchor-link{
+    @media screen and (max-width:$break-small) {
+        font-size: 11px;
+        letter-spacing: 1.61px;
+    }
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
@@ -26,6 +30,7 @@
     @media screen and (max-width: $break-small){
         margin-left: 12vw;
         margin-right: 12vw;
+        height: auto;
     }
 
     .detail{
@@ -86,7 +91,7 @@
             @media screen and (max-width: $break-small){
                 font-size: 13px;
                 line-height: 24px;
-                margin-bottom: 46px;
+                margin-bottom: 26px;
             }
             font-family: $lora-font;
             color: $color-home-paragraph;
@@ -206,6 +211,10 @@
     @include base-section-content;
 
     &>h1{
+        @media screen and (max-width:$break-small){
+            font-size: 10px;
+            letter-spacing: 4.3px;
+        }        
         color: $color-home-header;
         font-size: 12px;
         font-weight: 600;
@@ -215,7 +224,11 @@
     }
 
     &>p{
-        width: 691px;
+        @media screen and (max-width:$break-small){
+            font-size: 14px;
+            line-height: 24px;
+        }
+        max-width: 691px;
         color: $color-black;
         font-family: $lora-font;
         font-size: 18px;
@@ -225,39 +238,64 @@
     }
 
     .highlights{
+        @media screen and (max-width: $break-small){
+            flex-direction: column;
+            align-items: center;
+            margin-top: 45px;
+        }
         display: flex;
         justify-content: space-around;
         width: 100%;
         margin-top: 80px;
-    }
-    .highlights-item{
-        color: $color-black;
-        font-size: 38px;
-        font-weight: 600;
-        line-height: 37px;
-        letter-spacing: -0.65px;
 
-        &:after{
-            content: "";
-            display: block;
-            height: 21px;
-            background-color: $color-primary;
-            opacity: 0.2;
-            width: 130%;
-            margin-left: -15%;
-            margin-top: -17px;
+        &-item{
+            @media screen and (max-width: $break-large){
+                font-size: 28px;
+            }            
+            @media screen and (max-width: $break-small){
+                margin-bottom: 52px;
+            }
+            &:last-of-type{
+                margin-bottom: 0px;
+            }
+            color: $color-black;
+            font-size: 38px;
+            font-weight: 600;
+            line-height: 37px;
+            letter-spacing: -0.65px;
+    
+            &:after{
+                content: "";
+                display: block;
+                height: 21px;
+                background-color: $color-primary;
+                opacity: 0.2;
+                width: 130%;
+                margin-left: -15%;
+                margin-top: -17px;
+            }
         }
     }
 
     .anchor-link{
+        @media screen and (max-width: $break-small){
+            margin-top: 62px;
+        }
         margin-top: 116px;
         margin-bottom: 10px;
         &:after{
+            @media screen and (max-width: $break-small){
+                width: 23px;
+                margin-left: -43px;
+            }
             width: 48px;
             margin-left: -78px;
         }
 
         &:hover:after{
+            @media screen and (max-width: $break-small){
+                margin-left: -28px;
+            }
             margin-left: -60px;
         }
     }
