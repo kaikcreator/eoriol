@@ -149,18 +149,36 @@
 }
 
 .black-section{
+    @media screen and (max-width: $break-large){
+        padding: 135px $side-margin-medium;    
+    }
+    @media screen and (max-width: $break-medium) {
+        padding: 90px 2*$side-margin-small;
+    }
     padding: 135px $side-margin;
     background-color: $color-black;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
 
     div{
         display: flex;
         flex-direction: column;
+        @media screen and (max-width: $break-medium){
+            flex-grow: 1;
+            align-items: center;
+            &:first-of-type{
+                margin-bottom: 70px;
+            }
+        }
     }
 
     h1{
+        @media screen and (max-width: $break-medium){
+            width: auto;
+            text-align: center;
+        }
         width: 400px;
         color: $color-white;
         font-family: $lora-font;
@@ -174,6 +192,10 @@
     }
 
     p{
+        @media screen and (max-width: $break-medium){
+            width: auto;
+            text-align: center;
+        }       
         margin-top:0px;
         margin-bottom:0px;
         width: 440px;
@@ -184,6 +206,10 @@
     }
 
     input{
+        @media screen and (max-width: $break-medium){
+            width: auto;
+            text-align: center;
+        }        
         width: 236px;
         height: 43px;
         border: 1px solid $color-input-border;
@@ -200,6 +226,10 @@
     }   
 
     button{
+         @media screen and (max-width: $break-medium){
+             width: 173px;
+             align-self: center;
+        }         
         padding-left: 40px;
         padding-right: 40px;
         align-self: flex-end;
