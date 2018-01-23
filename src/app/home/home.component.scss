@@ -149,18 +149,39 @@
 }
 
 .black-section{
+    @media screen and (max-width: $break-large){
+        padding: 135px $side-margin-medium;    
+    }
+    @media screen and (max-width: $break-medium) {
+        padding: 77px 2*$side-margin-small;
+    }
+    @media screen and (max-width: $break-small) {
+        padding: 77px $side-margin-xtra-small;
+    }    
     padding: 135px $side-margin;
     background-color: $color-black;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
 
     div{
         display: flex;
         flex-direction: column;
+        @media screen and (max-width: $break-medium){
+            flex-grow: 1;
+            align-items: center;
+            &:first-of-type{
+                margin-bottom: 50px;
+            }
+        }
     }
 
     h1{
+        @media screen and (max-width: $break-medium){
+            width: auto;
+            text-align: center;
+        }
         width: 400px;
         color: $color-white;
         font-family: $lora-font;
@@ -169,11 +190,15 @@
         line-height: 43.5px;
         letter-spacing: -0.45px;
         margin-top: 0px;
-        margin-bottom: 32px;
+        margin-bottom: 16px;
         font-weight: 400;
     }
 
     p{
+        @media screen and (max-width: $break-medium){
+            width: auto;
+            text-align: center;
+        }       
         margin-top:0px;
         margin-bottom:0px;
         width: 440px;
@@ -184,6 +209,14 @@
     }
 
     input{
+        @media screen and (max-width: $break-medium){
+            text-align: center;
+            margin-bottom: 28px;
+        } 
+        @media screen and (max-width: $break-small){
+            width: 100%;
+            text-align: center;
+        }        
         width: 236px;
         height: 43px;
         border: 1px solid $color-input-border;
@@ -200,8 +233,9 @@
     }   
 
     button{
-        padding-left: 40px;
-        padding-right: 40px;
+         @media screen and (max-width: $break-medium){
+             align-self: center;
+        }         
         align-self: flex-end;
     }
 

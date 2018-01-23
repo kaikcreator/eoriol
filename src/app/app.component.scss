@@ -93,11 +93,7 @@ header{
         flex-grow: 2;
         justify-content: flex-end;
         button{
-            min-width: 172px;
-            width: 172px;
-            height: 43px;
             @media screen and (max-width: $break-small){
-                min-width: 101px;
                 width: 101px;
                 height: 33px;
                 font-size: 7px;
