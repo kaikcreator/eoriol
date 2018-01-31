@@ -108,6 +108,15 @@ header{
 }
 
 footer{
+    @media screen and (max-width: $break-large){
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    @media screen and (max-width: $break-small){
+        margin-left: 18px;
+        margin-right: 18px;
+        height: 115px;
+    }    
     display: flex;
     flex-direction: column;
     height: 154px;
