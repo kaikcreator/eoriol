@@ -23,6 +23,7 @@ div{
         display: block;
         position: absolute;
         background: $color-black;
+        background-clip: content-box;
         opacity: 1;
         left: 0;
         transform: rotate(0deg);
