@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { WindowRefService } from '../services/window-ref.service';
 
 @Component({
   selector: 'app-blog-card',
@@ -9,10 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BlogCardComponent implements OnInit {
 
   @Input() item:any;
+
+  @HostListener('click', ['$event.target'])
+  onClick(target){
+    this.winRef.nativeWindow.open(this.item.link);
+  }
   
-  constructor() { }
+  constructor(private winRef: WindowRefService) { 
+  }
 
   ngOnInit() {
+    
   }
 
 }

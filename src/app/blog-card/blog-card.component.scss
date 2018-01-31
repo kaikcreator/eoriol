@@ -1,11 +1,21 @@
 @import '~variables.scss';
 
+:host{
+    cursor: pointer;
+}
 
-a{
-    text-decoration: none;
+
+.content{
+    @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
+        flex-direction: column-reverse;
+    }
+    align-items: center;
 }
 
 .imageplaceholder{
+    @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
+        width: 180px;
+    }    
     width: 349px;
     height: 319px;  
     flex-shrink: 0;      

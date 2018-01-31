@@ -47,6 +47,8 @@ $break-medium: 780px;
 $break-large: 1060px;
 $break-xtra-large: 1300px;
 
+$break-card-row: 900px;
+
 /* mixins */
 @mixin base-section-content{
     @media screen and (max-width: $break-large){

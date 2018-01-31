@@ -110,6 +110,17 @@ textarea{
 }
 
 .card{
+    @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
+        min-width: 520px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        flex-direction: row;
+
+        &:not(:first-child){
+            margin-top: 60px;
+        }
+    }
     margin-top: 100px;
     display: flex;
     flex-direction: column;
@@ -122,6 +133,9 @@ textarea{
     }
 
     .content{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
         margin-left: 24px;
         margin-right: 24px;
         margin-bottom: 70px;
@@ -136,6 +150,9 @@ textarea{
     }
 
     .image{
+        @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
+            width: 180px;
+        }
         width: 349px;
         height: 319px;
         background-position: center;

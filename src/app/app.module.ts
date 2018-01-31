@@ -15,6 +15,7 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
 import { BlogPostsService } from './services/blog-posts.service';
 import { ContactComponent } from './contact/contact.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
+import { WindowRefService } from './services/window-ref.service';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.componen
       {enableTracing: true}
     )
   ],
-  providers: [ BookCoursesService, BlogPostsService],
+  providers: [ BookCoursesService, BlogPostsService, WindowRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
