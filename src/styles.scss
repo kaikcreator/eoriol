@@ -110,6 +110,13 @@ textarea{
 }
 
 .card{
+    @media screen and (max-width: $break-small){
+        margin-top: 36px;
+        &:first-child{
+            margin-top: 50px;
+        }
+    }
+
     @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
         min-width: 520px;
         width: 80%;
