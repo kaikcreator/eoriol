@@ -22,6 +22,11 @@ body{
     }
 }
 
+.no-scroll{
+    overflow:hidden;
+    //position:fixed;
+}
+
 
 button{
     height: 44px;

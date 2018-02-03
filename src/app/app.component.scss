@@ -30,7 +30,8 @@ header{
             width: 51px;
             min-width: 51px;
             height: 48px;
-        }        
+        } 
+        z-index:$depth-top;;       
         width: 81px;
         min-width: 81px;
         height: 77px;

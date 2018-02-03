@@ -63,11 +63,13 @@ div{
         top: 7px;
         left:0px;
         transform: rotate(135deg);
+        background: white;
       }
       
       &.open span:nth-child(2) {
         opacity: 0;
         left: -14px;
+        background: white;
       }
       
       &.open span:nth-child(3) {
@@ -77,5 +79,12 @@ div{
         top: 7px;
         left:0px;
         transform: rotate(-135deg);
-      }      
+        background: white;
+      }
+
+      &.open{
+          z-index:$depth-top;
+      }
+      
+            
 }

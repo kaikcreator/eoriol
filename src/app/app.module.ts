@@ -16,6 +16,7 @@ import { BlogPostsService } from './services/blog-posts.service';
 import { ContactComponent } from './contact/contact.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { WindowRefService } from './services/window-ref.service';
+import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { WindowRefService } from './services/window-ref.service';
     BookCardComponent,
     BlogCardComponent,
     ContactComponent,
-    HamburgerMenuComponent
+    HamburgerMenuComponent,
+    MenuMobileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
