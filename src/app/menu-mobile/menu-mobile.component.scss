@@ -2,18 +2,34 @@
 
 :host{
     width: 100vw;
-    height: 100vh;
-    background-color: $color-home-background;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    height: 100%;
     position: fixed;
     top:0;
     left:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;  
+    overflow-y: scroll;
+    background-color: $color-home-background;
     z-index:$depth-menu-mobile;
+    
+    .menu-mobile-header{
+        width: 100%;
+        flex-grow: 1;
+        min-height: 100px;        
+    }
 
-    text-align:center;
+    .menu-mobile-content{
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    .menu-mobile-footer{
+        width: 100%;
+    }   
+    
     
     h1{
         color:$color-home-h1;
@@ -55,6 +71,7 @@
         margin-bottom: 50px;
         width:101px;
         height: 33px;
+        min-height: 33px;
 
         font-size: 8px;
         font-weight: 700;
@@ -70,6 +87,8 @@
         width: 60%;
         max-width: 280px;
         margin-top:54px;
+        margin-left: auto;
+        margin-right: auto;
 
         svg:hover path{
             fill: $color-primary;
