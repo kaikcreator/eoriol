@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hamburger-menu',
@@ -16,7 +16,6 @@ export class HamburgerMenuComponent implements OnInit {
 
   toogleMenu(){
     this.open = !this.open;
-    console.log("toogling menu: ",this.open);
   }
 
 }
