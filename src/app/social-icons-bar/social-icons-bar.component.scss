@@ -1,0 +1,11 @@
+@import '~variables.scss';
+
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    svg:hover path{
+        fill: $color-primary;
+    }
+}

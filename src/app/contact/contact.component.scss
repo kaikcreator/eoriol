@@ -116,3 +116,19 @@ button{
     width: 172px;
     height: 43px;
 }
+
+app-social-icons-bar ::ng-deep{
+    .social-icons{
+        width: 75%;
+        margin-top:76px;
+
+        svg{
+            width: 28px;
+            height: auto;
+        }
+    
+        svg path{
+            fill: $color-black;
+        }
+    }
+}
