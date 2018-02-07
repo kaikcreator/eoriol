@@ -47,7 +47,7 @@
     a{
         display: block;
         text-decoration: none;
-        &:active>*, &:hover>*{
+        &.active>*, &:hover>*{
             color:$color-primary !important;
         }
     }
@@ -81,19 +81,17 @@
         letter-spacing: 1.4px;
     }
 
-    .social-icons{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 60%;
-        max-width: 280px;
-        margin-top:54px;
-        margin-left: auto;
-        margin-right: auto;
-
-        svg:hover path{
-            fill: $color-primary;
-            stroke: $color-primary;
+    app-social-icons-bar ::ng-deep{
+        .social-icons{
+            width: 60%;
+            max-width: 280px;
+            margin-top:54px;
+            margin-left: auto;
+            margin-right: auto;
+        
+            svg path{
+                fill: $color-white;
+            }
         }
     }
 }

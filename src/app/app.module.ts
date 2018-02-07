@@ -19,6 +19,7 @@ import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.componen
 import { WindowRefService } from './services/window-ref.service';
 import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { HeaderComponent } from './header/header.component';
+import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.component';
 
 
 
@@ -32,7 +33,8 @@ import { HeaderComponent } from './header/header.component';
     ContactComponent,
     HamburgerMenuComponent,
     MenuMobileComponent,
-    HeaderComponent
+    HeaderComponent,
+    SocialIconsBarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
