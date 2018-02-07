@@ -106,4 +106,7 @@
         }
     }
 
+    ::ng-deep app-hamburger-menu .hamburger.open > span{
+        background-color: white !important;
+    }
 }

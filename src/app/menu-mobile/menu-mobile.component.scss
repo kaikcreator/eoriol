@@ -1,6 +1,6 @@
 @import '~variables.scss';
 
-:host{
+.menu-mobile{
     width: 100vw;
     height: 100%;
     position: fixed;
@@ -15,18 +15,18 @@
     background-color: $color-home-background;
     z-index:$depth-menu-mobile;
     
-    .menu-mobile-header{
+    &-header{
         width: 100%;
         flex-grow: 1;
         min-height: 100px;        
     }
 
-    .menu-mobile-content{
+    &-content{
         width: 100%;
         flex-grow: 1;
     }
 
-    .menu-mobile-footer{
+    &-footer{
         width: 100%;
     }   
     
@@ -45,6 +45,7 @@
     }    
 
     a{
+        display: block;
         text-decoration: none;
         &:active>*, &:hover>*{
             color:$color-primary !important;

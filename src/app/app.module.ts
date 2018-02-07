@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -20,6 +21,7 @@ import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { HeaderComponent } from './header/header.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
+    BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
