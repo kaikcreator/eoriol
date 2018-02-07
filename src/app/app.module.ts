@@ -17,6 +17,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { WindowRefService } from './services/window-ref.service';
 import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
     BlogCardComponent,
     ContactComponent,
     HamburgerMenuComponent,
-    MenuMobileComponent
+    MenuMobileComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
