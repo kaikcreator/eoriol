@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { trigger, state, style, animate, transition, query, animateChild, stagger } from '@angular/animations';
 
 @Component({
@@ -36,9 +36,29 @@ import { trigger, state, style, animate, transition, query, animateChild, stagge
 })
 export class MenuMobileComponent implements OnInit {
 
-  constructor() { }
+  @Output() onClose = new EventEmitter<void>();
+
+  constructor(private renderer:Renderer2) { }
 
   ngOnInit() {
+    this.setNoScrollToBody(true);
   }
+
+  ngOnDestroy(){
+    this.setNoScrollToBody(false);
+  }
+
+  close(){
+    this.onClose.emit();
+  }
+
+  private setNoScrollToBody(val:boolean){
+    if(val){
+      this.renderer.addClass(document.body, 'no-scroll');
+    }
+    else{
+      this.renderer.removeClass(document.body, 'no-scroll');
+    }
+  }  
 
 }

@@ -12,4 +12,6 @@
   <button>GET IN TOUCH</button>
 </div>
 
-<app-menu-mobile *ngIf="menuBtn.open" @ngIfAnimation></app-menu-mobile>
+<app-menu-mobile *ngIf="menuBtn.open" 
+  @ngIfAnimation (onClose)="menuBtn.open = false;">
+</app-menu-mobile>
