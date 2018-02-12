@@ -20,6 +20,7 @@ import { WindowRefService } from './services/window-ref.service';
 import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { HeaderComponent } from './header/header.component';
 import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.component';
+import { WordpressService } from './services/wordpress.service';
 
 
 
@@ -45,7 +46,7 @@ import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.com
       {enableTracing: true}
     )
   ],
-  providers: [ BookCoursesService, BlogPostsService, WindowRefService],
+  providers: [ BookCoursesService, BlogPostsService, WindowRefService, WordpressService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

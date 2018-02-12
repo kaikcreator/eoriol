@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
 
     this.blogPosts.getItems().subscribe(list => {
       this.blogPostItems = list;
+      console.log(this.blogPostItems);
     })
   }
 
