@@ -5,6 +5,7 @@ import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
@@ -43,7 +44,8 @@ import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.com
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true}
-    )
+    ),
+    ScrollToModule.forRoot()
   ],
   providers: [ BookCoursesService, BlogPostsService, WindowRefService],
   bootstrap: [AppComponent]

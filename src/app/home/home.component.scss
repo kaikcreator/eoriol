@@ -24,7 +24,7 @@
     }
 }
 
-#hero{
+#hero-section{
     height: 865px;
     display: flex;
     @media screen and (max-width: $break-small){
@@ -139,7 +139,7 @@
     } 
 }
 
-#books-and-courses, #blog{
+#books-and-courses-section, #blog-section{
     .anchor-link{
         position: absolute;
         top: 12px;

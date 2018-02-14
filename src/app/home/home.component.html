@@ -1,19 +1,20 @@
 <article>
 
-  <section id="hero">
+  <section id="hero-section">
     <div class="detail">
         <div class="detail-name">
             <div class="small-picture"></div>
             <h1>I'm Enrique.</h1>
         </div>
         <p>CTO at Narada Robotics. Back&frontend SW engineer focused on 3D and mobile development. Angular & Ionic evangelist.</p>
-        <a class="anchor-link">check my blog</a>
+        <a class="anchor-link" ngx-scroll-to="blog">check my blog</a>
     </div>    
     <div class="picture"></div>
   </section>
 
 
-  <section class="white-section" id="about">
+  <a name="about" id="about"></a>
+  <section class="white-section" id="about-section">
     <h1>About me</h1>
     <p>Soy Ingeniero de Software y CTO en Narada Robotics, una startup de Barcelona que combina su pasión por los modelos 3D, con la consultoría tecnológica en proyectos mobile, incluyendo backend, frontend y aplicaciones híbridas y nativas. También soy un apasionado de Angular, Ionic y las PWA.</p>
     <div class="highlights">
@@ -21,7 +22,7 @@
       <div class="highlights-item">Writer</div>
       <div class="highlights-item">Developer</div>
     </div>
-    <a class="anchor-link">check my courses</a>
+    <a class="anchor-link" ngx-scroll-to="books-and-courses">check my courses</a>
   </section>
 
 
@@ -37,7 +38,8 @@
   </section>
 
 
-  <section class="white-section" id="books-and-courses">
+  <a name="books-and-courses" id="books-and-courses"></a>
+  <section class="white-section" id="books-and-courses-section">
     <h1>Books & Courses</h1>
     <a class="anchor-link">View All</a>
     <div class="cards">
@@ -53,12 +55,13 @@
           <p>I am currently only taking on small and specific consulting/training work. If you are interested, contact me.</p>
       </div>
       <div>
-          <button>Get in touch</button>
+          <button ngx-scroll-to="contact">Get in touch</button>
       </div>
   </section>
     
     
-  <section class="white-section" id="blog">
+  <a name="blog" id="blog"></a>
+  <section class="white-section" id="blog-section">
       <h1>Blog</h1>
     
       <a href="https://blog.enriqueoriol.com" target="_blank" class="anchor-link">
@@ -76,13 +79,13 @@
 
   </section>
 
-  <section class="black-section" id="subscribe">
+  <section class="black-section" id="speak-section">
       <div>
           <h1>Want me to speak at your event?</h1>
           <p>Contact me if you are interested. I require travel, accomodation for the duration of the event, and speaker free</p>
       </div>
       <div>
-          <button>Get in touch</button>
+          <button ngx-scroll-to="contact">Get in touch</button>
       </div>
     </section>
 
