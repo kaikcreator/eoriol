@@ -12,6 +12,12 @@ body{
     *:focus{
         outline-color: #cccccc !important;
     }
+
+    background-color: white;
+}
+
+article{
+    background-color:white;
 }
 
 @media all and (min-width:$break-xxl){

@@ -22,6 +22,7 @@ import { WindowRefService } from './services/window-ref.service';
 import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { HeaderComponent } from './header/header.component';
 import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.component';
+import { SubscribeCtaComponent } from './subscribe-cta/subscribe-cta.component';
 
 
 
@@ -35,7 +36,8 @@ import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.com
     HamburgerMenuComponent,
     MenuMobileComponent,
     HeaderComponent,
-    SocialIconsBarComponent
+    SocialIconsBarComponent,
+    SubscribeCtaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),

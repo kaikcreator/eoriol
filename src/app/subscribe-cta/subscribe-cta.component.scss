@@ -1,0 +1,48 @@
+@import '~variables.scss';
+
+:host{
+    z-index: 10;
+    position: fixed;
+    right: -30px;
+    bottom: 250px;
+    transform: rotate(-90deg);
+    mix-blend-mode: difference;
+    
+    &:hover{
+        mix-blend-mode: normal;
+    }
+}
+:host(.white){
+    mix-blend-mode: normal;
+}
+.subscribe-cta-button{
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    padding: 0;
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4.25px;
+
+    &:after{
+        content: "";
+        display: block;
+        background: $color-white;
+        height: 2px;
+        position: absolute;
+        left: -60px;
+        top: 50%;
+        width: 30px;
+        transition: all ease-out 0.15s;
+    }
+
+    &:hover{
+        color: $color-primary;
+        &:after{
+            background: $color-primary;
+            left:-40px;
+        }
+    }
+}
