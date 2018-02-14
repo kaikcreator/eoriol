@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition, query, animateChild } from '@angular/animations';
+import { PageNotFoundService } from '../page-not-found/page-not-found.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ import { trigger, state, style, animate, transition, query, animateChild } from 
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public pageNotFoundService:PageNotFoundService) { }
 
   ngOnInit() {
   }
