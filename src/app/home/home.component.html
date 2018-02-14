@@ -7,7 +7,7 @@
             <h1>I'm Enrique.</h1>
         </div>
         <p>CTO at Narada Robotics. Back&frontend SW engineer focused on 3D and mobile development. Angular & Ionic evangelist.</p>
-        <a class="anchor-link" ngx-scroll-to="blog">check my blog</a>
+        <a class="anchor-link" ngx-scroll-to="blog" [ngx-scroll-to-offset-map]="scrollOffsetMap">check my blog</a>
     </div>    
     <div class="picture"></div>
   </section>
@@ -22,7 +22,7 @@
       <div class="highlights-item">Writer</div>
       <div class="highlights-item">Developer</div>
     </div>
-    <a class="anchor-link" ngx-scroll-to="books-and-courses">check my courses</a>
+    <a class="anchor-link" ngx-scroll-to="books-and-courses" [ngx-scroll-to-offset-map]="scrollOffsetMap">check my courses</a>
   </section>
 
 
