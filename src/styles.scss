@@ -14,9 +14,9 @@ body{
     }
 }
 
-@media all and (min-width:1760px){
+@media all and (min-width:$break-xxl){
     body{
-        max-width: 1760px;
+        max-width: $break-xxl;
         margin-left: auto !important;
         margin-right: auto !important;
     }
@@ -27,6 +27,19 @@ body{
     //position:fixed;
 }
 
+.display-s{
+    display: none !important;
+    @media all and (max-width: $break-small) {
+        display: block !important;
+    }
+}
+
+.display-mlxl{
+    display: block !important;
+    @media all and (max-width: $break-small) {
+        display: none !important;
+    }
+}
 
 button{
     height: 44px;
