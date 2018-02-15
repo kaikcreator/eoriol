@@ -8,5 +8,6 @@ export const environment = {
   /* api used with json-server
   apiUrl:'http://localhost:3000/',
   */
-  apiUrl: 'assets/fixtures'
+  apiUrl: 'assets/fixtures',
+  wordpressUrl: 'https://blog.enriqueoriol.com/wp-json/wp/v2'
 };
