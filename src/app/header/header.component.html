@@ -2,14 +2,19 @@
 <div class="logo"><h1>Enrique Oriol</h1></div>
 
 <nav>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/books-and-courses" routerLinkActive="active">Books & Courses</a>
-  <a routerLink="/jobs" routerLinkActive="active">Jobs</a>
-  <a routerLink="/blog" routerLinkActive="active">Blog</a>
+  <ng-container *ngIf="!pageNotFoundService.active">
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <!-- <a routerLink="/books-and-courses" routerLinkActive="active">Books & Courses</a>
+    <a routerLink="/jobs" routerLinkActive="active">Jobs</a>
+    <a routerLink="/blog" routerLinkActive="active">Blog</a> -->
+    <a ngx-scroll-to="books-and-courses" ngx-scroll-to-offset="120">Books & Courses</a>
+    <a ngx-scroll-to="jobs" ngx-scroll-to-offset="120">Jobs</a>
+    <a ngx-scroll-to="blog" ngx-scroll-to-offset="120">Blog</a>    
+  </ng-container>
 </nav>
 
 <div class="contact">
-  <button>GET IN TOUCH</button>
+  <button ngx-scroll-to="contact">GET IN TOUCH</button>
 </div>
 
 <app-menu-mobile *ngIf="menuBtn.open" 

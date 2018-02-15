@@ -5,11 +5,13 @@ import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
+import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BookCoursesService } from './services/book-courses.service';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BlogCardComponent } from './blog-card/blog-card.component';
@@ -28,7 +30,6 @@ import { WordpressService } from './services/wordpress.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent,
     BookCardComponent,
     BlogCardComponent,
     ContactComponent,
@@ -44,9 +45,16 @@ import { WordpressService } from './services/wordpress.service';
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true}
-    )
+    ),
+    ScrollToModule.forRoot(),
+    PageNotFoundModule
   ],
-  providers: [ BookCoursesService, BlogPostsService, WindowRefService, WordpressService],
+  providers: [ 
+    BookCoursesService, 
+    BlogPostsService, 
+    WindowRefService,
+    WordpressService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

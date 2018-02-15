@@ -12,11 +12,17 @@ export class HomeComponent implements OnInit {
 
   public bookCourseItems:BookCourseModel[];
   public blogPostItems:any[];
+  public scrollOffsetMap:Map<number, number>;
 
   constructor(
     public bookCourses: BookCoursesService,
     public blogPosts: BlogPostsService
-  ) { }
+  ) { 
+    this.scrollOffsetMap = new Map();
+    this.scrollOffsetMap.set(600, 30);
+    this.scrollOffsetMap.set(780, 90);
+    this.scrollOffsetMap.set(1060, 120);
+  }
 
   ngOnInit() {
     this.bookCourses.getItems().subscribe(list =>{
