@@ -23,7 +23,7 @@ import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { HeaderComponent } from './header/header.component';
 import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.component';
 import { SubscribeCtaComponent } from './subscribe-cta/subscribe-cta.component';
-
+import { WordpressService } from './services/wordpress.service';
 
 
 @NgModule({
@@ -53,7 +53,8 @@ import { SubscribeCtaComponent } from './subscribe-cta/subscribe-cta.component';
   providers: [ 
     BookCoursesService, 
     BlogPostsService, 
-    WindowRefService
+    WindowRefService,
+    WordpressService
     ],
   bootstrap: [AppComponent]
 })
