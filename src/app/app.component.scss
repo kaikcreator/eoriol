@@ -1,5 +1,9 @@
 @import '~variables.scss';
 
+:host{
+    display: block;
+    background: white;
+}
 footer{
     @media screen and (max-width: $break-large){
         margin-left: 40px;

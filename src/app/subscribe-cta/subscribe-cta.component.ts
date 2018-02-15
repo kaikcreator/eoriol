@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubscribeCtaComponent implements OnInit {
 
+  public open = false;
+  
   constructor() { }
 
   ngOnInit() {
