@@ -10,9 +10,9 @@ export class BlogPostsService {
 
   constructor(private wordpress:WordpressService) { }
 
-  getItems():Observable<any[]>{
+  getItems(n:number):Observable<any[]>{
     //return this.http.get<any[]>(`${environment.apiUrl}/blog-posts.json`);
-    return this.wordpress.retrieveLatestPosts(3);
+    return this.wordpress.retrieveLatestPosts(n);
   }
 
 }
