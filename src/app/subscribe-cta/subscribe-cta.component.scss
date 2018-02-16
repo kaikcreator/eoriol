@@ -3,7 +3,7 @@
 :host{
     z-index: 10;
     position: fixed;
-    right: -30px;
+    right: -90px;
     bottom: 250px;
     mix-blend-mode: difference;
     
@@ -20,6 +20,9 @@
     height: auto;
     width: auto;
     padding: 0;
+    padding-left: 80px;
+    padding-right: 20px;
+    background-color: $color-black;
     color: white;
 
     font-size: 13px;
@@ -32,7 +35,7 @@
         background: $color-white;
         height: 2px;
         position: absolute;
-        left: -60px;
+        left: 20px;
         top: 50%;
         width: 30px;
         transition: all ease-out 0.15s;
@@ -42,7 +45,7 @@
         color: $color-primary;
         &:after{
             background: $color-primary;
-            left:-40px;
+            left:40px;
         }
     }
 }
