@@ -5,26 +5,26 @@
     position: fixed;
     right: -90px;
     bottom: 250px;
-    mix-blend-mode: difference;
-    
-    &:hover{
-        mix-blend-mode: normal;
+    @supports (mix-blend-mode: difference){
+        mix-blend-mode: difference;
+        &.white, &:hover{
+            mix-blend-mode: normal;
+        }
     }
 }
-:host(.white){
-    mix-blend-mode: normal;
-}
+
 .subscribe-cta-button{
     transform: rotate(-90deg);
-    background-color: transparent;
     height: auto;
     width: auto;
     padding: 0;
     padding-left: 80px;
     padding-right: 20px;
-    background-color: $color-black;
     color: white;
-
+    background-color: $color-black;
+    @supports (mix-blend-mode: difference){
+        background-color: transparent;
+    }    
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 4.25px;
@@ -52,8 +52,8 @@
 
 .subscribe-cta-form-container{
     position: absolute;
-    right: 100px;
-    top: -100px;
+    right: 130px;
+    top: -128px;
     width: 360px;
     height: 220px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
