@@ -11,6 +11,9 @@
             mix-blend-mode: normal;
         }
     }
+    @media (min-width: 1760px){
+        right: calc(50vw - 970px);
+    }    
 }
 
 .subscribe-cta-button{
