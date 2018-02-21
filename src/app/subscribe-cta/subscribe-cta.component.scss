@@ -93,4 +93,30 @@
         width: 100%;
     }
 
+    .subscribe-cta-form-error{
+        height: 20px;
+        font-size: 10px;
+        font-weight: 700;
+        color: $color-primary;
+    }
+
+    .subscribe-cta-success{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-evenly;
+        height: 100%;
+        font-size: 14px;
+
+        h1{
+            font-size: 20px;
+        }
+
+        .subscribe-cta-success-warn{
+            font-size: 10px;
+            color: $color-secondary;
+        }
+    }
+
 }
+

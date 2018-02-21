@@ -3,8 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
@@ -24,6 +25,7 @@ import { HeaderComponent } from './header/header.component';
 import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.component';
 import { SubscribeCtaComponent } from './subscribe-cta/subscribe-cta.component';
 import { WordpressService } from './services/wordpress.service';
+import { MailchimpService } from './services/mailchimp.service';
 
 
 @NgModule({
@@ -48,13 +50,16 @@ import { WordpressService } from './services/wordpress.service';
       {enableTracing: true}
     ),
     ScrollToModule.forRoot(),
-    PageNotFoundModule
+    PageNotFoundModule,
+    HttpClientJsonpModule,
+    FormsModule
   ],
   providers: [ 
     BookCoursesService, 
     BlogPostsService, 
     WindowRefService,
-    WordpressService
+    WordpressService,
+    MailchimpService
     ],
   bootstrap: [AppComponent]
 })

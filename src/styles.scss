@@ -64,6 +64,9 @@ button{
     &:active{
         background-color: darken($color-button-hover, 10%);
     }
+    &:disabled{
+        background-color: lighten($color: $color-primary, $amount: 30)
+    }
     cursor: pointer;
 }
 
@@ -91,6 +94,9 @@ a{
         &:active{
             background-color: darken($color-button-hover, 10%);
         }
+        &:disabled{
+            background-color: lighten($color: $color-primary, $amount: 30)
+        }
         cursor: pointer;        
     }
 }
@@ -107,9 +113,10 @@ input{
         color: $color-input-text;
     }
 
-    &.ng-invalid{
+    &.ng-invalid.ng-dirty:not(:focus){
         text-align: right;
         border: 1px solid $color-primary;
+        color: $color-primary;
         &::placeholder{
             color: $color-primary;
         }
