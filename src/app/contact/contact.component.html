@@ -5,21 +5,21 @@
   <app-social-icons-bar class="display-mlxl"></app-social-icons-bar>
 </div>
 
-<form action="" class="contact-form">
+<form (ngSubmit)="submit()" class="contact-form" #form="ngForm">
     <div class="name-email-group">
         <div>
             <label for="name">Your Name</label>
-            <input type="text" name="name" placeholder="Full name"> 
+            <input type="text" name="name" required [(ngModel)]="model.name" placeholder="Full name"> 
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="Email">                            
+            <input type="email" name="email" email [(ngModel)]="model.email" placeholder="Email">                            
         </div>
     </div>
 
     <div class="topic-group">
         <label for="topic">Topic</label>
-        <select name="topic" placeholder="choose topic">
+        <select name="topic" placeholder="choose topic" [(ngModel)]="model.topic">
           <option *ngFor="let topic of topics" value="{{topic.key}}">{{topic.value}}</option>
         </select> 
     </div>
@@ -27,11 +27,11 @@
 
     <div class="message-group">
         <label for="message">Your Message</label>
-        <textarea type="email" name="message" placeholder="Your message here..."></textarea>
+        <textarea type="email" name="message" required [(ngModel)]="model.message" placeholder="Your message here..."></textarea>
     </div>
 
 
-    <button>Send Message</button>
+    <button type="submit" [disabled]="!form.valid">Send Message</button>
     <app-social-icons-bar class="display-s"></app-social-icons-bar>
 
 </form>

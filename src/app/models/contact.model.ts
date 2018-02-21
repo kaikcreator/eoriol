@@ -12,9 +12,7 @@ export class ContactModel {
     constructor(
         public name:string="",
         public email:string="",
-        public topic:ContactTopic,
-        public message:string
-    ){
-
-    }
+        public topic:string="proposal",
+        public message:string=""
+    ){}
 }
