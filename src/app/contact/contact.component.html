@@ -32,6 +32,10 @@
 
 
     <button type="submit" [disabled]="!form.valid">Send Message</button>
+    <div class="message-feedback">
+        <div class="message-feedback-success" *ngIf="success">{{success}}</div>
+        <div class="message-feedback-error" *ngIf="error">{{error}}</div>
+    </div>
     <app-social-icons-bar class="display-s"></app-social-icons-bar>
 
 </form>

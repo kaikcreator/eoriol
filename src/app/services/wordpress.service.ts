@@ -4,6 +4,7 @@ import { PostModel } from '../models/post.model';
 import { HttpClient } from '@angular/common/http';
 import { WpPost } from '../models/wp/wp-post.model';
 import { environment } from '../../environments/environment';
+import { ContactModel } from '../models/contact.model';
 
 
 @Injectable()
@@ -27,6 +28,25 @@ export class WordpressService {
             }})
         })
       );
+  }
+
+  contact(data:ContactModel){
+    var formData = new FormData();
+    formData.append('contact', data.name);
+    formData.append('email', data.email);
+    formData.append('topic', data.topic);
+    formData.append('message', data.message);
+
+    return this.http.post<any>(environment.contactUrl, formData).pipe(
+      map(data => {
+        if(data.status == 'mail_sent'){
+          return data.message;
+        }
+        else{
+          throw new Error(data.message);
+        }
+      })
+    );
   }
 
 }
