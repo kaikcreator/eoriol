@@ -26,6 +26,7 @@ import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.com
 import { SubscribeCtaComponent } from './subscribe-cta/subscribe-cta.component';
 import { WordpressService } from './services/wordpress.service';
 import { MailchimpService } from './services/mailchimp.service';
+import { ActionButtonComponent } from './action-button/action-button.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MailchimpService } from './services/mailchimp.service';
     MenuMobileComponent,
     HeaderComponent,
     SocialIconsBarComponent,
-    SubscribeCtaComponent
+    SubscribeCtaComponent,
+    ActionButtonComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),

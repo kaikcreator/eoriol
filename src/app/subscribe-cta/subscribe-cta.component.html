@@ -1,6 +1,6 @@
-<button class="subscribe-cta-button" (click)="open = !open;">
-  SUBSCRIBE TO MY LIST
-</button>
+<app-action-button white mix-blend-support (click)="open = !open;">
+    SUBSCRIBE TO MY LIST
+</app-action-button>
 
 <div *ngIf="open" class="subscribe-cta-form-container" @fadeInOut>
   <form *ngIf="!success" #mailchimpForm="ngForm" (ngSubmit)="subscribe()" id="subscribe-cta-form" name="subscribe-cta-form"><!--  target="_blank" novalidate -->

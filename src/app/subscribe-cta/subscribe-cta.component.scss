@@ -16,41 +16,8 @@
     }    
 }
 
-.subscribe-cta-button{
+app-action-button{
     transform: rotate(-90deg);
-    height: auto;
-    width: auto;
-    padding: 0;
-    padding-left: 80px;
-    padding-right: 20px;
-    color: white;
-    background-color: $color-black;
-    @supports (mix-blend-mode: difference){
-        background-color: transparent;
-    }    
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 4.25px;
-
-    &:after{
-        content: "";
-        display: block;
-        background: $color-white;
-        height: 2px;
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        width: 30px;
-        transition: all ease-out 0.15s;
-    }
-
-    &:hover{
-        color: $color-primary;
-        &:after{
-            background: $color-primary;
-            left:40px;
-        }
-    }
 }
 
 .subscribe-cta-form-container{

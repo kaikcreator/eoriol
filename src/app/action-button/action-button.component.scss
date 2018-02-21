@@ -1,0 +1,51 @@
+@import '~variables.scss';
+
+:host{
+    display: block;
+    position: relative;
+}
+.action-button{
+    background-color: transparent;
+    color: $color-black;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4.25px;   
+    padding-left: 80px;
+    padding-right: 20px; 
+    height: auto;
+    width: auto;  
+
+    &:after{
+        content: "";
+        display: block;
+        background: $color-black;
+        height: 2px;
+        position: absolute;
+        left: 20px;
+        top: 45%;
+        width: 30px;
+        transition: all ease-out 0.15s;
+    }
+
+    &:hover{
+        color: $color-primary !important;
+        &:after{
+            background: $color-primary !important;
+            left:40px;
+        }
+    }
+
+    :host[white] &{
+        color: white;
+        &:after{
+            background: $color-white;     
+        }        
+    } 
+    
+    :host[mix-blend-support] &{
+        background-color: $color-black;
+        @supports (mix-blend-mode: difference){
+            background-color: transparent;
+        }
+    }
+}
