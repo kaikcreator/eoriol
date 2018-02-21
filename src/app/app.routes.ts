@@ -16,5 +16,6 @@ export const appRoutes: Routes = [
       redirectTo: '/home',
       pathMatch: 'full'
     },
-    { path: '**', component: PageNotFoundComponent }
+    { path: 'subscribe', loadChildren: './subscribe-mobile/subscribe-mobile.module#SubscribeMobileModule' },
+    { path: '**', component: PageNotFoundComponent },
   ];
