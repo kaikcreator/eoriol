@@ -16,9 +16,12 @@
     z-index:$depth-menu-mobile;
     
     &-header{
-        width: 100%;
         flex-grow: 1;
-        min-height: 100px;        
+        min-height: 100px; 
+        align-self: flex-end;
+        margin-bottom: 20px;
+        display: block;
+        margin-top: 60px;       
     }
 
     &-content{
@@ -92,6 +95,13 @@
             svg path{
                 fill: $color-white;
             }
+        }
+    }
+
+    app-action-button{
+        display: none;
+        @media screen and (max-width: $break-medium){
+            display: block;
         }
     }
 }

@@ -48,4 +48,16 @@
             background-color: transparent;
         }
     }
+
+    :host[right] &{
+        padding-right: 80px;
+        padding-left: 20px;
+        &:after{
+            left: unset;            
+            right: 0px;
+        }
+        &:hover:after{
+            right:20px;
+        }
+    }
 }
