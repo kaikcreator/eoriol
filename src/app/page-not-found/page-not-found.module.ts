@@ -10,7 +10,7 @@ import { appRoutes } from '../app.routes';
     imports: [
         CommonModule,
         RouterModule.forRoot(
-            appRoutes,
+            appRoutes('..'),
             {enableTracing: true}
           )
     ],

@@ -48,7 +48,7 @@ import { ActionButtonComponent } from './action-button/action-button.component';
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(
-      appRoutes,
+      appRoutes(),
       {enableTracing: true}
     ),
     ScrollToModule.forRoot(),
