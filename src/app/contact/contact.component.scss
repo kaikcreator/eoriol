@@ -116,3 +116,43 @@ button{
     width: 172px;
     height: 43px;
 }
+
+.message-feedback{
+    min-height: 72px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 36.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    font-size: 11px;
+
+    &-error{
+        color:$color-primary;
+        font-weight: 600;
+    }
+}
+
+app-social-icons-bar{
+
+    width: 75%;
+    margin-top:56px;
+
+    &.display-s{
+        width: 100%;
+        margin-top:14px;
+    }
+    
+    & ::ng-deep{
+        .social-icons{
+            svg{
+                width: 28px;
+                height: auto;
+            }
+        
+            svg path{
+                fill: $color-black;
+            }
+        }
+    }
+}

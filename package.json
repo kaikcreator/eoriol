@@ -29,10 +29,12 @@
     "@angular/router": "^5.0.0",
     "@nguniversal/express-engine": "^5.0.0-beta.5",
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
+    "@nicky-lenaers/ngx-scroll-to": "^0.6.0",
     "core-js": "^2.4.1",
     "json-server": "^0.12.1",
     "rxjs": "^5.5.2",
     "ts-loader": "^3.2.0",
+    "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

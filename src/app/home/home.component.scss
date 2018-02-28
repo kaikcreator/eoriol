@@ -1,5 +1,12 @@
 @import '~variables.scss';
 
+
+app-subscribe-cta{
+    @media screen and (max-width: $break-medium){
+        display: none;
+    }
+}
+
 .anchor-link{
     @media screen and (max-width:$break-small) {
         font-size: 11px;
@@ -24,7 +31,7 @@
     }
 }
 
-#hero{
+#hero-section{
     height: 865px;
     display: flex;
     @media screen and (max-width: $break-small){
@@ -139,12 +146,22 @@
     } 
 }
 
-#books-and-courses, #blog{
+#books-and-courses-section, #blog-section{
     .anchor-link{
         position: absolute;
         top: 12px;
         right: 0px;
         margin: 0px;
+    }
+
+    @media screen and (max-width: $break-small) {
+        margin-bottom: 158px;
+
+        .anchor-link{
+            top: unset;
+            right: unset;
+            bottom: -62px;
+        }
     }
 }
 
@@ -315,7 +332,7 @@
 
     .anchor-link{
         @media screen and (max-width: $break-small){
-            margin-top: 62px;
+            margin-top: 75px;
         }
         margin-top: 116px;
         margin-bottom: 10px;
@@ -349,7 +366,5 @@
         }
     }
 }
-
-
 
 

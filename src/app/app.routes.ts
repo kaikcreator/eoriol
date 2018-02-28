@@ -5,7 +5,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 
-export const appRoutes: Routes = [
+export function appRoutes(relPath='.'): Routes{
+  return [
     // { path: 'post/:id',      component: PostComponent },
     {
       path: 'home',
@@ -16,5 +17,7 @@ export const appRoutes: Routes = [
       redirectTo: '/home',
       pathMatch: 'full'
     },
-    { path: '**', component: PageNotFoundComponent }
+    { path: 'subscribe', loadChildren: `${relPath}/subscribe-mobile/subscribe-mobile.module#SubscribeMobileModule` },
+    { path: '**', component: PageNotFoundComponent },
   ];
+}

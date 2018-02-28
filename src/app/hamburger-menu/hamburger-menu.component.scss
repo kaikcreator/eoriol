@@ -1,6 +1,10 @@
 @import '~variables.scss';
 
-div{
+button{
+    /* reset button styles */
+    background-color: unset;
+    display: block;
+    /* end */
     @media screen and (max-width: $break-small){
         width: 17px;
         height: 12px;        
@@ -78,5 +82,11 @@ div{
         top: 7px;
         left:0px;
         transform: rotate(-135deg);
-      }      
+      }
+
+      &.open{
+          z-index:$depth-top;
+      }
+      
+            
 }

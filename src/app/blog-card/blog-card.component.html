@@ -3,7 +3,7 @@
 
 <div class="content">
     <header>
-        <div class="date">{{item.date}}</div>
+        <div class="date">{{item.date | date: 'longDate'}}</div>
     </header>
-    <h1>{{item.title}}</h1>
+    <h1 [innerHTML]="item.title"></h1>
 </div>

@@ -1,24 +1,13 @@
-<header>
-  <app-hamburger-menu></app-hamburger-menu>
-  <div class="logo"><h1>Enrique Oriol</h1></div>
-  <nav>
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/books-and-courses" routerLinkActive="active">Books & Courses</a>
-    <a routerLink="/jobs" routerLinkActive="active">Jobs</a>
-    <a routerLink="/blog" routerLinkActive="active">Blog</a>
-  </nav>
-  <div class="contact">
-    <button>GET IN TOUCH</button>
-  </div>
-  
-</header>
+<app-header></app-header>
 
-<main>
+<main> 
     <router-outlet></router-outlet>
 
-    <section class="contact-section" id="contact-section">
+    <a name="contact" id="contact"></a>
+    <section class="contact-section">
       <app-contact></app-contact>
-    </section>    
+    </section>   
+    
 </main>
 
 <footer>

@@ -1,0 +1,66 @@
+@import '~variables.scss';
+
+.subscribe-mobile{
+    height: 100vh;
+    max-width: 400px;
+    min-width: 150px;
+    margin: auto;
+    background-color: $color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+
+    &-title{
+        color: $color-black;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: -0.26px;
+        margin-bottom: 28px;
+    }
+
+    &-description{
+        color: $color-secondary;
+        width: 75%;
+        min-width: 200px;
+        max-width: 340px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20.5px;
+        letter-spacing: -0.17px;
+        margin-bottom: 60px;
+    }
+
+    &-form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+
+        input{
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        button{
+            margin-top: 40px;
+        }
+    }
+
+    &-success{
+        h1{
+            margin-bottom: 50px;
+        }
+
+        &-warn{
+            margin-top: 20px;
+            margin-bottom: 80px;
+            color: $color-secondary;
+            font-size: 12px;
+        }
+    }
+}

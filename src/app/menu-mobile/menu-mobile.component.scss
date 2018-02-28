@@ -1,0 +1,107 @@
+@import '~variables.scss';
+
+.menu-mobile{
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;  
+    overflow-y: scroll;
+    background-color: $color-home-background;
+    z-index:$depth-menu-mobile;
+    
+    &-header{
+        flex-grow: 1;
+        min-height: 100px; 
+        align-self: flex-end;
+        margin-bottom: 20px;
+        display: block;
+        margin-top: 60px;       
+    }
+
+    &-content{
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    &-footer{
+        width: 100%;
+    }   
+    
+    
+    h1{
+        color:$color-home-h1;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 32px;
+        text-transform: uppercase;
+        letter-spacing: 4.64px;
+        margin-bottom: 18px;
+    }
+    h2{
+        color:$color-home-h2;        
+    }    
+
+    a{
+        display: block;
+        text-decoration: none;
+        &.active>*, &:hover>*{
+            color:$color-primary !important;
+        }
+    }
+
+    nav{
+        h1{
+            letter-spacing: 5.8px;
+            line-height: 16px;
+            margin-bottom:0px;
+        }
+        h2{
+            margin-top: 10px;
+            margin-bottom:30px;
+            font-size:23px;
+            font-weight: 500;
+            line-height: 17px;
+        }
+    }
+
+    button{
+        margin-top:42px;
+        margin-bottom: 50px;
+        width:101px;
+        height: 33px;
+        min-height: 33px;
+
+        font-size: 8px;
+        font-weight: 700;
+        line-height: 35px;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+    }
+
+    app-social-icons-bar ::ng-deep{
+        .social-icons{
+            width: 60%;
+            max-width: 280px;
+            margin-top:54px;
+            margin-left: auto;
+            margin-right: auto;
+        
+            svg path{
+                fill: $color-white;
+            }
+        }
+    }
+
+    app-action-button{
+        display: none;
+        @media screen and (max-width: $break-medium){
+            display: block;
+        }
+    }
+}
