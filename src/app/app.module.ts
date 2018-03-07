@@ -27,6 +27,7 @@ import { SubscribeCtaComponent } from './subscribe-cta/subscribe-cta.component';
 import { WordpressService } from './services/wordpress.service';
 import { MailchimpService } from './services/mailchimp.service';
 import { ActionButtonComponent } from './action-button/action-button.component';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { ActionButtonComponent } from './action-button/action-button.component';
     RouterModule.forRoot(
       appRoutes(),
       {
-        enableTracing: true,
+        enableTracing: !environment.production,
         // initialNavigation: 'enabled'
       }
     ),
