@@ -49,7 +49,10 @@ import { ActionButtonComponent } from './action-button/action-button.component';
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes(),
-      {enableTracing: true}
+      {
+        enableTracing: true,
+        // initialNavigation: 'enabled'
+      }
     ),
     ScrollToModule.forRoot(),
     PageNotFoundModule,

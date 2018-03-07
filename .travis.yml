@@ -13,7 +13,7 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng build --prod
+  - npm run build:universal
 
 after_success:
   - firebase use eoriolfront
