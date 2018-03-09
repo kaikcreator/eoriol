@@ -4,6 +4,7 @@ import 'zone.js/dist/zone-node';
  
 import { enableProdMode } from '@angular/core';
 import * as express from 'express';
+import * as compression from 'compression';
 import { join } from 'path';
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
@@ -21,9 +22,11 @@ enableProdMode();
  
 // Express server
 const app = express();
+//add compression middleware to all responses (GZIP)
+app.use(compression());
 const DISABLE_FIREBASE = process.env.DISABLE_FIREBASE || false;
 const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), './');
+const DIST_FOLDER = join(process.cwd(), DISABLE_FIREBASE ? 'dist' : './');
  
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
