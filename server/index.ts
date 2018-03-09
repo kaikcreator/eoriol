@@ -21,6 +21,7 @@ enableProdMode();
  
 // Express server
 const app = express();
+const DISABLE_FIREBASE = process.env.DISABLE_FIREBASE || false;
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), './');
  
@@ -48,12 +49,13 @@ app.get('*', (req, res) => {
   res.render(join(DIST_FOLDER, 'browser', 'index.html'), {req});
 });
 
-/* NOT USED WITH FIREBASE
-// Start up the Node server
-app.listen(PORT, () => {
-  console.log(`Node server listening on http://localhost:${PORT}`);
-});
-*/
+
+if(DISABLE_FIREBASE){
+  // Start up the Node server if not using firebase cloud functions
+  app.listen(PORT, () => {
+    console.log(`Node server listening on http://localhost:${PORT}`);
+  });
+}
 
 //server side rendering using frebase cloud functions
-export let ssr = firebaseFunctions.https.onRequest(app);
+export let ssr = DISABLE_FIREBASE ? null : firebaseFunctions.https.onRequest(app);
