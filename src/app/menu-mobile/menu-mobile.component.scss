@@ -21,7 +21,11 @@
         align-self: flex-end;
         margin-bottom: 20px;
         display: block;
-        margin-top: 60px;       
+        margin-top: 60px;  
+        @media screen and (max-width: $break-small){
+            margin-top: 80px;
+            margin-bottom: 0px;
+        }     
     }
 
     &-content{
