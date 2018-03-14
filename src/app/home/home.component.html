@@ -42,9 +42,9 @@
   <a name="books-and-courses" id="books-and-courses"></a>
   <section class="white-section" id="books-and-courses-section">
     <h1>Books & Courses</h1>
-    <a class="anchor-link">View All</a>
+    <a class="anchor-link" (click)="bookCoursesLimit = bookCourseItems.length">View All</a>
     <div class="cards">
-        <app-book-card *ngFor="let item of bookCourseItems | slice:0:3" [item]="item">
+        <app-book-card *ngFor="let item of bookCourseItems | slice:0:bookCoursesLimit" [item]="item">
         </app-book-card>
     </div> 
   </section>

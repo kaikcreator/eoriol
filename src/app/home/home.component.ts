@@ -12,6 +12,7 @@ import { WindowRefService } from '../services/window-ref.service';
 export class HomeComponent implements OnInit {
 
   public bookCourseItems:BookCourseModel[];
+  public bookCoursesLimit:number = 3;
   public blogPostItems:any[];
   public scrollOffsetMap:Map<number, number>;
   public subscribeCTAWhite:boolean = true;
