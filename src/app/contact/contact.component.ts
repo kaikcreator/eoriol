@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContactModel, ContactTopic } from '../models/contact.model';
 import { WordpressService } from '../services/wordpress.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -13,6 +14,7 @@ export class ContactComponent implements OnInit {
   public model:ContactModel = new ContactModel();
   public success:string = "";
   public error:string ="";
+  @ViewChild('form') form: NgForm;
 
   constructor(private wordpress:WordpressService) { 
     for(let item in ContactTopic){
@@ -24,14 +26,16 @@ export class ContactComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.model);
     this.wordpress.contact(this.model).subscribe(
       response => {
         this.success = response;
+        setTimeout(()=>{this.success="";}, 3500);
         this.model = new ContactModel();
+        this.form.reset();
       },
       err => {
         this.error = err.message;
+        setTimeout(()=>{this.success="";}, 3500);
       }
     );
   }

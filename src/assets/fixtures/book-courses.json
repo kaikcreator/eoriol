@@ -8,7 +8,7 @@
         "price":"",
         "old_price":"",
         "link":"https://blog.enriqueoriol.com/2016/05/aprende-es6-guia-practica.html",
-        "reviews":"[]"
+        "reviews":[]
     },
     {
         "image":"assets/fixtures/angularPRO-course.png",
@@ -19,7 +19,7 @@
         "price":"23 €",
         "old_price":"110 €",
         "link":"https://www.udemy.com/componentes-angular-pro/?couponCode=BLOGREADER",
-        "reviews":"[]"
+        "reviews":[]
     },
     {
         "image":"assets/fixtures/ionic3-course.png",
@@ -30,7 +30,7 @@
         "price":"35 €",
         "old_price":"195 €",
         "link":"https://www.udemy.com/aprende-ionic-2-desde-cero/?couponCode=SOCRAZY",
-        "reviews":"[]"
+        "reviews":[]
     },
     {
         "image":"assets/fixtures/angularPRO-course.png",
@@ -41,7 +41,7 @@
         "price":"23 €",
         "old_price":"125 €",
         "link":"https://www.udemy.com/angular-components-like-a-pro/?couponCode=BLOGREADER",
-        "reviews":"[]"
+        "reviews":[]
     },    
     {
         "image":"assets/fixtures/componentes-angular-101.jpg",
@@ -52,7 +52,7 @@
         "price":"",
         "old_price":"",
         "link":"https://www.udemy.com/componentes-angular-101",
-        "reviews":"[]"
+        "reviews":[]
     },    
     {
         "image":"assets/fixtures/ionic1-course.jpeg",
@@ -63,6 +63,6 @@
         "price":"",
         "old_price":"",
         "link":"https://blog.enriqueoriol.com/ionic-course",
-        "reviews":"[]"
+        "reviews":[]
     }    
 ]
