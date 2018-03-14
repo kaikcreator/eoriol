@@ -1,0 +1,31 @@
+<div>
+    <h1>Subscribe and follow my writting</h1>
+    <p>Never miss any content. I always try to provide the best content with useful information</p>
+</div>
+
+<form *ngIf="!success" #mailchimpForm="ngForm" (ngSubmit)="subscribe()">
+    <div class="subscribe-inputs">
+        <span>
+            <label for="name">Your Name</label>
+            <input type="text" name="name" required [(ngModel)]="model.name" placeholder="Your name"> 
+        </span>
+        <span>
+            <label for="email">Email</label>
+            <input #email="ngModel" type="email" name="email" email [(ngModel)]="model.email" placeholder="Enter email">                            
+        </span>
+    </div>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+        <input type="text" name="whoareyou" tabindex="-1" value="" [(ngModel)]="botDetector">
+    </div>                        
+    <button type="submit">Subscribe</button>
+    <div class="subscribe-error">
+        <div class="response" *ngIf="error" [innerHTML]="error"></div>
+      </div>    
+</form>
+
+<div *ngIf="success" class="subscribe-success">
+    <h1>Por favor, confirma tu email</h1>
+    <p>Se te ha enviado un email de confirmación. Por favor, haz click en el enlace del email para confirmar.</p>
+    <p class="subscribe-success-warn">Ten en cuenta que el envio del email puede tardar varios minutos. Recuerda comprobar también la carpeta de spam.</p>
+  </div>

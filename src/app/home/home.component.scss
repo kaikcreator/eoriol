@@ -165,7 +165,7 @@ app-subscribe-cta{
     }
 }
 
-.black-section{
+.black-section ::ng-deep{
     @media screen and (max-width: $break-large){
         padding: 135px $side-margin-medium;    
     }
@@ -223,31 +223,7 @@ app-subscribe-cta{
         font-size: 15px;
         font-weight: 400;
         line-height: 29.5px;
-    }
-
-    input{
-        @media screen and (max-width: $break-medium){
-            text-align: center;
-            margin-bottom: 28px;
-        } 
-        @media screen and (max-width: $break-small){
-            width: 100%;
-            text-align: center;
-        }        
-        width: 236px;
-        height: 43px;
-        border: 1px solid $color-input-border;
-        background-color: $color-black;
-        color: $color-input-text;
-        font-size: 11px;
-        font-weight: 400;
-        line-height: 36px;
-        margin-bottom: 20px;
-
-        &::placeholder{
-            color: $color-input-text;
-        }
-    }   
+    }  
 
     button{
          @media screen and (max-width: $break-medium){
@@ -255,6 +231,19 @@ app-subscribe-cta{
         }         
         align-self: flex-end;
     }
+
+    input{
+        border: 1px solid $color-input-border;
+        background-color: $color-black;
+        color: $color-input-text;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 36px;
+
+        &::placeholder{
+            color: $color-input-text;
+        }
+    }     
 
 } 
 

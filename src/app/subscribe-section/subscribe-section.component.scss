@@ -1,0 +1,88 @@
+@import '~variables.scss';
+
+:host{
+    display:flex !important;
+    flex-wrap: nowrap !important;
+    position: relative;
+    @media screen and (max-width: $break-small){
+        flex-wrap: wrap !important;
+    } 
+}
+
+button{
+    @media screen and (min-width: $break-small + 1){
+        align-self: flex-end !important;
+    }
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;      
+}
+
+label{
+    display: none;
+}
+
+.subscribe-inputs{
+    min-width: 160px;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-bottom: 15px !important;
+    span + span{
+        margin-left: 10px;
+    }
+    @media screen and (max-width: $break-small){
+        justify-content: center;
+        span{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.subscribe-error{
+    color: $color-primary;
+    font-size: 14px;
+    font-weight: 700;
+    height: 0px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    @media screen and (max-width: $break-small){
+        width: 100%;
+    }
+}
+
+.subscribe-success{
+    &>*{
+        width: auto;
+    }
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    height: 100%;
+    font-size: 14px;
+
+    h1{
+        color: $color-secondary;
+        font-size: 20px;
+    }
+
+    .subscribe-success-warn{
+        font-size: 10px;
+        color: $color-secondary;
+    }
+}
+
+input{
+    @media screen and (max-width: $break-small){
+        text-align: center;
+        width: 100%;
+    } 
+    width: 140px;
+    margin-bottom: 5px;
+}

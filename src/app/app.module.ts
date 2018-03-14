@@ -28,6 +28,7 @@ import { WordpressService } from './services/wordpress.service';
 import { MailchimpService } from './services/mailchimp.service';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { environment } from '../environments/environment';
+import { SubscribeSectionComponent } from './subscribe-section/subscribe-section.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { environment } from '../environments/environment';
     HeaderComponent,
     SocialIconsBarComponent,
     SubscribeCtaComponent,
-    ActionButtonComponent
+    ActionButtonComponent,
+    SubscribeSectionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
