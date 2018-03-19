@@ -345,6 +345,7 @@ app-subscribe-cta{
     .cards{
         display: flex;
         width: 100%;
+        justify-content: space-around;//in case space-evenly is not supported
         justify-content: space-evenly;
         flex-wrap: wrap;
 

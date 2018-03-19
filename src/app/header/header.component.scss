@@ -63,7 +63,8 @@
 
         display: flex;
         width: 460px;
-        justify-content: space-evenly;
+        //justify-content: space-evenly; //space-evenly is not supported in lot of browsers
+        justify-content: space-around;
 
         a{
             color: $color-secondary-menu;
@@ -86,6 +87,10 @@
                 background: $color-black;;
                 margin-top: -2px;
             }
+            &:not(:last-of-type){
+                //this is to simulate result of justify-content: space-evenly
+                margin-right: -60px;
+            }            
         }
     }
 
