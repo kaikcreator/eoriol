@@ -45,9 +45,14 @@ export class LQImgPlaceholderDirective {
   }
 
   onHiQualityImgLoad(callback){
-    let img = new Image();
-    img.src = this.extractUrl();
-    img.onload = callback;
+    try{
+      let img = new Image();
+      img.src = this.extractUrl();
+      img.onload = callback;
+    }
+    catch(e){
+      console.log("Node don't have access to Image object");
+    }
   }
 
   extractUrl(){
