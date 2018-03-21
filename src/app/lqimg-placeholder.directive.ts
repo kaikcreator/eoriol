@@ -16,6 +16,7 @@ export class LQImgPlaceholderDirective {
 
   ngOnInit(){
     let styles = this.winRef.nativeWindow.getComputedStyle(this.element.nativeElement, null);
+    console.log("styles detected: ", styles);
     if(styles.src){
       //TODO: do the same stuff when it is not a bg img but directly a src img
     }
