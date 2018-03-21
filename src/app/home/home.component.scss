@@ -32,7 +32,6 @@ app-subscribe-cta{
 }
 
 #hero-section{
-    height: 865px;
     display: flex;
     @media screen and (max-width: $break-small){
         margin-left: 12vw;
@@ -140,6 +139,10 @@ app-subscribe-cta{
         flex:1;
         background-position-x: center;
         background-size: cover;
+        max-width: 750px;
+        min-height: 750px;
+        max-height: 1000px;
+        height: 100vh;
         @media screen and (max-width: $break-small){
             display: none;
         }        
