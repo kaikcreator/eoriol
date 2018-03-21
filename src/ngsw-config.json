@@ -21,7 +21,22 @@
       "resources": {
         "files": [
           "/assets/**"
+        ],
+        "urls": [
+        "https://fonts.googleapis.com/**"
         ]
       }
-    }]
+    }],
+    "dataGroups": [
+        {
+          "name": "from-api",
+          "urls": ["https://blog.enriqueoriol.com/wp-json/wp/v2/**"],
+          "cacheConfig": {
+            "strategy": "freshness",
+            "maxSize": 15,
+            "maxAge": "1h",
+            "timeout": "5s"
+          }
+        }
+      ]
   }
