@@ -30,6 +30,7 @@ import { MailchimpService } from './services/mailchimp.service';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { environment } from '../environments/environment';
 import { SubscribeSectionComponent } from './subscribe-section/subscribe-section.component';
+import { LQImgPlaceholderDirective } from './lqimg-placeholder.directive';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { SubscribeSectionComponent } from './subscribe-section/subscribe-section
     SocialIconsBarComponent,
     SubscribeCtaComponent,
     ActionButtonComponent,
-    SubscribeSectionComponent
+    SubscribeSectionComponent,
+    LQImgPlaceholderDirective
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
