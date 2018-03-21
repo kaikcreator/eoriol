@@ -6,6 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
@@ -48,6 +49,7 @@ import { SubscribeSectionComponent } from './subscribe-section/subscribe-section
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(
