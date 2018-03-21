@@ -86,7 +86,6 @@ app-subscribe-cta{
             .small-picture{
                 @media screen and (max-width: $break-small){
                     height: calc(90vw *1.1);
-                    background-image: url('/assets/hero-photo.jpg');
                     background-position-x: center;
                     background-size: cover;
                 }                 
@@ -135,7 +134,6 @@ app-subscribe-cta{
     }
 
     .picture{
-        background-image: url('/assets/hero-photo.jpg');
         flex:1;
         background-position-x: center;
         background-size: cover;

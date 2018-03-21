@@ -12,28 +12,31 @@ export class LQImgPlaceholderDirective {
     private element: ElementRef, 
     private winRef:WindowRefService,
     private renderer:Renderer2) { 
-  }
-
-  ngOnInit(){
-    let styles = this.winRef.nativeWindow.getComputedStyle(this.element.nativeElement, null);
-    console.log("styles detected: ", styles);
-    if(styles.src){
-      //TODO: do the same stuff when it is not a bg img but directly a src img
-    }
-    else if(styles.backgroundImage){
-      this.hiQualityImgSrc = styles.backgroundImage;
-      this.renderer.setStyle(this.element.nativeElement, 'backgroundImage', this.getLowQualityImgSrc());
-      
+      this.hiQualityImgSrc = this.element.nativeElement.style.backgroundImage;
+      this.element.nativeElement.style.backgroundImage = this.getLowQualityImgSrc();
       this.onHiQualityImgLoad(()=>{
         this.renderer.setStyle(this.element.nativeElement, 'backgroundImage', this.hiQualityImgSrc);
-        this.renderer.setStyle(this.element.nativeElement, 'clipPath', ""); 
-        this.renderer.setStyle(this.element.nativeElement, 'filter',"");
-      });
-    }
-    this.renderer.setStyle(this.element.nativeElement, 'filter',"blur(10px)");
-    this.renderer.setStyle(this.element.nativeElement, 'clipPath', "polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)"); 
-    
+      });      
   }
+
+  // ngOnInit(){
+  //   let styles = this.winRef.nativeWindow.getComputedStyle(this.element.nativeElement, null);
+  //   console.log("styles detected: ", styles);
+
+  //   if(styles.backgroundImage){
+  //     this.hiQualityImgSrc = styles.backgroundImage;
+  //     this.renderer.setStyle(this.element.nativeElement, 'backgroundImage', this.getLowQualityImgSrc());
+      
+  //     this.onHiQualityImgLoad(()=>{
+  //       this.renderer.setStyle(this.element.nativeElement, 'backgroundImage', this.hiQualityImgSrc);
+  //       this.renderer.setStyle(this.element.nativeElement, 'clipPath', ""); 
+  //       this.renderer.setStyle(this.element.nativeElement, 'filter',"");
+  //     });
+  //   }
+  //   this.renderer.setStyle(this.element.nativeElement, 'filter',"blur(10px)");
+  //   this.renderer.setStyle(this.element.nativeElement, 'clipPath', "polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)"); 
+    
+  // }
 
   getLowQualityImgSrc(){
     let lqImgSrc = this.hiQualityImgSrc;
