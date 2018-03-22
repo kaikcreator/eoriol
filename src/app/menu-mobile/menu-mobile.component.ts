@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { trigger, state, style, animate, transition, query, animateChild, stagger } from '@angular/animations';
+import { DocumentRefService } from '../services/globals.service';
 
 @Component({
   selector: 'app-menu-mobile',
@@ -38,7 +39,7 @@ export class MenuMobileComponent implements OnInit {
 
   @Output() onClose = new EventEmitter<void>();
 
-  constructor(private renderer:Renderer2) { }
+  constructor(private renderer:Renderer2, private documentRef:DocumentRefService) { }
 
   ngOnInit() {
     this.setNoScrollToBody(true);
@@ -54,10 +55,10 @@ export class MenuMobileComponent implements OnInit {
 
   private setNoScrollToBody(val:boolean){
     if(val){
-      this.renderer.addClass(document.body, 'no-scroll');
+      this.renderer.addClass(this.documentRef.nativeDocument.body, 'no-scroll');
     }
     else{
-      this.renderer.removeClass(document.body, 'no-scroll');
+      this.renderer.removeClass(this.documentRef.nativeDocument.body, 'no-scroll');
     }
   }  
 

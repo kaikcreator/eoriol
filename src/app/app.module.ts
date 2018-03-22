@@ -20,7 +20,7 @@ import { BlogCardComponent } from './blog-card/blog-card.component';
 import { BlogPostsService } from './services/blog-posts.service';
 import { ContactComponent } from './contact/contact.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
-import { WindowRefService } from './services/window-ref.service';
+import { WindowRefService, DocumentRefService } from './services/globals.service';
 import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { HeaderComponent } from './header/header.component';
 import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.component';
@@ -72,6 +72,7 @@ import { UniversalInterceptor } from './interceptors/universal-interceptor.servi
     BookCoursesService, 
     BlogPostsService, 
     WindowRefService,
+    DocumentRefService,
     WordpressService,
     MailchimpService,
     {

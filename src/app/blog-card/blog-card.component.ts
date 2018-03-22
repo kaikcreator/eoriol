@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
-import { WindowRefService } from '../services/window-ref.service';
+import { WindowRefService } from '../services/globals.service';
 
 @Component({
   selector: 'app-blog-card',

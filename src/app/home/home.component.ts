@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { BookCoursesService } from '../services/book-courses.service';
 import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
-import { WindowRefService } from '../services/window-ref.service';
+import { WindowRefService } from '../services/globals.service';
 
 @Component({
   selector: 'app-home',

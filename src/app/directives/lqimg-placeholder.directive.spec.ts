@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { LQImgPlaceholderDirective } from './lqimg-placeholder.directive';
 import { ElementRef, Renderer2 } from '@angular/core';
-import { WindowRefService } from '../services/window-ref.service';
+import { WindowRefService } from '../services/globals.service';
 
 describe('LqimgPlaceholderDirective', () => {
   beforeEach(() => {
