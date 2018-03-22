@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Renderer2 } from '@angular/core';
-import { WindowRefService } from './services/window-ref.service';
+import { WindowRefService } from '../services/window-ref.service';
 
 @Directive({
   selector: '[appLQImgPlaceholder]'

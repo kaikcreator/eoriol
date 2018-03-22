@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -30,7 +30,8 @@ import { MailchimpService } from './services/mailchimp.service';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { environment } from '../environments/environment';
 import { SubscribeSectionComponent } from './subscribe-section/subscribe-section.component';
-import { LQImgPlaceholderDirective } from './lqimg-placeholder.directive';
+import { LQImgPlaceholderDirective } from './directives/lqimg-placeholder.directive';
+import { UniversalInterceptor } from './interceptors/universal-interceptor.service';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { LQImgPlaceholderDirective } from './lqimg-placeholder.directive';
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     BrowserAnimationsModule,
     HttpClientModule,
+    BrowserTransferStateModule,
     RouterModule.forRoot(
       appRoutes(),
       {
@@ -71,7 +73,12 @@ import { LQImgPlaceholderDirective } from './lqimg-placeholder.directive';
     BlogPostsService, 
     WindowRefService,
     WordpressService,
-    MailchimpService
+    MailchimpService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UniversalInterceptor,
+      multi: true,
+}
     ],
   bootstrap: [AppComponent]
 })
