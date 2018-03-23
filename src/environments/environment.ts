@@ -8,7 +8,8 @@ export const environment = {
   /* api used with json-server
   apiUrl:'http://localhost:3000/',
   */
-  apiUrl: 'assets/fixtures',
+  //apiUrl: 'http://localhost:4000/assets/fixtures',
+  apiUrl: 'assets/fixtures', //this relative URL causes error on angular universal. Use full URL instead
   wordpressUrl: 'https://blog.enriqueoriol.com/wp-json/wp/v2',
   mailchimpUrl: 'https://enriqueoriol.us12.list-manage.com',
   contactUrl: 'https://blog.enriqueoriol.com/wp-json/contact-form-7/v1/contact-forms/1474/feedback'
