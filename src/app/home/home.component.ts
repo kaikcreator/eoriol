@@ -1,8 +1,9 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from '@angular/core';
 import { BookCoursesService } from '../services/book-courses.service';
 import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
 import { WindowRefService } from '../services/globals.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public bookCourses: BookCoursesService,
     public blogPosts: BlogPostsService,
-    private winRef: WindowRefService
+    private winRef: WindowRefService,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
     this.scrollOffsetMap = new Map();
     this.scrollOffsetMap.set(600, 30);
@@ -29,9 +31,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.bookCourses.getItems().subscribe(list =>{
-      this.bookCourseItems = list;
-    });
+    if(isPlatformBrowser(this.platformId)){
+      this.bookCourses.getItems().subscribe(list =>{
+        this.bookCourseItems = list;
+      });
+    }
 
     this.blogPosts.getItems(3).subscribe(list => {
       this.blogPostItems = list;
