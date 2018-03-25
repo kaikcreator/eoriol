@@ -31,11 +31,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    //if(isPlatformBrowser(this.platformId)){
     this.bookCourses.getItems().subscribe(list =>{
       this.bookCourseItems = list;
     });
-    //}
 
     this.blogPosts.getItems(3).subscribe(list => {
       this.blogPostItems = list;

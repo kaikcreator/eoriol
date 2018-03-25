@@ -40,7 +40,6 @@ export class SubscribeSectionComponent implements OnInit {
             this.error = response.msg;
           }
           else{
-            console.log(response.msg);
             this.success = response.msg;
           }
         }

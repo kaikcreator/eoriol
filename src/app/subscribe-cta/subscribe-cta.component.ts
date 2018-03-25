@@ -43,7 +43,6 @@ export class SubscribeCtaComponent implements OnInit {
             this.error = response.msg;
           }
           else{
-            console.log(response.msg);
             this.success = response.msg;
           }
         }

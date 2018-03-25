@@ -88,7 +88,6 @@ export class AppModule {
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(APP_ID) private appId: string
   ){
-    const platform = isPlatformBrowser(this.platformId) ? 'browser' : 'server';
-    console.log("I'm on the ", platform);
+    //const platform = isPlatformBrowser(this.platformId) ? 'browser' : 'server';
   }
  }
