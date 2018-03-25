@@ -14,29 +14,15 @@ export class LQImgPlaceholderDirective {
     private renderer:Renderer2) { 
       this.hiQualityImgSrc = this.element.nativeElement.style.backgroundImage;
       this.element.nativeElement.style.backgroundImage = this.getLowQualityImgSrc();
+      this.renderer.setStyle(this.element.nativeElement, 'filter',"blur(10px)");
+      this.renderer.setStyle(this.element.nativeElement, 'clipPath', "polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)");       
       this.onHiQualityImgLoad(()=>{
         this.renderer.setStyle(this.element.nativeElement, 'backgroundImage', this.hiQualityImgSrc);
+        this.renderer.setStyle(this.element.nativeElement, 'filter',"");
+        this.renderer.setStyle(this.element.nativeElement, 'clipPath', ""); 
       });      
   }
 
-  // ngOnInit(){
-  //   let styles = this.winRef.nativeWindow.getComputedStyle(this.element.nativeElement, null);
-  //   console.log("styles detected: ", styles);
-
-  //   if(styles.backgroundImage){
-  //     this.hiQualityImgSrc = styles.backgroundImage;
-  //     this.renderer.setStyle(this.element.nativeElement, 'backgroundImage', this.getLowQualityImgSrc());
-      
-  //     this.onHiQualityImgLoad(()=>{
-  //       this.renderer.setStyle(this.element.nativeElement, 'backgroundImage', this.hiQualityImgSrc);
-  //       this.renderer.setStyle(this.element.nativeElement, 'clipPath', ""); 
-  //       this.renderer.setStyle(this.element.nativeElement, 'filter',"");
-  //     });
-  //   }
-  //   this.renderer.setStyle(this.element.nativeElement, 'filter',"blur(10px)");
-  //   this.renderer.setStyle(this.element.nativeElement, 'clipPath', "polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)"); 
-    
-  // }
 
   getLowQualityImgSrc(){
     let lqImgSrc = this.hiQualityImgSrc;
