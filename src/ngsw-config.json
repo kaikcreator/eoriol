@@ -1,12 +1,12 @@
 {
-    "index": "/index.html",
+    "index": "/index-1.html",
     "assetGroups": [{
       "name": "app",
       "installMode": "prefetch",
       "resources": {
         "files": [
           "/favicon.ico",
-          "/index.html"
+          "/index-1.html"
         ],
         "versionedFiles": [
           "/*.bundle.css",

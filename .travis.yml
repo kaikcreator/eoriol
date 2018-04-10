@@ -17,7 +17,7 @@ script:
   - npm run build:universal
 
 after_success:
-  - html browser/index.html
+  - html browser/index-1.html
   - firebase use eoriolfront
   - firebase deploy --token $FIREBASE_TOKEN
 

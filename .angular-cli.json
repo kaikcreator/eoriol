@@ -16,7 +16,7 @@
         "fixtures/blog-posts.json",
         "fixtures/book-courses.json"
       ],
-      "index": "index.html",
+      "index": "index-1.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
@@ -47,7 +47,7 @@
         "fixtures/book-courses.json"        
       ],
       "platform": "server",
-      "index": "index.html",
+      "index": "index-1.html",
       "main": "main.server.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
