@@ -15,7 +15,7 @@
         "favicon-96x96.png",
         "favicon-144x144.png",
         "favicon-256x256.png",
-        "logo-512x512.png",        
+        "logo-512x512.png",
         "manifest.json",
         "fixtures/blog-posts.json",
         "fixtures/book-courses.json"
@@ -36,6 +36,10 @@
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
+      },
+      "appShell": {
+        "app": "server-app",
+        "route": "shell"
       }
     },
     {
@@ -53,7 +57,7 @@
         "logo-512x512.png",
         "manifest.json",
         "fixtures/blog-posts.json",
-        "fixtures/book-courses.json"        
+        "fixtures/book-courses.json"
       ],
       "platform": "server",
       "index": "index-1.html",
@@ -100,7 +104,6 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {
-    }
+    "component": {}
   }
 }
