@@ -1,0 +1,48 @@
+{
+  "name": "Enrique Oriol",
+  "short_name": "E.Oriol",
+  "description": "My personal site: blog, courses, projects, and more",
+  "lang": "es-ES",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#ff3535",
+  "background_color": "#ff3535",
+  "icons": [
+    {
+      "src": "favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },      
+    {
+      "src": "favicon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },     
+    {
+      "src": "favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },     
+    {
+      "src": "favicon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },                    
+    {
+      "src": "favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }        
+  ]
+}
