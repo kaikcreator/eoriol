@@ -15,14 +15,15 @@ before_script:
   - npm install -g @ssweet/html
 
 script:
+  - echo $TRAVIS_BRANCH
   - npm run build:universal
 
 after_success:
   - html browser/index-1.html
   - if [ $TRAVIS_BRANCH == "master" ]; then
-      firebase use eoriolfront
+      firebase use eoriolfront;
     else
-      firebase use eoriolfront-staging
+      firebase use eoriolfront-staging;
     fi
   - firebase deploy --token $FIREBASE_TOKEN
 
