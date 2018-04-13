@@ -42,8 +42,8 @@ export class LQImgPlaceholderDirective {
   }
 
   extractUrl(){
-    let url = this.hiQualityImgSrc.replace(/^url\("/,'');
-    url = url.replace(/"\)$/,'');
+    let url = this.hiQualityImgSrc.replace(/^url\(("|')?/,'');
+    url = url.replace(/("|')?\)$/,'');
     return url;
   }
 
