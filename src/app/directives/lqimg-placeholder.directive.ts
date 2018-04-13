@@ -37,7 +37,7 @@ export class LQImgPlaceholderDirective {
       img.onload = callback;
     }
     catch(e){
-      console.log("Node don't have access to Image object");
+      console.log("Node does not have access to Image object");
     }
   }
 

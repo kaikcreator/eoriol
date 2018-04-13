@@ -19,14 +19,17 @@ import * as firebaseFunctions from 'firebase-functions';
  
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
+
+//Detect if firebase functions are not used
+const DISABLE_FIREBASE = process.env.DISABLE_FIREBASE || false;
  
 // Express server
 const app = express();
-//add compression middleware to all responses (GZIP)
-app.use(compression());
-const DISABLE_FIREBASE = process.env.DISABLE_FIREBASE || false;
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), DISABLE_FIREBASE ? 'dist' : './');
+
+//add compression middleware to all responses (GZIP)
+app.use(compression());
  
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
@@ -43,9 +46,13 @@ app.set('views', join(DIST_FOLDER, 'browser'));
 //   res.status(404).send('data requests are not supported');
 // });
  
-// Server static files from /browser
-app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
- 
+
+if(DISABLE_FIREBASE){
+  // Server static files from /browser, only if not using firebase hosting
+  app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
+}
+
+
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
   res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
@@ -59,6 +66,7 @@ if(DISABLE_FIREBASE){
     console.log(`Node server listening on http://localhost:${PORT}`);
   });
 }
+
 
 //server side rendering using frebase cloud functions
 export let ssr = DISABLE_FIREBASE ? null : firebaseFunctions.https.onRequest(app);
