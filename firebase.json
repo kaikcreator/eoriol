@@ -11,7 +11,14 @@
         "source": "**",
         "function": "ssr"
       }
-    ]
+    ],
+    "headers": [{
+      "source": "**/*.*",
+      "headers": [{
+        "key": "Access-Control-Allow-Origin",
+        "value": "https://eoriolfront-staging.firebaseapp.com"
+      }]
+    }]
   },
   "functions": {
     "source": "dist"
