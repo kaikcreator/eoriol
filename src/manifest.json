@@ -10,7 +10,7 @@
   "background_color": "#ff3535",
   "icons": [
     {
-      "src": "favicon-512x512.png",
+      "src": "logo-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },      
