@@ -34,6 +34,7 @@ testem.log
 /typings
 /env
 /firebase-debug.log
+cloud-functions-emulator.log
 
 # e2e
 /e2e/*.js
