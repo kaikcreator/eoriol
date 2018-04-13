@@ -7,6 +7,7 @@ node_js:
 branches:
   only:
     - master
+    - /^release-.*$/
 
 before_script:
   - npm install -g firebase-tools
@@ -18,7 +19,11 @@ script:
 
 after_success:
   - html browser/index-1.html
-  - firebase use eoriolfront
+  - if [ $TRAVIS_BRANCH == "master" ]; then
+      firebase use eoriolfront
+    else
+      firebase use eoriolfront-staging
+    fi
   - firebase deploy --token $FIREBASE_TOKEN
 
 notifications:
