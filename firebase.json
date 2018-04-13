@@ -12,13 +12,29 @@
         "function": "ssr"
       }
     ],
-    "headers": [{
-      "source": "**/*.*",
-      "headers": [{
-        "key": "Access-Control-Allow-Origin",
-        "value": "https://eoriolfront-staging.firebaseapp.com"
-      }]
-    }]
+    "headers": [
+      {
+        "source" : "**/*.@(bundle|chunk).@(js|css)",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        }]
+      },
+      {
+        "source" : "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=1296000"
+        }]
+      },      
+      {
+        "source": "**/*.*",
+        "headers": [{
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://eoriolfront-staging.firebaseapp.com"
+        }]
+      }      
+    ]
   },
   "functions": {
     "source": "dist"
