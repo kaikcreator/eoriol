@@ -24,6 +24,7 @@ enum HeaderState {
 })
 export class HeaderComponent implements OnInit {
 
+  //properties to handle stick to top feature
   private initialMarginTop = 0;
   private previousScroll = 0;
   private deltaScroll = 0;
@@ -48,19 +49,19 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  /** Scroll event listener, in order to stick header */
+  /** Scroll event listener, in order to stick header to top and hide/show on scroll */
   @HostListener("window:scroll", ['$event'])
   onWindowScroll(event) {
+    //get current scroll
     let currentScroll = this.winRef.nativeWindow.scrollY || this.documentRef.nativeDocument.documentElement.scrollTop;
      
-    
-    //check scroll directions changes, reset delta scroll if needed
+    //check scroll directions changes. Reset delta scroll if needed
     let currentDelta = currentScroll - this.previousScroll;
     if(currentDelta * this.deltaScroll < 0){
       this.deltaScroll = 0;
     }
 
-    //scrolling down
+    //if scrolling down
     if(currentDelta > 0){ 
       
       switch (this.headerState) {
@@ -89,7 +90,7 @@ export class HeaderComponent implements OnInit {
 
     }
 
-    //scrolling up
+    //if scrolling up
     else if(currentDelta < 0){
       switch (this.headerState) {
 
@@ -121,7 +122,6 @@ export class HeaderComponent implements OnInit {
   }
 
   private isOverInitialMarginTop(scroll){
-    console.log("scroll/initialMarginTop: ", scroll, this.initialMarginTop);
     return scroll > this.initialMarginTop;
   }
 

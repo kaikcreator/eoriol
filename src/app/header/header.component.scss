@@ -1,5 +1,7 @@
 @import '~variables.scss';
 
+$header-height: 77px;
+
 :host(.sticked){
     position: fixed;
     background-color: white;
@@ -13,7 +15,7 @@
     background-color: white;
     z-index: 100;
     margin-top: 0px;
-    top: -77px;
+    top: - $header-height;
 }
 
 :host{
@@ -54,7 +56,7 @@
         z-index:$depth-top;;       
         width: 81px;
         min-width: 81px;
-        height: 77px;
+        height: $header-height;
         background-color: $color-black;
         display: flex;
         flex-direction: column;
