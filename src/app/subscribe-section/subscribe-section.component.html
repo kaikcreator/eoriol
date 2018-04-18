@@ -6,12 +6,12 @@
 <form *ngIf="!success" #mailchimpForm="ngForm" (ngSubmit)="subscribe()">
     <div class="subscribe-inputs">
         <span>
-            <label for="name">Your Name</label>
-            <input id="name" name="name" type="text" required [(ngModel)]="model.name" placeholder="Your name"> 
+            <label for="subscribe-name">Your Name</label>
+            <input id="subscribe-name" name="name" type="text" required [(ngModel)]="model.name" placeholder="Your name"> 
         </span>
         <span>
-            <label for="email">Email</label>
-            <input #email="ngModel" id="email" name="email" type="email" email [(ngModel)]="model.email" placeholder="Enter email">                            
+            <label for="subscribe-email">Email</label>
+            <input #email="ngModel" id="subscribe-email" name="email" type="email" email [(ngModel)]="model.email" placeholder="Enter email">                            
         </span>
     </div>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
