@@ -1,6 +1,7 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { WindowRefService, DocumentRefService } from './globals.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable()
 export class WindowScrollService implements OnDestroy {
@@ -12,13 +13,18 @@ export class WindowScrollService implements OnDestroy {
   constructor(
     private winRef: WindowRefService,
     private documentRef: DocumentRefService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ){
-    this.refToBindedScrollHandler = this.scrollHandler.bind(this);
-    this.winRef.nativeWindow.addEventListener('scroll', this.refToBindedScrollHandler );    
+    if(isPlatformBrowser(this.platformId)){
+      this.refToBindedScrollHandler = this.scrollHandler.bind(this);
+      this.winRef.nativeWindow.addEventListener('scroll', this.refToBindedScrollHandler );    
+    }
   }
 
   ngOnDestroy(){
-    this.winRef.nativeWindow.removeEventListener('scroll', this.refToBindedScrollHandler);
+    if(isPlatformBrowser(this.platformId)){
+      this.winRef.nativeWindow.removeEventListener('scroll', this.refToBindedScrollHandler);
+    }
   }
 
   private scrollHandler(event){

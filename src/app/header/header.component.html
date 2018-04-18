@@ -1,5 +1,7 @@
 <app-hamburger-menu #menuBtn></app-hamburger-menu>
-<div class="logo"><h1>Enrique Oriol</h1></div>
+<a routerLink="/home" class="logo" ngx-scroll-to="hero-section">
+  <h1>Enrique Oriol</h1>
+</a>
 
 <nav>
   <ng-container *ngIf="!pageNotFoundService.active">
