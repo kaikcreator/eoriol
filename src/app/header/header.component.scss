@@ -1,17 +1,25 @@
 @import '~variables.scss';
 
+:host(.sticked){
+    position: fixed;
+    background-color: white;
+    z-index: 100;
+    margin-top: 0px;
+}
+
 :host{
     @media screen and (max-width: $break-large){
-        margin: space-units(4) $side-margin-medium 0 $side-margin-medium;
+        padding: 0 $side-margin-medium;
         width: calc(100% - 2*#{$side-margin-medium});                
     }
     @media screen and (max-width: $break-small){
-        margin: space-units(4) $side-margin-small 0 $side-margin-small;
+        padding: 0 $side-margin-small;
         width: calc(100% - 2*#{$side-margin-small});
     }
+    margin-top: space-units(4);
     position: absolute;
     width: calc(100% - 2*#{$side-margin});
-    margin: space-units(4) $side-margin 0 $side-margin;
+    padding: 0 $side-margin;
     display: flex;
     justify-content: flex-start;
     align-items: center;

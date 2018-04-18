@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from '@angular/c
 import { BookCoursesService } from '../services/book-courses.service';
 import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
-import { WindowRefService } from '../services/globals.service';
+import { WindowRefService, DocumentRefService } from '../services/globals.service';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
     public bookCourses: BookCoursesService,
     public blogPosts: BlogPostsService,
     private winRef: WindowRefService,
+    private documentRef: DocumentRefService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
     this.scrollOffsetMap = new Map();
@@ -40,9 +41,11 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
   @HostListener("window:scroll", [''])
   onWindowScroll() {
-    if(this.winRef.nativeWindow.scrollY > 225){
+    let currentScroll = this.winRef.nativeWindow.scrollY || this.documentRef.nativeDocument.documentElement.scrollTop;
+    if(currentScroll > 225){
       if(this.subscribeCTAWhite)
         this.subscribeCTAWhite = false;
     }
