@@ -5,9 +5,21 @@
     background-color: white;
     z-index: 100;
     margin-top: 0px;
+    top: 0px;
+}
+
+:host(.no-sticked){
+    position: fixed;
+    background-color: white;
+    z-index: 100;
+    margin-top: 0px;
+    top: -77px;
 }
 
 :host{
+    transition: top 0.2s ease-in-out;
+    top:0px;
+
     @media screen and (max-width: $break-large){
         padding: 0 $side-margin-medium;
         width: calc(100% - 2*#{$side-margin-medium});                

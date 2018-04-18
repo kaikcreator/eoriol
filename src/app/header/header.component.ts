@@ -4,6 +4,11 @@ import { PageNotFoundService } from '../page-not-found/page-not-found.service';
 import { WindowRefService, DocumentRefService } from '../services/globals.service';
 
 const SCROLL_THRESHOLD = 50;
+enum HeaderState {
+  initial, 
+  sticked,
+  noSticked
+}
 
 @Component({
   selector: 'app-header',
@@ -22,7 +27,8 @@ export class HeaderComponent implements OnInit {
   private initialMarginTop = 0;
   private previousScroll = 0;
   private deltaScroll = 0;
-  private headerSticked = false;
+  private headerState:HeaderState = HeaderState.initial;
+  
 
   constructor(
     public pageNotFoundService:PageNotFoundService,
@@ -46,64 +52,81 @@ export class HeaderComponent implements OnInit {
   @HostListener("window:scroll", ['$event'])
   onWindowScroll(event) {
     let currentScroll = this.winRef.nativeWindow.scrollY || this.documentRef.nativeDocument.documentElement.scrollTop;
-
-    //check scroll directions changes
+     
+    
+    //check scroll directions changes, reset delta scroll if needed
     let currentDelta = currentScroll - this.previousScroll;
     if(currentDelta * this.deltaScroll < 0){
-      //scroll direction has changed, reset delta scroll
       this.deltaScroll = 0;
     }
 
-    //scroll is DOWN
-    if(currentDelta > 0){      
-      if(this.headerSticked){
-        //if header is sticked, hide it in case delta scroll is over the threshold
-        this.deltaScroll += currentDelta;
-        if(this.deltaScroll > SCROLL_THRESHOLD){
-          //remove sticked header
-          this.unstickHeader();
-        }
+    //scrolling down
+    if(currentDelta > 0){ 
+      
+      switch (this.headerState) {
+
+        case HeaderState.sticked: //If delta scroll is over the threshold, move from sticked to no-sticked
+          this.deltaScroll += currentDelta;
+          if(this.deltaScroll > SCROLL_THRESHOLD){
+            //remove sticked header
+            this.renderer.removeClass(this.element.nativeElement, 'sticked');
+            this.renderer.addClass(this.element.nativeElement, 'no-sticked');
+            this.headerState = HeaderState.noSticked;
+          }
+          break;
+        
+        case HeaderState.initial: //Add sticked class
+          if(this.isOverInitialMarginTop(currentScroll)){
+            this.renderer.addClass(this.element.nativeElement, 'sticked');
+            this.headerState = HeaderState.sticked; 
+          }
+          break;
+
+      
+        default:
+          break;
       }
 
     }
 
-    //scroll is UP
+    //scrolling up
     else if(currentDelta < 0){
-      //check if header should be sticked (or not because it's arriving to his original position)
-      let shouldBeSticked = this.headerShouldBeSticked(currentScroll);
+      switch (this.headerState) {
 
-      if(! this.headerSticked && shouldBeSticked){
-        //if header is not sticked, show it in case delta scroll is over the threshold
-        this.deltaScroll += currentDelta;
-        if(this.deltaScroll < - SCROLL_THRESHOLD){
-          //stick header in top
-          this.stickHeader();
-         
-        }
-      }
-      else if(this.headerSticked && ! shouldBeSticked){
-        //if header is sticked, and it shouldn't, unstick it
-        this.unstickHeader();
-      }      
-
+        case HeaderState.noSticked: //Show it in case delta scroll is over the threshold
+          if(this.isOverInitialMarginTop(currentScroll)){
+            this.deltaScroll += currentDelta;
+            if(this.deltaScroll < - SCROLL_THRESHOLD){
+              this.renderer.removeClass(this.element.nativeElement, 'no-sticked');
+              this.renderer.addClass(this.element.nativeElement, 'sticked');
+              this.headerState = HeaderState.sticked; 
+            }
+          }
+          break;
+        
+        case HeaderState.sticked:
+          if(!this.isOverInitialMarginTop(currentScroll)){
+            this.renderer.removeClass(this.element.nativeElement, 'sticked');
+            this.headerState = HeaderState.initial; 
+          }
+          break;
+      
+        default:
+          break;
+      } 
     }
 
     //update scroll
     this.previousScroll = currentScroll;
   }
 
-  private headerShouldBeSticked(scroll){
+  private isOverInitialMarginTop(scroll){
+    console.log("scroll/initialMarginTop: ", scroll, this.initialMarginTop);
     return scroll > this.initialMarginTop;
   }
 
-  private stickHeader(){
-    this.renderer.addClass(this.element.nativeElement, 'sticked');
-    this.headerSticked = true; 
+  private isHiddenByScroll(scroll){
+    return scroll > (this.initialMarginTop + this.element.nativeElement.offsetHeight);
   }
-
-  private unstickHeader(){
-    this.renderer.removeClass(this.element.nativeElement, 'sticked');
-    this.headerSticked = false; 
-  }  
 
 }
