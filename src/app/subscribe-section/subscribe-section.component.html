@@ -7,11 +7,11 @@
     <div class="subscribe-inputs">
         <span>
             <label for="name">Your Name</label>
-            <input type="text" name="name" required [(ngModel)]="model.name" placeholder="Your name"> 
+            <input id="name" name="name" type="text" required [(ngModel)]="model.name" placeholder="Your name"> 
         </span>
         <span>
             <label for="email">Email</label>
-            <input #email="ngModel" type="email" name="email" email [(ngModel)]="model.email" placeholder="Enter email">                            
+            <input #email="ngModel" id="email" name="email" type="email" email [(ngModel)]="model.email" placeholder="Enter email">                            
         </span>
     </div>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->

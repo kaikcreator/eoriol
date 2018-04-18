@@ -108,10 +108,10 @@ input{
     box-sizing: border-box;   
     border: 1px solid $color-contact-borders;
     background-color: $color-white;
-    color: $color-input-text;
+    color: $color-secondary;
     font-family: $open-sans-font;
     &::placeholder{
-        color: $color-input-text;
+        color: $color-secondary;
     }
 
     &.ng-invalid.ng-dirty:not(:focus){
@@ -127,7 +127,7 @@ input{
 select{
     border: 1px solid $color-contact-borders;
     background-color: $color-white;
-    color: $color-input-text;
+    color: $color-secondary;
     font-family: $open-sans-font;
     text-indent: 15px;
 } 
@@ -137,10 +137,10 @@ textarea{
     border: 1px solid $color-contact-borders;
     resize: none;
     padding: 23px;
-    color: $color-input-text;
+    color: $color-secondary;
     font-family: $open-sans-font;
     &::placeholder{
-        color: $color-input-text;
+        color: $color-secondary;
     }
 }
 
