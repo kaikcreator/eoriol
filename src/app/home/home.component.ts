@@ -1,28 +1,30 @@
-import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject, OnDestroy } from '@angular/core';
 import { BookCoursesService } from '../services/book-courses.service';
 import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
-import { WindowRefService, DocumentRefService } from '../services/globals.service';
 import { isPlatformBrowser } from '@angular/common';
+import { WindowScrollService } from '../services/window-scroll.service';
+import { Subscription } from 'rxjs/Subscription';
+import { auditTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   public bookCourseItems:BookCourseModel[];
   public bookCoursesLimit:number = 3;
   public blogPostItems:any[];
   public scrollOffsetMap:Map<number, number>;
   public subscribeCTAWhite:boolean = true;
+  public scrollSubscription:Subscription = null;
 
   constructor(
     public bookCourses: BookCoursesService,
     public blogPosts: BlogPostsService,
-    private winRef: WindowRefService,
-    private documentRef: DocumentRefService,
+    private windowScroll: WindowScrollService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
     this.scrollOffsetMap = new Map();
@@ -39,20 +41,22 @@ export class HomeComponent implements OnInit {
     this.blogPosts.getItems(3).subscribe(list => {
       this.blogPostItems = list;
     })
+
+    /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
+    this.scrollSubscription = this.windowScroll.scroll$.pipe(auditTime(200)).subscribe((scroll)=>{
+      if(scroll > 225){
+        if(this.subscribeCTAWhite)
+          this.subscribeCTAWhite = false;
+      }
+      else{
+        if(!this.subscribeCTAWhite)
+          this.subscribeCTAWhite = true;
+      }
+    })
   }
 
-  /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
-  @HostListener("window:scroll", [''])
-  onWindowScroll() {
-    let currentScroll = this.winRef.nativeWindow.scrollY || this.documentRef.nativeDocument.documentElement.scrollTop;
-    if(currentScroll > 225){
-      if(this.subscribeCTAWhite)
-        this.subscribeCTAWhite = false;
-    }
-    else{
-      if(!this.subscribeCTAWhite)
-        this.subscribeCTAWhite = true;
-    }
+  ngOnDestroy(){
+    this.scrollSubscription.unsubscribe();
   }
 
 }

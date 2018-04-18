@@ -32,6 +32,7 @@ import { environment } from '../environments/environment';
 import { SubscribeSectionComponent } from './subscribe-section/subscribe-section.component';
 import { LQImgPlaceholderDirective } from './directives/lqimg-placeholder.directive';
 import { UniversalInterceptor } from './interceptors/universal-interceptor.service';
+import { WindowScrollService } from './services/window-scroll.service';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { UniversalInterceptor } from './interceptors/universal-interceptor.servi
     DocumentRefService,
     WordpressService,
     MailchimpService,
+    WindowScrollService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: UniversalInterceptor,
