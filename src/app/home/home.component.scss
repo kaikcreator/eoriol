@@ -346,8 +346,17 @@ app-subscribe-cta{
     .cards{
         display: flex;
         width: 100%;
-        justify-content: space-around;//in case space-evenly is not supported
-        justify-content: space-evenly;
+        
+        //trick to simulate justify-content:space-evenly (as it is not widely supported)
+        justify-content: space-around;
+        @media screen and (min-width: $break-large){
+            &:before, &:after {
+                content: '';
+                display: block;
+            }
+        }
+        //end trick        
+
         flex-wrap: wrap;
 
         @media screen and (max-width: $break-xtra-large){
