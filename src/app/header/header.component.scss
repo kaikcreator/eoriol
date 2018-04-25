@@ -21,9 +21,6 @@ $header-height: 77px;
 }
 
 :host{
-    transition: top 0.2s ease-in-out;
-    top:0px;
-
     @media screen and (max-width: $break-large){
         padding: 0 $side-margin-medium;
         width: calc(100% - 2*#{$side-margin-medium});                
@@ -32,9 +29,12 @@ $header-height: 77px;
         padding: 0 $side-margin-small;
         width: calc(100% - 2*#{$side-margin-small});
     }
+    transition: top 0.2s ease-in-out;    
+    width: calc(100% - 2*#{$side-margin});
+    max-width: calc(#{$break-xxl} - 2*#{$side-margin});    
     margin-top: space-units(4);
     position: absolute;
-    width: calc(100% - 2*#{$side-margin});
+    top:0px;
     padding: 0 $side-margin;
     display: flex;
     justify-content: flex-start;
