@@ -1,0 +1,17 @@
+<div class="review">
+  <div class="review-header">
+    <app-review-avatar
+    class="review-header-avatar"
+    image="{{review.user_img_50x50}}"
+    name="{{review.user}}">
+    </app-review-avatar>
+    <span class="review-header-name">{{review.user}}</span>
+    <app-review-rating 
+    class="review-header-rating"
+    rating="{{review.rating}}">
+    </app-review-rating>
+  </div>
+  <div class="review-message">
+    {{review.content}}
+  </div>
+</div>
