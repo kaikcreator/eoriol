@@ -5,8 +5,8 @@
 <div *ngIf="open" class="subscribe-cta-form-container" @fadeInOut>
   <form *ngIf="!success" #mailchimpForm="ngForm" (ngSubmit)="subscribe()" id="subscribe-cta-form" name="subscribe-cta-form"><!--  target="_blank" novalidate -->
       <h2>Enter your email and never miss any content.</h2>
-      <input #email="ngModel" email type="email" placeholder="email" name="email" [(ngModel)]="model.email">
-      <input type="text" placeholder="name" name="name" [(ngModel)]="model.name" required>
+      <input #email="ngModel" email type="email" placeholder="email" name="email" [(ngModel)]="model.email" autocomplete="email">
+      <input type="text" placeholder="name" name="name" [(ngModel)]="model.name" required autocomplete="name">
 
       <div class="subscribe-cta-form-error">
         <div class="response" *ngIf="error" [innerHTML]="error"></div>
@@ -14,7 +14,7 @@
 
       <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
       <div style="position: absolute; left: -5000px;" aria-hidden="true">
-        <input type="text" name="whoareyou" tabindex="-1" value="" [(ngModel)]="botDetector">
+        <input type="text" name="whoareyou" tabindex="-1" value="" [(ngModel)]="botDetector" autocomplete="off">
       </div>
       <button type="submit" id="subscribe-cta-form-button" [disabled]="!email.valid || !model.name">Subscribe</button>
   </form>

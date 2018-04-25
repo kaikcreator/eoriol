@@ -9,12 +9,17 @@ button{
         width: 17px;
         height: 12px;        
     }
+
     width: 33px;
     height: 23px;    
     position: relative;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
     cursor: pointer;
+
+    &:focus{
+        outline: none;
+    }
     
     span{
         @media screen and (max-width: $break-small){

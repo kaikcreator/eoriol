@@ -7,16 +7,16 @@
     <div class="subscribe-inputs">
         <span>
             <label for="subscribe-name">Your Name</label>
-            <input id="subscribe-name" name="name" type="text" required [(ngModel)]="model.name" placeholder="Your name"> 
+            <input id="subscribe-name" name="name" type="text" required [(ngModel)]="model.name" placeholder="Your name" autocomplete="name"> 
         </span>
         <span>
             <label for="subscribe-email">Email</label>
-            <input #email="ngModel" id="subscribe-email" name="email" type="email" email [(ngModel)]="model.email" placeholder="Enter email">                            
+            <input #email="ngModel" id="subscribe-email" name="email" type="email" email [(ngModel)]="model.email" placeholder="Enter email" autocomplete="email">                            
         </span>
     </div>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true">
-        <input type="text" name="whoareyou" tabindex="-1" value="" [(ngModel)]="botDetector">
+        <input type="text" name="whoareyou" tabindex="-1" value="" [(ngModel)]="botDetector" autocomplete="off">
     </div>                        
     <button type="submit">Subscribe</button>
     <div class="subscribe-error">

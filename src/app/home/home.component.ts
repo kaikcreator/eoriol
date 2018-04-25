@@ -56,7 +56,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.scrollSubscription.unsubscribe();
+    if(this.scrollSubscription)
+      this.scrollSubscription.unsubscribe();
   }
 
 }
