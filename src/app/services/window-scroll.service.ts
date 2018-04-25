@@ -1,10 +1,11 @@
-import { Injectable, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { WindowRefService, DocumentRefService } from './globals.service';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { isPlatformBrowser } from '@angular/common';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { Observable } from 'rxjs/Observable';
 import { tap, filter, map, share } from 'rxjs/operators';
+
+const DEBOUNCE_MAX_COUNT = 15;
 
 @Injectable()
 export class WindowScrollService {
@@ -20,11 +21,11 @@ export class WindowScrollService {
     if(isPlatformBrowser(this.platformId)){
       this.scroll$ = fromEvent(this.winRef.nativeWindow, 'scroll').pipe(
         tap(event => this.debounceCounter++),
-        filter(event => this.debounceCounter == 10),
-        tap(event => this.debounceCounter = 0),
         map(event =>{
           return this.winRef.nativeWindow.scrollY || this.documentRef.nativeDocument.documentElement.scrollTop;
         }),
+        filter(scroll => this.debounceCounter >= DEBOUNCE_MAX_COUNT || scroll == 0),
+        tap(scroll => this.debounceCounter = 0),        
         share());
     }
   }
