@@ -5,12 +5,11 @@ $background-color-transition: 0.4s;
 
 @mixin before-header{
     content: "";
-    background-color: white;
     height: space-units(4);
     top: -  space-units(4);
-    width: 100%;
     position: absolute;
-    background-color: 0.2s ease-in-out;
+    width: calc(100% - #{$side-margin});
+    background-color: white;
     transition: background-color $background-color-transition ease-in-out;
 }
 
