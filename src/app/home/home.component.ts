@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
 
     /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
-    this.scrollSubscription = this.windowScroll.scroll$.pipe(auditTime(200)).subscribe((scroll)=>{
+    this.scrollSubscription = this.windowScroll.scroll$.subscribe((scroll)=>{
       if(scroll > 225){
         if(this.subscribeCTAWhite)
           this.subscribeCTAWhite = false;

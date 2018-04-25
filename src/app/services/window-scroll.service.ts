@@ -5,7 +5,7 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { Observable } from 'rxjs/Observable';
 import { tap, filter, map, share } from 'rxjs/operators';
 
-const DEBOUNCE_MAX_COUNT = 15;
+const DEBOUNCE_MAX_COUNT = 12;
 
 @Injectable()
 export class WindowScrollService {

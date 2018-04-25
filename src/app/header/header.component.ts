@@ -142,9 +142,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         default:
           break;
       } 
-    }
-
-    console.log(currentScroll);    
+    } 
   }
 
   private isOverInitialMarginTop(scroll){
