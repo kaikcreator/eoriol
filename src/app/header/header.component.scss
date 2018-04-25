@@ -20,6 +20,10 @@ $header-height: 77px;
     top: - $header-height;
 }
 
+:host(.no-transition){
+    transition: none !important;
+}
+
 :host{
     @media screen and (max-width: $break-large){
         padding: 0 $side-margin-medium;

@@ -1,9 +1,8 @@
 import { Component, OnInit, HostListener, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition, query, animateChild } from '@angular/animations';
 import { PageNotFoundService } from '../page-not-found/page-not-found.service';
-import { WindowRefService } from '../services/globals.service';
 import { WindowScrollService } from '../services/window-scroll.service';
-import { auditTime } from 'rxjs/operators';
+import { pairwise } from 'rxjs/operators';
 import { Subscription } from 'rxjs/Subscription';
 
 const STICK_THRESHOLD = 50;
@@ -30,24 +29,20 @@ enum HeaderState {
 export class HeaderComponent implements OnInit, OnDestroy {
 
   //properties to handle stick to top feature
-  private initialMarginTop = 0;
-  private previousScroll = 0;
-  private currentScroll = 0;
+  private initialTop = 0;
   private deltaScroll = 0;
   public scrollSubscription:Subscription = null;
   private headerState:HeaderState = HeaderState.initial;
   
 
   constructor(
-    public pageNotFoundService:PageNotFoundService,
+    public pageNotFoundService:PageNotFoundService,/* used from template */
     private element: ElementRef,
-    private winRef: WindowRefService,
     private renderer:Renderer2,
     private windowScroll: WindowScrollService
   ) {
     try{
-      let computedStyles = this.winRef.nativeWindow.getComputedStyle(this.element.nativeElement);
-      this.initialMarginTop = Number(computedStyles.marginTop.split("px")[0]);
+      this.initialTop = this.element.nativeElement.getBoundingClientRect().top;
     }catch(e){
       //no margin Top value found
     }
@@ -55,7 +50,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.scrollSubscription = this.windowScroll.scroll$
-    .pipe(auditTime(20))
+    .pipe(
+      pairwise())
     .subscribe(this.handleStickyHeader.bind(this));
   }
 
@@ -66,10 +62,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   /** Scroll event listener, in order to stick header to top and hide/show on scroll */
   
-  private handleStickyHeader(scroll){
-    this.currentScroll = scroll;
+  private handleStickyHeader([oldScroll, currentScroll]){
+
     //check scroll directions changes. Reset delta scroll if needed
-    let currentDelta = this.currentScroll - this.previousScroll;
+    let currentDelta = currentScroll - oldScroll;
     if(currentDelta * this.deltaScroll < 0){
       this.deltaScroll = 0;
     }
@@ -81,12 +77,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
       switch (this.headerState) {
 
         case HeaderState.initial: //Add sticked class
-          if(this.isOverInitialMarginTop()){
-            if(!this.isHiddenByScroll()){
+          if(this.isOverInitialMarginTop(currentScroll)){
+            if(!this.isHiddenByScroll(currentScroll)){
               this.renderer.addClass(this.element.nativeElement, 'sticked');
               this.headerState = HeaderState.sticked;
             }
             else{
+              this.renderer.addClass(this.element.nativeElement, 'no-transition');
+              setTimeout(
+                ()=>{this.renderer.removeClass(this.element.nativeElement, 'no-transition');}, 
+              100);
               this.renderer.addClass(this.element.nativeElement, 'no-sticked');
               this.headerState = HeaderState.noSticked;              
             }
@@ -119,7 +119,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         case HeaderState.initial: //This case should never happen
         case HeaderState.noSticked: //Show it in case delta scroll is over the threshold
           if(this.deltaScroll < - STICK_THRESHOLD){
-            if(this.isOverInitialMarginTop()){
+            if(this.isOverInitialMarginTop(currentScroll)){
               this.renderer.removeClass(this.element.nativeElement, 'no-sticked');
               this.renderer.addClass(this.element.nativeElement, 'sticked');
               this.headerState = HeaderState.sticked; 
@@ -133,7 +133,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           break;
         
         case HeaderState.sticked:
-          if(!this.isOverInitialMarginTop()){
+          if(!this.isOverInitialMarginTop(currentScroll)){
             this.renderer.removeClass(this.element.nativeElement, 'sticked');
             this.headerState = HeaderState.initial; 
           }
@@ -144,16 +144,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
       } 
     }
 
-    //update previous scroll
-    this.previousScroll = this.currentScroll;
+    console.log(currentScroll);    
   }
 
-  private isOverInitialMarginTop(){
-    return this.currentScroll > this.initialMarginTop;
+  private isOverInitialMarginTop(scroll){
+    return scroll > this.initialTop;
   }
 
-  private isHiddenByScroll(){
-    return this.currentScroll > (this.initialMarginTop + this.element.nativeElement.offsetHeight);
+  private isHiddenByScroll(scroll){
+    return scroll > (this.initialTop + this.element.nativeElement.offsetHeight);
   }
 
 }
