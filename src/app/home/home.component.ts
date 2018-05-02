@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, PLATFORM_ID, Inject, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject, OnDestroy, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { BookCoursesService } from '../services/book-courses.service';
 import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
@@ -6,6 +6,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { WindowScrollService } from '../services/window-scroll.service';
 import { Subscription } from 'rxjs/Subscription';
 import { auditTime } from 'rxjs/operators';
+import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
+import { BookCardComponent } from '../book-card/book-card.component';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,8 @@ import { auditTime } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+
+  @ViewChildren(BookCardComponent, {read: ElementRef}) bookCardElements: QueryList<ElementRef>;
 
   public bookCourseItems:BookCourseModel[];
   public bookCoursesLimit:number = 3;
@@ -25,6 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     public bookCourses: BookCoursesService,
     public blogPosts: BlogPostsService,
     private windowScroll: WindowScrollService,
+    private scrollTo: ScrollToService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
     this.scrollOffsetMap = new Map();
@@ -58,6 +63,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     if(this.scrollSubscription)
       this.scrollSubscription.unsubscribe();
+  }
+
+  onBookCourseCardExpand(expands:boolean, index){
+
+    let expandedElement = this.bookCardElements.find((el, position)=>{
+      return position == index; 
+    });
+
+    setTimeout(()=>{
+      this.scrollTo.scrollTo({offset:expandedElement.nativeElement.getBoundingClientRect().top});
+    }, 300);
   }
 
 }

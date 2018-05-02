@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BookCourseModel } from '../models/book-course.model';
 import { trigger, transition, state, animate, style } from '@angular/animations';
 
@@ -14,13 +14,13 @@ import { trigger, transition, state, animate, style } from '@angular/animations'
         'height': '0'
       })),
       transition(':enter', [
-        animate('300ms ease-in', style({
+        animate('200ms ease-in', style({
           'width': '*',
           'height': '*'
         }))
       ]),
       transition(':leave', [
-        animate('300ms ease-out', style({
+        animate('200ms ease-out', style({
           'width': '0',
           'height': '0'
         }))
@@ -31,9 +31,16 @@ import { trigger, transition, state, animate, style } from '@angular/animations'
 export class BookCardComponent implements OnInit {
 
   @Input() item: BookCourseModel;
+  @Output() expand:EventEmitter<boolean> = new EventEmitter<boolean>();
+  public showReviews:boolean = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onReviewsBtnClick(){
+    this.showReviews =! this.showReviews;
+    this.expand.emit(this.showReviews);
   }
 
 }
