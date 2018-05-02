@@ -3,7 +3,7 @@ import { WindowRefService } from '../services/globals.service';
 
 @Component({
   selector: 'app-blog-card',
-  host: {'class': 'card', "[attr.tabindex]": "0"},
+  host: {'class': 'card card-content', "[attr.tabindex]": "0"},
   templateUrl: './blog-card.component.html',
   styleUrls: ['./blog-card.component.scss']
 })

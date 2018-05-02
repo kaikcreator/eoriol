@@ -1,5 +1,22 @@
 @import '~variables.scss';
 
+
+.card-reviews{
+    max-height: 620px;
+    overflow-y: scroll;
+    @media screen and (max-width: $break-card-row){
+        max-height: 360px;
+    }
+    @media screen and (min-width: $break-card-row) {
+        max-width: 380px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    @media screen and (max-width: $break-small - 1){
+        width: 349px;
+    } 
+}
+
 .content{
     margin-bottom:38px;
 }
