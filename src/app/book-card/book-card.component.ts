@@ -2,6 +2,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BookCourseModel } from '../models/book-course.model';
 import { trigger, transition, state, animate, style } from '@angular/animations';
 
+enum REWIEWS_BTN_STATE {
+  shown = 'Hide reviews',
+  hidden = 'See reviews'
+}
+
 @Component({
   selector: 'app-book-card',
   host: {'class': 'card expandable-card'},
@@ -33,6 +38,7 @@ export class BookCardComponent implements OnInit {
   @Input() item: BookCourseModel;
   @Output() expand:EventEmitter<boolean> = new EventEmitter<boolean>();
   public showReviews:boolean = false;
+  public reviewsBtnLabel = REWIEWS_BTN_STATE.hidden;
   constructor() { }
 
   ngOnInit() {
@@ -40,6 +46,7 @@ export class BookCardComponent implements OnInit {
 
   onReviewsBtnClick(){
     this.showReviews =! this.showReviews;
+    this.reviewsBtnLabel = this.showReviews ?  REWIEWS_BTN_STATE.shown : REWIEWS_BTN_STATE.hidden;
     this.expand.emit(this.showReviews);
   }
 

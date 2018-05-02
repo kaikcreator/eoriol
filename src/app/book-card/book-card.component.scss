@@ -14,7 +14,18 @@
     }
     @media screen and (max-width: $break-small - 1){
         width: 349px;
-    } 
+    }
+    
+    hr{
+        margin-left: 30px;
+        margin-right: 30px;
+        border: 0;
+        border-top: 1px solid $color-review-hr;
+
+        &:last-of-type{
+            display: none;
+        }
+    }
 }
 
 .content{
