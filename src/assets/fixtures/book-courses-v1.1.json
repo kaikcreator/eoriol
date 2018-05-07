@@ -1,0 +1,312 @@
+[
+    {
+        "image":"assets/fixtures/ES6-book.png",
+        "type":"Book",
+        "lang":"Spanish",
+        "title":"Aprende ES6, guía práctica",
+        "description":"Guía práctica con las principales novedades de ES6, con ejemplos de código, para profundizar a tu ritmo.",
+        "price":"",
+        "old_price":"",
+        "link":"https://blog.enriqueoriol.com/2016/05/aprende-es6-guia-practica.html",
+        "reviews":[]
+    },
+    {
+        "image":"assets/fixtures/angularPRO-course.png",
+        "type":"Course",
+        "lang":"Spanish",
+        "title":"Componentes Angular nivel PRO",
+        "description":"Domina los componentes de Angular (v2/4/5+) como un PRO y crea componentes técnicamente brillantes.",
+        "price":"23 €",
+        "old_price":"110 €",
+        "link":"https://www.udemy.com/componentes-angular-pro/?couponCode=BLOGREADER",
+        "reviews":[
+            {
+                "user": "Leonardo Jose R Ruiz Sanchez",
+                "content": "Super interesante, las nuevas cosas que puedes aprender cada dia.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Miguel Angel Leyva Guadalupe",
+                "content": "Buen curso, tiene cierta complejidad en sus ejercicios, me ayudo a reforzar mis conocimientos de angular.",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/893236_8a77_3.jpg"
+            },
+            {
+                "user": "María Barona Andrade",
+                "content": "Muy bien explicado y organizado el contenido. Muy condensado pero muy completo al mismo tiempo.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Francisco Gonzalez",
+                "content": "Curso bastante completo y que profundiza en el funcionamiento de los elementos de angular. Buen instructor y que se nota que sabe de lo que habla",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Alex Fuentes",
+                "content": "De los muchos cursos que he realizado de Angular este es, sin duda, el más claro, aplicable, avanzado y esclarecedor... ¡súper satisfecho!",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/255425_d3f9_2.jpg"
+            },
+            {
+                "user": "Alberto García Álvarez",
+                "content": "Es magnifica la explicación, quizás algún detalle de arquitectura de los componentes para completar la visión del desarrollo del tema que se realiza. Incluso como material de referencia, dado que la extension de la explicación se debe limitar lógicamente a los 5/6 minutos para no perder el gancho de la explicación. Pero no te equivoques, es un curso FANTASTICO, muy bien estructurado, con un hilo conductor que te hace crecer en conocimiento y habilidades. Sin duda es una inversión esplendida de tiempo el seguirla. El instructor es un excelente conocedor del tema e instructor. Gracias.",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/45877696_8611.jpg"
+            },
+            {
+                "user": "David Josué García",
+                "content": "Excelente curso, me ha ayudado a comprender varias cosas que antes no entendía sobre el framework, además de aprender buenas prácticas, lo recomiendo bastante. Se nota que el instructor conoce bastante sobre el tema, espero su siguiente curso, si es posible me gustaria que hiciera un curso sobre arquitectura flux usando redux y angular, eso seria genial.",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/8697846_b6c8.jpg"
+            },
+            {
+                "user": "Oscar Jorge Castillo",
+                "content": "Excelente, vídeos cortos pero densos, sin paja. Absoluto dominio de la materia.",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/26032384_e63e.jpg"
+            },
+            {
+                "user": "Ezequiel Martín",
+                "content": "Ahora gracias a este curso aprendi mucho y ahora por fin voy a poder usar los componentes como corresponden y como queria en realidad que funcionen :) Muchisimas gracias me encanto",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/34693110_5e0d.jpg"
+            },
+            {
+                "user": "Miguel Angel Garcia Chavez",
+                "content": "Es una pasada de curso. Conceptos tecnicos que realmente buscaba a gritos en algun tipo de curso especializado. Muy buena explicacion de los temas y puntos a tratar. Si quieres hacer algo con un nivel mas profesional, este es el curso que buscas.",
+                "rating": 5,
+                "user_img_50x50": ""
+            }                                                          
+        ]
+    },
+    {
+        "image":"assets/fixtures/ionic3-course.png",
+        "type":"Course",
+        "lang":"Spanish",
+        "title":"Aprende Ionic 3 desde cero",
+        "description":"Aprende rápido a desarrollar apps para Android y iOS partiendo de cero con metodología learning-by-doing.",
+        "price":"35 €",
+        "old_price":"195 €",
+        "link":"https://www.udemy.com/aprende-ionic-2-desde-cero/?couponCode=SOCRAZY",
+        "reviews":[
+            {
+                "user": "Carlos Galindo Sanchez",
+                "content": "Es muy bien explicado y respondio a las preguntas que los demas compañeros hicieron de una buena manera",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/27231326_f95c.jpg"
+            },
+            {
+                "user": "Gustavo Rincon",
+                "content": "Un curso bastante interesante para las personas que nos apasiona el desarrollo movil hibrido donde se aprenden muchas bases para realizar nuevos desarrollos",
+                "rating": 5,
+                "user_img_50x50": ""
+            },  
+            {
+                "user": "Alejandro Godoy",
+                "content": "excelente curso",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Noé Sánchez Guevara",
+                "content": "Curso muy completo para entender el funcionamiento y empezar a trabajar con ionic. Los ejercicios de ejemplo que ejecuta son un buen punto de partida para realizar aplicaciones propias ya que enseña las bases. A titulo personal me hubiera gustado una explicación más lenta/gráfica de como se comunica cada fichero usado en ionic, aunque esto ver un par de veces el vídeo donde lo explica se entiende perfectamente.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },  
+            {
+                "user": "Osvaldo Mendez",
+                "content": "explica bien las tres plataformas en las que se puede instalar Ionic",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Alejandro Lopez Stanley",
+                "content": "Todo 10 puntos",
+                "rating": 5,
+                "user_img_50x50": ""
+            },  
+            {
+                "user": "Sergio Marquez",
+                "content": "Excelente. Muy buen curso de iniciación a Ionic 2-3. Muy bien explicado y con muchos tips. Creación de la applicación base del curso siguiendo buenas prácticas.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Alberto Lahuerta Navarro",
+                "content": "Directo y claro",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Carlos Pertierra",
+                "content": "MUY BIEN EXPLCADO",
+                "rating": 5,
+                "user_img_50x50": ""
+            },  
+            {
+                "user": "Ingeneo S.A.S",
+                "content": "Gran explicación.",
+                "rating": 5,
+                "user_img_50x50": ""
+            }                                                          
+        ]
+    },
+    {
+        "image":"assets/fixtures/angularPRO-course.png",
+        "type":"Course",
+        "lang":"English",
+        "title":"Angular Components - like a PRO!",
+        "description":"Master the Angular (v2/4/5+) Components like a PRO to create technically brilliant components",
+        "price":"23 €",
+        "old_price":"125 €",
+        "link":"https://www.udemy.com/angular-components-like-a-pro/?couponCode=BLOGREADER",
+        "reviews":[
+            {
+                "user": "Chris Cassella",
+                "content": "Excellent course! Very detailed and the material was well covered.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Augustin Calin",
+                "content": "Definitely not for the beginners but very enlightening. You will not suddenly become an expert but this tutorial will give you a very solid starting point. You will learn also not only how to create components but also: why a stateless component is better, what is Shadow DOM, change detection. A must see.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Roland",
+                "content": "I'm learning a lot, very complex stuff explained easily.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Jhon El.",
+                "content": "Very good and advanced tips. Not a generic course, it's mainly focused on components. I love it!",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Richard Moore",
+                "content": "A very interesting course, it fitted my needs perfectly, would recommend it to students looking for more information on advanced Angular coding. The tutor does talk very fast, had to rewind a few times to re-listen.",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/4207294_4adc.jpg"
+            },
+            {
+                "user": "Keerthi Prakash R",
+                "content": "Fully hands on course. Good learning for real angular hands on. Can be improved, by providing the design consideration aspects like, what concepts to be applied in which scenarios.",
+                "rating": 4,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Goureige",
+                "content": "Good Explication",
+                "rating": 4,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Yassine Msiah",
+                "content": "So Good So Far I'm Looking Forward To Finish This Course :D",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Mike",
+                "content": "What I've seen until now is excellent material. High level on content and explanations. I'm learning a lot.",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Perry Biava",
+                "content": "The instructor is a little difficult to understand. But, his instruction is excellent. This course will enable you to learn some very advanced technology. I am learning a lot from this course.",
+                "rating": 5,
+                "user_img_50x50": ""
+            }                       
+        ]
+    },    
+    {
+        "image":"assets/fixtures/componentes-angular-101.jpg",
+        "type":"Course",
+        "lang":"Spanish",
+        "title":"Componentes en Angular - 101",
+        "description":"Intro a los componentes de Angular (2/4/5+) por learning-by-doing: aprende bindings, eventos, template ref. variables y más",
+        "price":"",
+        "old_price":"",
+        "link":"https://www.udemy.com/componentes-angular-101",
+        "reviews":[
+            {
+                "user": "Melvin Masis Leandro",
+                "content": "Muy buen curso, bien explicado",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Nacho",
+                "content": "Breve e intensa muestra de comunicación entre componentes. Recomendable.",
+                "rating": 5,
+                "user_img_50x50": ""
+            }, 
+            {
+                "user": "Libardo Corrales Diaz",
+                "content": "Concreto y facil de seguir.",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/534542_d910.jpg"
+            },
+            {
+                "user": "Miguel Angel Poma Hinostroza",
+                "content": "Muy bien explicado.",
+                "rating": 5,
+                "user_img_50x50": ""
+            }, 
+            {
+                "user": "Josué Nissi",
+                "content": "Excelente curso para in iniciar con componentes",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Carlos Barrera",
+                "content": "Muy buen tutorial Gracias por compartir esta información !!",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/20082966_64b1.jpg"
+            }, 
+            {
+                "user": "Santiago Torres",
+                "content": "Ahora entiendo mejor como se relacionan internamente los componentes de angular",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/648893_1e1d_2.jpg"
+            },
+            {
+                "user": "Noemi",
+                "content": "Me ha gustado mucho. No es mucho contenido, lógicamente es una muestra para que te hagas una idea de que puedes aprender en el curso completo. Lo que explica tiene sentido y transmite seguridad de que vas a aprender las cosas bien. Gracias",
+                "rating": 5,
+                "user_img_50x50": ""
+            },
+            {
+                "user": "Juanma Caballero",
+                "content": "por lo bien explicado que esta",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/37161136_3b32.jpg"
+            },
+            {
+                "user": "Lautaro Riveiro",
+                "content": "Excelente. Sabe mucho. Muchas gracias por compartir!",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/8667452_a2ae.jpg"
+            }            
+        ]
+    },    
+    {
+        "image":"assets/fixtures/ionic1-course.jpeg",
+        "type":"Course",
+        "lang":"Spanish",
+        "title":"App desde 0 con Ionic Framework",
+        "description":"Aprende a desarrollar apps multiplataforma con Ionic Framework (v1) siguiendo una metodología de learning-by-doing.",
+        "price":"",
+        "old_price":"",
+        "link":"https://blog.enriqueoriol.com/ionic-course",
+        "reviews":[]
+    }    
+]
