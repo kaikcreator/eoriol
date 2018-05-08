@@ -1,0 +1,28 @@
+@import '~variables.scss';
+
+:host{
+    display: inline-block;
+}
+
+.review-rating{
+    &-stars-container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-stars{
+        width: 11px;
+        height: 11px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url('/assets/icons/red-star.png');
+    }
+
+    &-text{
+        color: $color-primary;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 8px;
+    }
+}

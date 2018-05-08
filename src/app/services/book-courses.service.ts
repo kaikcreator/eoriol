@@ -11,7 +11,7 @@ export class BookCoursesService{
   }
 
   getItems():Observable<BookCourseModel[]>{
-    return this.http.get<any[]>(`${environment.apiUrl}/book-courses.json`);
+    return this.http.get<any[]>(`${environment.apiUrl}/book-courses-v1.1.json`);
   }
 
 }

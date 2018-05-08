@@ -1,7 +1,8 @@
 export class ReviewModel {
     constructor(
-        public userName:string,
-        public rating:number,
-        public review:string
+        public user:string ="",
+        public content:string ="",
+        public rating:number=5,
+        public user_img_50x50:string = ""
     ){}
 }

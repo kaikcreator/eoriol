@@ -144,36 +144,17 @@ textarea{
     }
 }
 
-.card{
-    @media screen and (max-width: $break-small){
-        margin-top: 36px;
-        &:first-child{
-            margin-top: 50px;
-        }
-    }
 
+
+.card-content{
     @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
-        min-width: 520px;
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
+        width: 100%;
         flex-direction: row;
-
-        &:not(:first-child){
-            margin-top: 60px;
-        }
-    }
-    margin-top: 100px;
+    } 
     display: flex;
     flex-direction: column;
-    width: 349px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.09);
-    background-color: $color-white;    
-
-    &:hover{
-        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.19);
-    }
-
+    width: 349px;  
+    
     .content{
         display: flex;
         flex-direction: column;
@@ -219,5 +200,41 @@ textarea{
         font-size: 18px;
         letter-spacing: -0.25px;
         margin-bottom: 16px;
+    }    
+}
+
+.card{
+    @media screen and (max-width: $break-small){
+        margin-top: 36px;
+        &:first-child{
+            margin-top: 50px;
+        }
     }
+
+    @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
+        min-width: 520px;
+        margin-left: 10%;
+        margin-right: 10%;   
+        width: 80%;     
+        &:not(:first-child){
+            margin-top: 60px;
+        }
+    }
+    margin-top: 100px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.09);
+    background-color: $color-white;    
+
+    &:hover{
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.19);
+    }
+
+}
+
+.expandable-card{
+    display: flex;
+    flex-direction: row !important;
+    @media screen and (max-width: $break-card-row) {
+        flex-direction: column !important;
+    }
+  
 }

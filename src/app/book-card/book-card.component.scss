@@ -1,5 +1,33 @@
 @import '~variables.scss';
 
+
+.card-reviews{
+    max-height: 620px;
+    overflow-y: scroll;
+    @media screen and (max-width: $break-card-row){
+        max-height: 360px;
+    }
+    @media screen and (min-width: $break-card-row) {
+        max-width: 380px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    @media screen and (max-width: $break-small - 1){
+        width: 349px;
+    }
+    
+    hr{
+        margin-left: 30px;
+        margin-right: 30px;
+        border: 0;
+        border-top: 1px solid $color-review-hr;
+
+        &:last-of-type{
+            display: none;
+        }
+    }
+}
+
 .content{
     margin-bottom:38px;
 }

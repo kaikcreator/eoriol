@@ -1,0 +1,42 @@
+@import '~variables.scss';
+
+.review{
+    display: flex;
+    min-width: 280px;
+    padding: 39px 30px;
+    
+    flex-direction: column;
+
+    &-header{
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+
+        &-avatar{
+            height: 35px;
+            width: 35px;
+            min-width: 35px;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        &-name{
+            padding-left: 14px;
+            flex-grow: 2;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: -0.15px;            
+        }
+        &-rating{
+            width: 90px;
+        }
+    }
+
+    &-message{
+        margin-top: 32px;
+        color: $color-secondary;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 23px;
+    }
+}

@@ -1,0 +1,18 @@
+@import '~variables.scss';
+
+.review-avatar{
+    &-letter-container{
+        background-color: #ffd285;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-letter{
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}

@@ -33,6 +33,9 @@ import { SubscribeSectionComponent } from './subscribe-section/subscribe-section
 import { LQImgPlaceholderDirective } from './directives/lqimg-placeholder.directive';
 import { UniversalInterceptor } from './interceptors/universal-interceptor.service';
 import { WindowScrollService } from './services/window-scroll.service';
+import { ReviewComponent } from './review/review.component';
+import { ReviewRatingComponent } from './review-rating/review-rating.component';
+import { ReviewAvatarComponent } from './review-avatar/review-avatar.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { WindowScrollService } from './services/window-scroll.service';
     SubscribeCtaComponent,
     ActionButtonComponent,
     SubscribeSectionComponent,
-    LQImgPlaceholderDirective
+    LQImgPlaceholderDirective,
+    ReviewComponent,
+    ReviewRatingComponent,
+    ReviewAvatarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),
