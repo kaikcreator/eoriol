@@ -1,0 +1,42 @@
+@import '~variables.scss';
+
+:host{
+    width: calc(100% - 2*90px);
+    max-width: calc(1760px - 2*90px);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sub-header{
+    padding-top: 190px;
+
+    h1{
+        padding-left: 94px;
+    }
+
+    hr{
+        position: absolute;
+        left: 0;
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #dfdfdf;
+        width: 100%;
+        padding: 0;
+    }
+    
+}
+
+.cards{
+    display: flex;
+    width: 100%;   
+    justify-content: space-around; 
+
+    flex-wrap: wrap;
+
+    .card{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
