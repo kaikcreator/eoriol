@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { auditTime } from 'rxjs/operators';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { BookCardComponent } from '../book-card/book-card.component';
+import { WindowRefService, DocumentRefService } from '../services/globals.service';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     public blogPosts: BlogPostsService,
     private windowScroll: WindowScrollService,
     private scrollTo: ScrollToService,
+    private winRef: WindowRefService,
+    private docRef: DocumentRefService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
     this.scrollOffsetMap = new Map();
@@ -71,8 +74,19 @@ export class HomeComponent implements OnInit, OnDestroy {
       return position == index; 
     });
 
+    let offset = 0;
+
+    let windowsWidth = this.docRef.nativeDocument.body.clientWidth || this.docRef.nativeDocument.documentElement.clientWidth || this.winRef.nativeWindow.innerWidth;
+
+    if(windowsWidth >= 600){
+      offset = -100;
+    }
+    else{
+      offset = expands ? 350 : -60;
+    }
+
     setTimeout(()=>{
-      this.scrollTo.scrollTo({offset:expandedElement.nativeElement.getBoundingClientRect().top});
+      this.scrollTo.scrollTo({offset:expandedElement.nativeElement.getBoundingClientRect().top + offset});
     }, 300);
   }
 
