@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { MailchimpProfileModel, MailchimpSubscriptionResults } from '../models/mailchimp.model';
 import { MailchimpService } from '../services/mailchimp.service';
+import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-subscribe-mobile',
@@ -14,9 +16,21 @@ export class SubscribeMobileComponent implements OnInit {
   public error = "";
   public success = "";
 
-  constructor(private mailchimp:MailchimpService) { }
+  constructor( 
+    private mailchimp:MailchimpService, 
+    private scrollTo:ScrollToService, 
+    private element: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ){ }
 
   ngOnInit() {
+    
+    if(isPlatformBrowser(this.platformId)){
+      this.scrollTo.scrollTo({
+        offset:this.element.nativeElement.getBoundingClientRect().top,
+        duration: 0
+      });
+    }
   }
 
   subscribe(){
