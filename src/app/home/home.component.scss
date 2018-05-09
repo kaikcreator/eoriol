@@ -342,20 +342,28 @@ app-subscribe-cta{
             margin-left: -60px;
         }
     }
-    
-    .cards{
+
+    //kind of trick to simulate justify-content:space-evenly in .cards (as it is not widely supported)
+    .cards-container{
         display: flex;
         width: 100%;
         
-        //trick to simulate justify-content:space-evenly (as it is not widely supported)
         justify-content: space-around;
         @media screen and (min-width: $break-large){
             &:before, &:after {
                 content: '';
                 display: block;
+                flex-basis: 100%;
+                flex-shrink: 10
             }
-        }
-        //end trick        
+        }             
+    }
+    //end trick       
+    
+    .cards{
+        display: flex;
+        width: 100%;   
+        justify-content: space-around; 
 
         flex-wrap: wrap;
 

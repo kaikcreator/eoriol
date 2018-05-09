@@ -33,11 +33,13 @@
   <section class="white-section" id="books-and-courses-section">
     <h1>Books & Courses</h1>
     <a class="anchor-link" (click)="bookCoursesLimit = bookCourseItems.length">View All</a>
-    <div class="cards">
-        <app-book-card *ngFor="let item of bookCourseItems | slice:0:bookCoursesLimit; let i = index" 
-        [item]="item" (expand)="onBookCourseCardExpand($event, i)">
-        </app-book-card>
-    </div> 
+    <div class="cards-container">
+        <div class="cards">
+            <app-book-card *ngFor="let item of bookCourseItems | slice:0:bookCoursesLimit; let i = index" 
+            [item]="item" (expand)="onBookCourseCardExpand($event, i)">
+            </app-book-card>
+        </div> 
+    </div>
   </section>
   
 
