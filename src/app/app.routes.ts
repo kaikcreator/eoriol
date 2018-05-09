@@ -18,6 +18,7 @@ export function appRoutes(relPath='.'): Routes{
       pathMatch: 'full'
     },
     { path: 'subscribe', loadChildren: `${relPath}/subscribe-mobile/subscribe-mobile.module#SubscribeMobileModule` },
+    { path: 'blog', loadChildren: `${relPath}/blog/blog.module#BlogModule` },
     { path: '**', component: PageNotFoundComponent },
   ];
 }
