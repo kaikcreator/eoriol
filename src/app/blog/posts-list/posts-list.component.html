@@ -1,3 +1,9 @@
-<p>
-  posts-list works!
-</p>
+<div class="sub-header">
+    <h1>Blog Articles</h1>
+    <hr>
+</div>
+
+<div class="cards">
+    <app-blog-card *ngFor="let item of postsList" [item]="item">
+    </app-blog-card>
+</div>

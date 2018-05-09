@@ -16,7 +16,6 @@ import { appRoutes } from './app.routes';
 import { HomeComponent } from './home/home.component';
 import { BookCoursesService } from './services/book-courses.service';
 import { BookCardComponent } from './book-card/book-card.component';
-import { BlogCardComponent } from './blog-card/blog-card.component';
 import { BlogPostsService } from './services/blog-posts.service';
 import { ContactComponent } from './contact/contact.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
@@ -36,6 +35,7 @@ import { WindowScrollService } from './services/window-scroll.service';
 import { ReviewComponent } from './review/review.component';
 import { ReviewRatingComponent } from './review-rating/review-rating.component';
 import { ReviewAvatarComponent } from './review-avatar/review-avatar.component';
+import { UiCommonModule } from './ui-common/ui-common.module';
 
 
 @NgModule({
@@ -43,7 +43,6 @@ import { ReviewAvatarComponent } from './review-avatar/review-avatar.component';
     AppComponent,
     HomeComponent,
     BookCardComponent,
-    BlogCardComponent,
     ContactComponent,
     HamburgerMenuComponent,
     MenuMobileComponent,
@@ -73,7 +72,8 @@ import { ReviewAvatarComponent } from './review-avatar/review-avatar.component';
     ScrollToModule.forRoot(),
     PageNotFoundModule,
     HttpClientJsonpModule,
-    FormsModule
+    FormsModule,
+    UiCommonModule
   ],
   providers: [ 
     BookCoursesService, 
