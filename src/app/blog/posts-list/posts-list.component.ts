@@ -35,4 +35,9 @@ export class PostsListComponent implements OnInit {
     .subscribe(items => this.postsList = [...this.postsList, ...items]);
   }
 
+  search(value){
+    console.log("the search value is: ", value);
+    //here perform switchmap http search
+  }
+
 }
