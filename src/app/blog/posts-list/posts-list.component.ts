@@ -10,7 +10,7 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 })
 export class PostsListComponent implements OnInit {
 
-  public postsList:any[];
+  public postsList:any[] = [];
 
   constructor(
     private blogPosts: BlogPostsService,
@@ -27,7 +27,12 @@ export class PostsListComponent implements OnInit {
       });
     }
 
-    this.blogPosts.getItems(10).subscribe(items => this.postsList = items);
+    this.getMoreItems();
+  }
+
+  getMoreItems(){
+    this.blogPosts.getItems(this.postsList.length)
+    .subscribe(items => this.postsList = [...this.postsList, ...items]);
   }
 
 }

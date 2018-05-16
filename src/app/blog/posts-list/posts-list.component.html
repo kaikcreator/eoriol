@@ -3,8 +3,13 @@
     <hr>
 </div>
 
-<div class="cards">
-    <app-spinner *ngIf="!postsList || postsList.length == 0"></app-spinner>
+<app-spinner *ngIf="!postsList || postsList.length == 0"></app-spinner>
+
+<div class="cards" 
+    infiniteScroll
+    [infiniteScrollDistance]="3"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="getMoreItems()">
     <app-blog-card *ngFor="let item of postsList" [item]="item">
     </app-blog-card>
 </div>

@@ -30,6 +30,24 @@ export class WordpressService {
       );
   }
 
+  retrievePosts(offset:number, per_page:number){
+    return this.http.get<any[]>(`${environment.wordpressUrl}/posts?_embed&per_page=${per_page}&offset=${offset}`)
+      .pipe(
+        map(data => {
+          /* this must be an array of posts*/
+          return data.map(item => {
+            let wpItem = new WpPost(item);
+
+            return <PostModel>{
+              date: wpItem.date(),
+              title: wpItem.title(),
+              link: wpItem.link(),
+              image: wpItem.featuredImage()
+            }})
+        })
+      );
+  }  
+
   contact(data:ContactModel){
     var formData = new FormData();
     formData.append('contact', data.name);
