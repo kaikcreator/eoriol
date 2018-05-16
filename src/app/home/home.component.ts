@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.bookCourseItems = list;
     });
 
-    this.blogPosts.getItems(3).subscribe(list => {
+    this.blogPosts.getLastItems(3).subscribe(list => {
       this.blogPostItems = list;
     })
 
