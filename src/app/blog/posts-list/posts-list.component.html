@@ -4,6 +4,7 @@
 </div>
 
 <div class="cards">
+    <app-spinner *ngIf="!postsList || postsList.length == 0"></app-spinner>
     <app-blog-card *ngFor="let item of postsList" [item]="item">
     </app-blog-card>
 </div>
