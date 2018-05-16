@@ -18,11 +18,16 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit() {
     this.search.valueChanges.pipe(
       debounceTime(300),
-      filter(text => text.length > 2),
       distinctUntilChanged(),
+      //emit value in case it has been cleared
       tap(text =>{
-        this.value.emit(text);
-      })
+        if(text.length == 0){
+          this.value.emit(text);
+        }
+      }),      
+      filter(text => text.length > 2),
+      //emit value in case it has more than 2 chars
+      tap(text => this.value.emit(text))
     ).subscribe();
   }
 

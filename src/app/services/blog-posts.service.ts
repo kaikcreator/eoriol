@@ -7,14 +7,16 @@ import { WordpressService } from './wordpress.service';
 @Injectable()
 export class BlogPostsService {
 
+  public search:string = '';
+  
   constructor(private wordpress:WordpressService) { }
 
   getItems(itemsOffset:number=0, itemsAmount:number=18):Observable<any[]>{
-    return this.wordpress.retrievePosts(itemsOffset, itemsAmount);
+    return this.wordpress.retrievePosts(itemsOffset, itemsAmount, this.search);
   }
 
   getLastItems(n:number):Observable<any[]>{
-    return this.wordpress.retrieveLatestPosts(n);
-  }  
+    return this.wordpress.retrievePosts(0, n, '');
+  }
 
 }

@@ -1,10 +1,13 @@
 <div class="sub-header">
     <h1>Blog Articles</h1>
-    <app-search-box (value)="search($event)"></app-search-box>
+    <app-search-box></app-search-box>
     <hr>
 </div>
 
-<app-spinner *ngIf="!postsList || postsList.length == 0"></app-spinner>
+<app-spinner *ngIf="!postsList"></app-spinner>
+<div class="empty-message" *ngIf="postsList && !postsList.length">
+    <p>No items found :(</p>
+</div>
 
 <div class="cards" 
     infiniteScroll

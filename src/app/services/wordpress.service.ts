@@ -12,26 +12,8 @@ export class WordpressService {
 
   constructor(private http: HttpClient) { }
 
-  retrieveLatestPosts(n:number){
-    return this.http.get<any[]>(`${environment.wordpressUrl}/posts?_embed&per_page=${n}`)
-      .pipe(
-        map(data => {
-          /* this must be an array of posts*/
-          return data.map(item => {
-            let wpItem = new WpPost(item);
-
-            return <PostModel>{
-              date: wpItem.date(),
-              title: wpItem.title(),
-              link: wpItem.link(),
-              image: wpItem.featuredImage()
-            }})
-        })
-      );
-  }
-
-  retrievePosts(offset:number, per_page:number){
-    return this.http.get<any[]>(`${environment.wordpressUrl}/posts?_embed&per_page=${per_page}&offset=${offset}`)
+  retrievePosts(offset:number, per_page:number, search:string){
+    return this.http.get<any[]>(`${environment.wordpressUrl}/posts?_embed&per_page=${per_page}&offset=${offset}&search=${search}`)
       .pipe(
         map(data => {
           /* this must be an array of posts*/

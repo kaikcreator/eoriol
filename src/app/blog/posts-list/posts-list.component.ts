@@ -1,7 +1,10 @@
-import { Component, OnInit, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, ElementRef, PLATFORM_ID, Inject, ViewChild } from '@angular/core';
 import { BlogPostsService } from '../../services/blog-posts.service';
 import { isPlatformBrowser } from '@angular/common';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
+import { SearchBoxComponent } from '../../ui-common/search-box/search-box.component';
+import { switchMap, tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-posts-list',
@@ -10,7 +13,9 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 })
 export class PostsListComponent implements OnInit {
 
-  public postsList:any[] = [];
+  @ViewChild(SearchBoxComponent) searchBox:SearchBoxComponent;
+  public postsList:any[] = null;
+
 
   constructor(
     private blogPosts: BlogPostsService,
@@ -18,8 +23,9 @@ export class PostsListComponent implements OnInit {
     private scrollTo:ScrollToService,
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
+
   ngOnInit() {
-    
+    //scroll top
     if(isPlatformBrowser(this.platformId)){
       this.scrollTo.scrollTo({
         offset:this.element.nativeElement.getBoundingClientRect().top,
@@ -27,17 +33,31 @@ export class PostsListComponent implements OnInit {
       });
     }
 
-    this.getMoreItems();
+    //get first page of items
+    this.getMoreItems();    
+
+    //subscribe to search-box and perform async search with latest value
+    this.searchBox.value.pipe(
+      switchMap(value => this.search(value)),
+    ).subscribe(items => {
+      this.postsList = items;
+    });
   }
+
 
   getMoreItems(){
-    this.blogPosts.getItems(this.postsList.length)
-    .subscribe(items => this.postsList = [...this.postsList, ...items]);
+    let offset = this.postsList ? this.postsList.length : 0;
+    this.blogPosts.getItems(offset)
+    .subscribe(items => {
+      this.postsList = this.postsList ? [...this.postsList, ...items] : items;
+    });
   }
 
+
   search(value){
-    console.log("the search value is: ", value);
-    //here perform switchmap http search
+    this.blogPosts.search = value;
+    this.postsList = null;
+    return this.blogPosts.getItems(0);
   }
 
 }
