@@ -1,5 +1,7 @@
 <div class="search-btn">
-    <span class="search-icon"></span>
-    <span>Search</span>
+    <input name="search" type="text" [formControl]="search" value="">
+    <div class="search-label-container">
+        <span class="search-icon"></span>
+        <label for="search" *ngIf="!search.value">Search</label>
+    </div>
 </div>
-<input type="text" [formControl]="search">

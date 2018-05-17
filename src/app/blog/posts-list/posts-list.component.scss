@@ -6,16 +6,32 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (max-width: $break-small){
+        padding: 0 $side-margin-small;
+        padding-left: calc(4.5vw + 32px);
+        width: calc(100% - 2*#{$side-margin-small} - 32px);
+    }
 }
 
 .sub-header{
     padding-top: 190px;
+
+    @media screen and (max-width: $break-small){
+        padding-top: 128px;
+    }    
+
+    &-text{
+        display: flex;
+        align-items: baseline;
+    }
 
     h1{
         margin: 0;
         padding-bottom: 34px;
         font-weight: 600;
         display: inline-block;
+        flex-shrink: 0;
     }
 
     hr{
