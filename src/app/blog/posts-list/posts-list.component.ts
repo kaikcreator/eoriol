@@ -15,6 +15,7 @@ export class PostsListComponent implements OnInit {
 
   @ViewChild(SearchBoxComponent) searchBox:SearchBoxComponent;
   public postsList:any[] = null;
+  public loading:boolean = false;
 
 
   constructor(
@@ -47,9 +48,13 @@ export class PostsListComponent implements OnInit {
 
   getMoreItems(){
     let offset = this.postsList ? this.postsList.length : 0;
+    this.loading = true;
     this.blogPosts.getItems(offset)
     .subscribe(items => {
       this.postsList = this.postsList ? [...this.postsList, ...items] : items;
+      this.loading = false;
+    }, err =>{
+      console.log("error detected: ", err);
     });
   }
 

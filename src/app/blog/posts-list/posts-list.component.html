@@ -6,11 +6,6 @@
     <hr>
 </div>
 
-<app-spinner *ngIf="!postsList"></app-spinner>
-<div class="empty-message" *ngIf="postsList && !postsList.length">
-    <p>No items found :(</p>
-</div>
-
 <div class="cards" 
     infiniteScroll
     [infiniteScrollDistance]="3"
@@ -18,4 +13,9 @@
     (scrolled)="getMoreItems()">
     <app-blog-card *ngFor="let item of postsList" [item]="item">
     </app-blog-card>
+</div>
+
+<app-spinner *ngIf="!postsList || loading"></app-spinner>
+<div class="empty-message" *ngIf="postsList && !postsList.length">
+    <p>No items found :(</p>
 </div>
