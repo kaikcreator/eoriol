@@ -19,3 +19,6 @@
 <div class="empty-message" *ngIf="postsList && !postsList.length">
     <p>No items found :(</p>
 </div>
+<div class="end-message" *ngIf="!loading && postsList && postsList.length">
+    <p>You've reached the end of the list :)</p>
+</div>

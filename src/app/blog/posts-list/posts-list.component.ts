@@ -35,26 +35,30 @@ export class PostsListComponent implements OnInit {
     }
 
     //get first page of items
-    this.getMoreItems();    
+    this.blogPosts.getItems().subscribe(items => this.postsList = items); 
 
     //subscribe to search-box and perform async search with latest value
     this.searchBox.value.pipe(
-      switchMap(value => this.search(value)),
+      switchMap(value => this.search(value))
     ).subscribe(items => {
       this.postsList = items;
     });
   }
 
-
+  //get next bunch of posts
   getMoreItems(){
-    let offset = this.postsList ? this.postsList.length : 0;
+    if(!this.postsList || this.postsList.length == 0)
+      return;
+
     this.loading = true;
+    let offset = this.postsList.length;
     this.blogPosts.getItems(offset)
     .subscribe(items => {
-      this.postsList = this.postsList ? [...this.postsList, ...items] : items;
+      this.postsList = [...this.postsList, ...items];
       this.loading = false;
     }, err =>{
       console.log("error detected: ", err);
+      this.loading = false;
     });
   }
 
