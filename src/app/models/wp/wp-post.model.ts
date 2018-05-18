@@ -98,20 +98,33 @@ export class WpPost {
    * @params {string} size -
    */
   featuredImage(size?: string): string {
-    if (this.featuredMedia() && this.post._embedded) {
-
-      let featuredImage: WpMedia = this.post._embedded['wp:featuredmedia'][0];
-      if (featuredImage) {
-        /** Get featuredImage of size (size) */
-        if (featuredImage.media_details.sizes[size]) {
-          return featuredImage.media_details.sizes[size].source_url;
-        }
-        /** If featuredImage size is invalid, return the original one */
-        else {
-          /** if the desired size was not found, return the full size */
-          return featuredImage.media_details.sizes['full'].source_url;
-        }
+    let featuredImage: WpMedia = null;
+    if(this.media()){
+      featuredImage = this.media();
+    }    
+    else if (this.featuredMedia() && this.post._embedded) {
+      featuredImage = this.post._embedded['wp:featuredmedia'][0];
+    }
+    if (featuredImage) {
+      /** Get featuredImage of size (size) */
+      if (size && featuredImage.media_details.sizes[size]) {
+        return featuredImage.media_details.sizes[size].source_url;
+      }
+      /** If featuredImage size is invalid, return the original one */
+      else {
+        /** if the desired size was not found, return the full size */
+        return featuredImage.media_details.sizes['full'].source_url;
       }
     }
   }
+
+  setMedia(media:any){
+    this.post.media = media;
+  }
+
+  media(){
+    return this.post.media;
+  }
+
+  
 }

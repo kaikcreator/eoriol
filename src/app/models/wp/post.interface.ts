@@ -1,3 +1,5 @@
+import { WpMedia } from "./wp-media.interface";
+
 export interface IPost {
     id: string;
     slug: string;
@@ -20,4 +22,5 @@ export interface IPost {
     excerpt: any;
     author: any;
     _embedded: any;
+    media:WpMedia;
   }
