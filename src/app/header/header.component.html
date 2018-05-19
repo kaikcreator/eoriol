@@ -5,13 +5,13 @@
 
 <nav>
   <ng-container *ngIf="!pageNotFoundService.active">
-    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/home" ngx-scroll-to="hero-section" routerLinkActive="active">Home</a>
     <!-- <a routerLink="/books-and-courses" routerLinkActive="active">Books & Courses</a>
     <a routerLink="/jobs" routerLinkActive="active">Jobs</a>
     <a routerLink="/blog" routerLinkActive="active">Blog</a> -->
     <a routerLink="/home" ngx-scroll-to="books-and-courses" ngx-scroll-to-offset="120">Books & Courses</a>
     <!-- <a ngx-scroll-to="jobs" ngx-scroll-to-offset="120">Jobs</a> -->
-    <a routerLink="/blog" routerLinkActive="active">Blog</a>
+    <a routerLink="/blog" ngx-scroll-to="blog-title" routerLinkActive="active">Blog</a>
   </ng-container>
 </nav>
 
