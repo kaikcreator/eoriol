@@ -4,6 +4,7 @@ import { PageNotFoundService } from '../page-not-found/page-not-found.service';
 import { WindowScrollService } from '../services/window-scroll.service';
 import { pairwise } from 'rxjs/operators';
 import { Subscription } from 'rxjs/Subscription';
+import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 const STICK_THRESHOLD = 50;
 const UNSTICK_THRESHOLD = 200;
@@ -39,7 +40,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     public pageNotFoundService:PageNotFoundService,/* used from template */
     private element: ElementRef,
     private renderer:Renderer2,
-    private windowScroll: WindowScrollService
+    private windowScroll: WindowScrollService,
+    private scrollTo:ScrollToService,
   ) {
     try{
       this.initialTop = this.element.nativeElement.getBoundingClientRect().top;
@@ -58,6 +60,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     if(this.scrollSubscription)
       this.scrollSubscription.unsubscribe();
+  }
+
+  scrollTop(isActive){
+    if(isActive){
+      this.scrollTo.scrollTo({
+        target:this.element.nativeElement.children[0]
+      });      
+    }
+    else{
+      this.scrollTo.scrollTo({
+        target:this.element.nativeElement.children[0],
+        duration: 0
+      });      
+    }
   }
 
 
