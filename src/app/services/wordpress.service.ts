@@ -6,6 +6,7 @@ import { WpPost } from '../models/wp/wp-post.model';
 import { environment } from '../../environments/environment';
 import { ContactModel } from '../models/contact.model';
 import { WpMedia } from '../models/wp/wp-media.interface';
+import { WpPostOverview } from '../models/wp/wp-post-overview.model';
 
 
 @Injectable()
@@ -30,6 +31,27 @@ export class WordpressService {
         })
       );
   }
+
+  retrievePostsOverview(offset:number, per_page:number, search:string){
+    return this.http.get<any[]>(`${environment.wordpressCustomUrl}/posts?&per_page=${per_page}&offset=${offset}&x_search=${search}`)
+      .pipe(
+        map(data => {
+          /* this must be an array of posts*/
+          return data.map(item => {
+            let wpItem = new WpPostOverview(item);
+
+            let post = <PostModel>{
+              date: wpItem.date(),
+              title: wpItem.title(),
+              link: wpItem.link(),
+              image: wpItem.featuredMediaSrc()
+            };
+
+            return post;
+          });
+        })
+      );
+  }   
   
   retrievePosts(offset:number, per_page:number, search:string){
     return this.http.get<any[]>(`${environment.wordpressUrl}/posts?&per_page=${per_page}&offset=${offset}&search=${search}`)

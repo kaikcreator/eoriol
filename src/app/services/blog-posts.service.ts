@@ -12,11 +12,11 @@ export class BlogPostsService {
   constructor(private wordpress:WordpressService) { }
 
   getItems(itemsOffset:number=0, itemsAmount:number=18):Observable<any[]>{
-    return this.wordpress.retrievePosts(itemsOffset, itemsAmount, this.search);
+    return this.wordpress.retrievePostsOverview(itemsOffset, itemsAmount, this.search);
   }
 
   getLastItems(n:number):Observable<any[]>{
-    return this.wordpress.retrievePosts(0, n, '');
+    return this.wordpress.retrievePostsOverview(0, n, '');
   }
 
 }

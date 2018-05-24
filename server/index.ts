@@ -55,6 +55,7 @@ if(DISABLE_FIREBASE){
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
+  console.log("request to: ", req.url);
   res.setHeader('Cache-Control', 'public, max-age=600, s-maxage=1200');
   res.render(join(DIST_FOLDER, 'browser', 'index-1.html'), {req});
 });
