@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'; 
-import { map, flatMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PostModel } from '../models/post.model';
 import { HttpClient } from '@angular/common/http';
 import { WpPost } from '../models/wp/wp-post.model';
@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { ContactModel } from '../models/contact.model';
 import { WpMedia } from '../models/wp/wp-media.interface';
 import { WpPostOverview } from '../models/wp/wp-post-overview.model';
+
 
 
 @Injectable()
@@ -33,7 +34,7 @@ export class WordpressService {
   }
 
   retrievePostsOverview(offset:number, per_page:number, search:string){
-    return this.http.get<any[]>(`${environment.wordpressCustomUrl}/posts?&per_page=${per_page}&offset=${offset}&x_search=${search}`)
+    return this.http.get<any[]>(`${environment.wordpressCustomUrl}/posts?&per_page=${per_page}&offset=${offset}&search=${search}`)
       .pipe(
         map(data => {
           /* this must be an array of posts*/
