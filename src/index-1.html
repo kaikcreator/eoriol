@@ -18,12 +18,18 @@
   <link rel="icon" type="image/png" href="assets/favicons/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96">
 
+  <!-- recommended approach to import fonts -->
+  <link rel="preload" as="style" onload="this.rel = 'stylesheet'" crossorigin
+        href="https://fonts.googleapis.com/css?family=Lora:400,400i|Open+Sans:400,400i,600,600i,700">
+
   <noscript>
         <div style="background-color: #ffffffcc; width: 100%; height: fit-content; position: fixed; z-index: 100;">
             <h3 style="font-size: 14px;text-align: center;position: relative;padding-left:  20px;padding-right:  20px;font-weight: 300;color: #ff3535;">
                 Enable Javascript to fully experience this site.
             </h3>
         </div>
+        <!-- load fonts in case onload event does not work -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i|Open+Sans:400,400i,600,600i,700">        
   </noscript>  
 
 </head>
