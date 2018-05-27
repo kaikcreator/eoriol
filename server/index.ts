@@ -8,7 +8,7 @@ import * as compression from 'compression';
 import { join } from 'path';
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main.bundle');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
  
 // NgUniversalTools: Express Engine and moduleMap for lazy loading
 import { ngExpressEngine } from '@nguniversal/express-engine';
