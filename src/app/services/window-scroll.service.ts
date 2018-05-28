@@ -1,8 +1,7 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { WindowRefService, DocumentRefService } from './globals.service';
 import { isPlatformBrowser } from '@angular/common';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { Observable } from 'rxjs';
+import { fromEvent ,  Observable, empty } from 'rxjs';
 import { tap, filter, map, share } from 'rxjs/operators';
 
 const DEBOUNCE_MAX_COUNT = 12;
@@ -30,7 +29,8 @@ export class WindowScrollService {
     }
     else{
       //in non-browser environments, provide an empty observable so you can safely subscribe to scroll$
-      this.scroll$ = Observable.empty();
+      this.scroll$ = empty();
+      
     }
   }
 

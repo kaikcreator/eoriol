@@ -4,7 +4,7 @@ import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
 import { isPlatformBrowser } from '@angular/common';
 import { WindowScrollService } from '../services/window-scroll.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { auditTime } from 'rxjs/operators';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { BookCardComponent } from '../book-card/book-card.component';

@@ -3,7 +3,7 @@ import { trigger, state, style, animate, transition, query, animateChild } from 
 import { PageNotFoundService } from '../page-not-found/page-not-found.service';
 import { WindowScrollService } from '../services/window-scroll.service';
 import { pairwise } from 'rxjs/operators';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 const STICK_THRESHOLD = 50;

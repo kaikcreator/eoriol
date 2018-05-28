@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operator/switchMap';
-import { map } from 'rxjs/operators/map';
+
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post-detail',

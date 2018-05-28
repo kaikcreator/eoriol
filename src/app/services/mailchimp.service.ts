@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { MailchimpProfileModel, MailchimpSubscribeHttpResponse } from '../models/mailchimp.model';
 import { environment } from '../../environments/environment';
 
