@@ -1,3 +1,12 @@
-<h1 [innerHTML]="title"></h1>
+<ng-container *ngIf="post">
+  <div class="post-image" *ngIf="post.image" [style.background-image]="post.image"></div>
+  <div class="post-no-image-spacer" *ngIf="!post.image"></div>
 
-<div [innerHTML]="content"></div>
+  <h1 class="post-title" [innerHTML]="post.title"></h1>
+  <div class="post-date">{{post.date | date:'longDate':'es-ES' }}</div>
+
+  <div class="post-tags"></div>
+
+  <div class="post-content" [innerHTML]="post.content"></div>
+</ng-container>
+
