@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
+import { WordpressService } from '../../services/wordpress.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -10,23 +11,34 @@ import { map } from 'rxjs/operators';
 })
 export class PostDetailComponent implements OnInit {
 
-  public slug:string;
+  public content:string = null;
+  public title:string = null;
 
   constructor(
-    private route: ActivatedRoute  
+    private route: ActivatedRoute,
+    private wordpressService: WordpressService  
   ) { }
 
   ngOnInit() {
+    
     this.route.paramMap.pipe(
-      // switchMap((params: ParamMap) => {
-      //   //here fetch the post content. switch map will cancel http request if there's a change
-      //   //in the meantime
-      // }),
-      map((params: ParamMap) => {
-        this.slug = params.get('slug');
-        console.log("el slug es: ", this.slug);
+      //switch map will cancel http request if there's a change in the meantime
+      switchMap((params: ParamMap) => {
+        let slug = params.get('slug');
+        let extensionPos = slug.lastIndexOf('.html');
+        if(extensionPos > 0){
+          slug = slug.slice(0, extensionPos);
+        }
+        return this.wordpressService.retrievePostBySlug(slug);
       })
-    ).subscribe();    
+    )
+    .subscribe(post => {
+      console.log(post);
+      if(post){
+        this.content = post.content;
+        this.title = post.title;
+      }
+    }, err=> console.log("error: ", err));    
   }
 
 }

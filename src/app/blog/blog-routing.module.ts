@@ -5,7 +5,7 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 
 const routes: Routes = [
   {
-    path: 'post/:slug',
+    path: ':year/:month/:slug',
     component: PostDetailComponent
   },
   {
