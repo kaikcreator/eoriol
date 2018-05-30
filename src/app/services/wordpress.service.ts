@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { ContactModel } from '../models/contact.model';
 import { WpMedia } from '../models/wp/wp-media.interface';
 import { WpPostOverview } from '../models/wp/wp-post-overview.model';
+import { Observable } from 'rxjs';
 
 
 
@@ -44,6 +45,8 @@ export class WordpressService {
             let post = <PostModel>{
               date: wpItem.date(),
               title: wpItem.title(),
+              slug: wpItem.slug(),
+              path: 'blog/' + wpItem.path(),
               link: wpItem.link(),
               image: wpItem.featuredMediaSrc()
             };
@@ -52,7 +55,38 @@ export class WordpressService {
           });
         })
       );
-  }   
+  } 
+  
+  
+  retrievePostBySlug(slug:string):Observable<PostModel>{
+    return this.http.get<any>(`${environment.wordpressUrl}/posts?slug=${slug}`)
+      .pipe(
+        map(data => {
+          /* this is an array including 1 single post (slugs are unitary)*/
+          return data.map(item => {
+            let wpItem = new WpPost(item);
+
+            let post = <PostModel>{
+              date: wpItem.date(),
+              title: wpItem.title(),
+              link: wpItem.link(),
+              content: wpItem.content()
+            };
+
+            //if there's featuredMedia, retrieve it async and update the post model in the future
+            if(wpItem.featuredMedia()){
+              this.retrieveMedia(wpItem.featuredMedia()).subscribe(media =>{
+                wpItem.setMedia(media);
+                post.image = wpItem.featuredImage('large');
+              });
+            }
+
+            //but return the post object asap
+            return post;
+          })[0];//We want to return just a single post, not an array
+        })
+      );
+  }  
   
   retrievePosts(offset:number, per_page:number, search:string){
     return this.http.get<any[]>(`${environment.wordpressUrl}/posts?&per_page=${per_page}&offset=${offset}&search=${search}`)

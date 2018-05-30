@@ -33,7 +33,12 @@ export class WpPostOverview {
     if (this.post.link) {
       return this.post.link;
     }
-  } 
+  }
+  
+  path():string{
+    if (this.post.path)
+      return this.post.path;
+  }
   
   type(): string {
     if (this.post.type) {

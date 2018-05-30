@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { WindowRefService } from '../../services/globals.service';
+import { WpPostOverview } from '../../models/wp/wp-post-overview.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-card',
@@ -9,14 +11,17 @@ import { WindowRefService } from '../../services/globals.service';
 })
 export class BlogCardComponent implements OnInit {
 
-  @Input() item:any;
+  @Input() item:WpPostOverview;
 
   @HostListener('click', ['$event.target'])
   onClick(target){
+    if(this.item.path)
+      this.router.navigate([this.item.path]);
+    else
     this.winRef.nativeWindow.open(this.item.link);
   }
   
-  constructor(private winRef: WindowRefService) { 
+  constructor(private winRef: WindowRefService, private router: Router) { 
   }
 
   ngOnInit() {
