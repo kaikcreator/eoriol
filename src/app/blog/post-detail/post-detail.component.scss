@@ -1,0 +1,123 @@
+@import '~variables.scss';
+@import './prettify.skin.monokai.scss';
+
+@mixin centered-text{
+    width: 600px;
+    margin: 0px auto;
+
+}
+
+.post{
+
+    &-image{
+        height: 486px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &-no-image-spacer{
+        height: 160px;
+    }
+
+    &-title{
+        width: 705px;
+        margin: 92px auto 50px auto;
+        text-align: center;
+        font-size: 52px;
+        font-weight: 600;
+        line-height: 71px;
+        letter-spacing: -1.1px;
+        color: $color-black;
+    }
+
+    &-date{
+        color: $color-primary;
+        margin: 0px auto 50px auto;
+        text-align: center;
+        font-size: 17px;
+        font-family: $lora-font;
+        font-weight: 400;
+        letter-spacing: -0.3px;
+    }
+
+    &-tags{
+
+    }
+
+    &-content ::ng-deep{
+        @include centered-text;
+
+        &:not(.prettyprint){
+            code{
+                padding: 0.3em 1em;
+                background-color: $color-post-code-bg;
+                color: $color-black;
+                font-size: 0.9em;
+                font-family: inherit;
+                }
+        }
+
+        p{
+            font-size: 16px !important;
+            line-height: 30px;
+            color: $color-secondary;
+            font-weight: 300;
+            margin-top: 0px;
+            margin-bottom: 1.6em;
+        }
+
+        h1{
+            margin-top: 3.8em;
+            margin-bottom: 2em;
+            font-size: 32px;
+        }
+
+        h2{
+            margin-top: 3.8em;
+            margin-bottom: 2em;
+            font-size: 26px;
+        }
+
+        h3{
+            margin-top: 3.8em;
+            margin-bottom: 2em;
+            font-size: 22px;
+        }
+        h4, h5, h6{
+            margin-top: 2.4em;
+            margin-bottom: 1.2em;
+            font-size: 18px;
+        }
+
+        blockquote{
+
+        }
+
+        pre{
+
+        }
+        
+        ol, ul{
+            padding-left: 60px;
+            color: $color-black;
+            margin-bottom: 1.8em;
+            margin-bottom: 3em;
+        }
+
+        ul{
+
+        }
+
+        li{
+            padding-left: 15px;
+            margin-bottom: 1em;
+            line-height: 24px;
+        }
+
+        img{
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
