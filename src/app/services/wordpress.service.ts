@@ -75,6 +75,7 @@ export class WordpressService {
 
             //if there's featuredMedia, retrieve it async and update the post model in the future
             if(wpItem.featuredMedia()){
+              post.image = "in process";//set thumbnail
               this.retrieveMedia(wpItem.featuredMedia()).subscribe(media =>{
                 wpItem.setMedia(media);
                 post.image = wpItem.featuredImage('large');
