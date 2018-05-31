@@ -66,7 +66,7 @@ import { UiCommonModule } from './ui-common/ui-common.module';
       appRoutes(),
       {
         enableTracing: !environment.production,
-        // initialNavigation: 'enabled'
+        //initialNavigation: 'enabled'
       }
     ),
     ScrollToModule.forRoot(),

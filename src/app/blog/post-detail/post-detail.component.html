@@ -1,5 +1,5 @@
 <ng-container *ngIf="post">
-  <div class="post-image" *ngIf="post.image" [style.background-image]="post.image"></div>
+  <div class="post-image" *ngIf="post.image" [style.background-image]="'url(' + post.image + ')'"></div>
   <div class="post-no-image-spacer" *ngIf="!post.image"></div>
 
   <h1 class="post-title" [innerHTML]="post.title"></h1>
@@ -9,4 +9,6 @@
 
   <div class="post-content" [innerHTML]="post.content"></div>
 </ng-container>
+
+<app-spinner *ngIf="!post"></app-spinner>
 
