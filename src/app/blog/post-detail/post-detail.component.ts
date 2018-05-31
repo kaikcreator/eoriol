@@ -1,4 +1,4 @@
-import prettify from "code-prettify/src/prettify.js";
+import prettify from "../../../libs/code-prettify-mod/src/prettify";
 import { Component, OnInit, Inject, PLATFORM_ID, ElementRef } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -28,12 +28,6 @@ export class PostDetailComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
-  ngAfterViewInit(){
-    setTimeout(()=>{
-      prettify.prettyPrint();
-    }, 2000);
-  }
-
 
   ngOnInit() {
     //scroll top
@@ -59,6 +53,9 @@ export class PostDetailComponent implements OnInit {
       console.log(post);
       if(post){
         this.post = post;
+        setTimeout(()=>{
+          prettify.prettyPrint();
+        });
       }
     }, err=> console.log("error: ", err));    
   }
