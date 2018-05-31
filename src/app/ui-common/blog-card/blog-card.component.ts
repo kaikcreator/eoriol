@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { WindowRefService } from '../../services/globals.service';
-import { WpPostOverview } from '../../models/wp/wp-post-overview.model';
 import { Router } from '@angular/router';
+import { PostModel } from '../../models/post.model';
 
 @Component({
   selector: 'app-blog-card',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class BlogCardComponent implements OnInit {
 
-  @Input() item:WpPostOverview;
+  @Input() item:PostModel;
 
   @HostListener('click', ['$event.target'])
   onClick(target){
