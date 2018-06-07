@@ -1,5 +1,6 @@
+import { PostMetaTagsModel } from "./post-meta-tags.model";
 
-
+ 
 export class PostModel {
     public date:string;
     public title:string;
@@ -8,4 +9,5 @@ export class PostModel {
     public link:string;//absolute path to the post in wordpress site
     public image:string;
     public content?:string;
+    public metas:PostMetaTagsModel
 }

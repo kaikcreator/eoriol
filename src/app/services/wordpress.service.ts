@@ -70,8 +70,10 @@ export class WordpressService {
               date: wpItem.date(),
               title: wpItem.title(),
               link: wpItem.link(),
-              content: wpItem.content()
+              content: wpItem.content(),
+              metas: wpItem.metas()
             };
+
 
             //if there's featuredMedia, retrieve it async and update the post model in the future
             if(wpItem.featuredMedia()){
@@ -79,6 +81,8 @@ export class WordpressService {
               this.retrieveMedia(wpItem.featuredMedia()).subscribe(media =>{
                 wpItem.setMedia(media);
                 post.image = wpItem.featuredImage('large');
+                post.metas["og:image"] = post.image;
+                post.metas["twitter:image"] = post.image;
               });
             }
 

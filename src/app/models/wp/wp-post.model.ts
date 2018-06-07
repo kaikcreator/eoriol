@@ -1,6 +1,7 @@
 import { WpUser } from './wp-user.interface';
 import { WpMedia } from './wp-media.interface';
 import { IPost } from './post.interface';
+import { PostMetaTagsModel } from '../post-meta-tags.model';
 
 export class WpPost {
 
@@ -124,6 +125,12 @@ export class WpPost {
 
   media(){
     return this.post.media;
+  }
+
+  metas(){
+    let metas = new PostMetaTagsModel();
+    //return this.post.yoast;
+    return metas;
   }
 
   

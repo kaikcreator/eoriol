@@ -23,4 +23,5 @@ export interface IPost {
     author: any;
     _embedded: any;
     media:WpMedia;
+    yoast:any;
   }
