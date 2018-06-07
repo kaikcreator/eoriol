@@ -22,7 +22,7 @@
 
     &-title{
         width: 705px;
-        margin: 92px auto 50px auto;
+        margin: 75px auto 50px auto;
         text-align: center;
         font-size: 52px;
         font-weight: 600;
@@ -55,11 +55,11 @@
                 color: $color-black;
                 font-size: 0.9em;
                 font-family: inherit;
-                font-weight: 400;
-                }
-            li > code {
-                padding: 0.1em 0.3em;
-            }
+                font-weight: 400; 
+            }         
+            li code{
+                padding: 0.1em 0.3em !important;
+            }             
         }
 
         p{
@@ -129,19 +129,35 @@
         
         ol, ul{
             padding-left: 60px;
-            color: $color-black;
+            color: darken($color-secondary, 30);
             margin-bottom: 1.8em;
             margin-bottom: 3em;
-        }
+            ol, ul{
+                padding-left: 20px;
 
-        ul{
-
+                li{
+                    margin-bottom: 0.9em;
+                    &:first-child{
+                        margin-top: 0.9em;
+                    }
+                }
+            }
         }
 
         li{
+            font-weight: 400;
             padding-left: 15px;
-            margin-bottom: 1em;
+            margin-bottom: 1.6em;
             line-height: 24px;
+            p{
+                font-weight: 400;
+                color: darken($color-secondary, 30);
+                margin-bottom: 0px;
+            }
+
+            ol, ul{
+                margin-bottom: 0.2em;
+            }
         }
 
         img{
@@ -154,6 +170,49 @@
 
         @import './banner-course.scss';
     }
+
+    @media screen and (max-width: $break-xtra-large){
+        &-image{
+            height: 380px;
+        }
+    }
+
+    @media screen and (max-width: $break-medium) {
+        &-content ::ng-deep{
+            width: 540px;
+            blockquote{
+                width: 100%;
+                margin-left: 0px;
+            }
+            img{
+                max-width: 100%;
+                margin-left: 0px;
+                transform: none;
+            }
+        }
+        &-title{
+            width: 550px;
+        }
+        &-image{
+            height: 280px;
+        }
+    }
+    
+    @media screen and (max-width: $break-small) {
+        &-content ::ng-deep{
+            width: 85%;   
+        }
+        &-title{
+            width: 90%;
+            font-size: 34px;
+            line-height: 50px;
+            margin-top: 52px;
+            margin-bottom: 15px;
+        }
+        &-image{
+            height: 240px;
+        }
+    }    
 }
 
 app-spinner{
