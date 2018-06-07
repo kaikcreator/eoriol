@@ -6,9 +6,7 @@
       "resources": {
         "files": [
           "/assets/favicons/favicon.ico",
-          "/index-1.html"
-        ],
-        "versionedFiles": [
+          "/index-1.html",
           "/*.bundle.css",
           "/*.bundle.js",
           "/*.chunk.js"
