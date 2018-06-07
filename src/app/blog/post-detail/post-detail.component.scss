@@ -2,7 +2,7 @@
 @import './prettify.skin.monokai.scss';
 
 @mixin centered-text{
-    width: 600px;
+    width: 640px;
     margin: 0px auto;
 
 }
@@ -119,6 +119,8 @@
             margin-left: 50%;
             transform: translateX(-50%);
         }
+
+        @import './banner-course.scss';
     }
 }
 

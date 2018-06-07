@@ -1,0 +1,124 @@
+/* course banner */
+.courseBanner{
+    @media screen and (max-width: $break-small){
+        width: 349px;
+        flex-direction: column;
+
+        .image{
+            height: 260px;
+        }
+    }
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;  
+    max-width: 85vw;
+    margin: auto;
+    background:  white;
+
+    margin-top: 100px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.09);
+    background-color: $color-white;    
+
+    &:hover{
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.19);
+    }            
+
+    .image{
+        flex: 1;
+        background-image: url('http://blog.enriqueoriol.com/wp-content/uploads/2017/12/AngularComponentsCover_small.png');
+        min-width: 180px;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .detail{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 40px;
+        overflow: hidden;
+    
+    }
+    
+    .price del{
+        margin-left: 10px;
+    }
+    
+    .type{
+        color:#ff3535;
+        margin-top: 26px;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    
+    .oferta{
+        position: absolute;
+        margin-top: 22px;
+        right: 0px;
+        color: #ff3535;
+        border: solid 1px #ff3535;
+        font-size: 12px;
+        padding: 3px 10px;
+    }
+    
+    h1 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .description{
+        color: #938e8e;
+        line-height: 28px;
+        font-size: 15px;
+        font-weight: 200;
+        margin-bottom: 25px;
+    }
+    
+    .language {
+        color: #938e8e;
+        line-height: 25px;
+        font-size: 12px;
+        font-weight: 200;  
+        margin-bottom: 25px;  
+        span{
+            color: #ff3535;
+        }        
+    }
+    
+    .button {
+        display: inline-block;
+        color: white;
+        background-color: #ff3535 !important;
+        height: 36px;
+        line-height: 36px;
+        width: 92px;
+        text-decoration: none;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;  
+        &:hover{
+            background-color: #E90707 !important;
+        }
+        &:active{
+            background-color: #B30000 !important;
+        }  
+    }
+    
+    del {
+        font-size: 12px;
+        font-weight: 100;
+        color: #bdadad;
+    }
+    
+    p {
+        height: 0px;
+        margin: 0px;
+    }    
+}
