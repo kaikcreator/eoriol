@@ -6,6 +6,7 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { UiCommonModule } from '../ui-common/ui-common.module';
+import { CommentComponent } from './comment/comment.component';
 
 
 @NgModule({
@@ -15,6 +16,6 @@ import { UiCommonModule } from '../ui-common/ui-common.module';
     BlogRoutingModule,
     UiCommonModule
   ],
-  declarations: [PostsListComponent, PostDetailComponent]
+  declarations: [PostsListComponent, PostDetailComponent, CommentComponent]
 })
 export class BlogModule { }

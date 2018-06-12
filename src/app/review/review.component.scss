@@ -13,11 +13,7 @@
         align-items: center;
 
         &-avatar{
-            height: 35px;
-            width: 35px;
-            min-width: 35px;
-            border-radius: 18px;
-            overflow: hidden;
+            @include roundify(35);
         }
 
         &-name{

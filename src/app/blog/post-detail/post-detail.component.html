@@ -8,6 +8,23 @@
   <div class="post-tags"></div>
 
   <div class="post-content" [innerHTML]="post.content"></div>
+
+  <div class="post-comments-no">
+    <span class="post-comments-no-icon"></span>
+    {{post.comments.length}} comments
+  </div>
+  <hr class="post-comment-separation">
+
+  <app-comment *ngFor="let comment of post.comments"
+    content="{{comment.content}}"
+    author="{{comment.author}}"
+    date="{{comment.date}}"
+    avatar="{{comment.avatar}}"
+    [replies]="comment.replies"
+    >
+  </app-comment>
+
+
 </ng-container>
 
 <app-spinner *ngIf="!post"></app-spinner>

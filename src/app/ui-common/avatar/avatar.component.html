@@ -1,0 +1,6 @@
+<img class="avatar-image" *ngIf="image" src="{{image}}">
+<div class="avatar-letter-container" *ngIf="!image">
+  <div class="avatar-letter">
+      {{this.name | slice:0:1}}
+  </div>
+</div>

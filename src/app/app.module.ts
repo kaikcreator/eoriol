@@ -34,7 +34,6 @@ import { UniversalInterceptor } from './interceptors/universal-interceptor.servi
 import { WindowScrollService } from './services/window-scroll.service';
 import { ReviewComponent } from './review/review.component';
 import { ReviewRatingComponent } from './review-rating/review-rating.component';
-import { ReviewAvatarComponent } from './review-avatar/review-avatar.component';
 import { UiCommonModule } from './ui-common/ui-common.module';
 
 
@@ -53,8 +52,7 @@ import { UiCommonModule } from './ui-common/ui-common.module';
     SubscribeSectionComponent,
     LQImgPlaceholderDirective,
     ReviewComponent,
-    ReviewRatingComponent,
-    ReviewAvatarComponent
+    ReviewRatingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId:'MySampleProject'}),

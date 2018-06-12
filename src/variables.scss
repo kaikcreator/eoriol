@@ -77,3 +77,11 @@ $break-card-row: 900px;
     align-items: center;    
 }
 
+@mixin roundify($diameter){
+    height: $diameter+px;
+    width: $diameter+px;
+    min-width: $diameter+px;
+    border-radius: $diameter/2+px;
+    overflow: hidden;    
+}
+
