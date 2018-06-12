@@ -45,34 +45,104 @@
 
     }
 
-    &-comments-no{
-        margin-top: 170px;
-        margin-bottom: 60px;
-        color: $color-secondary;
-        width: 100%;
+    &-footer{
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 170px;
 
-        &-icon{
-            width: 22px;
-            height: 22px;
-            background-image: url('/assets/icons/comment.png');
-            background-size: contain;
-            display: inline-block;
-            margin-left: -15px;
-            margin-right: 15px;
+        &-previous{
+            margin-left: 50px;
+
+            &:before{
+                content: '<';
+                position: absolute;
+                left: -26px;
+                color: $color-primary;
+            }
+        }
+        &-next{
+            align-items: flex-end;
+            text-align: right;
+            margin-right: 50px;
+            &:after{
+                content: '>';
+                position: absolute;
+                right: -26px;                
+                color: $color-primary;
+            }
+        }
+
+        &-link{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-decoration: none;
+            color: inherit;
+            h4{
+                color: $color-primary;
+                font-size: 12px;
+                font-weight: 300;
+                margin: 0;
+                line-height: 20px;
+            }
+            h3{
+                font-size: 17px;
+                font-weight: 400;
+                margin: 0;
+            }
+
+            &:hover{
+                h3{
+                    color: $color-primary;
+                }
+            }
+        }
+
+        &-comments-badge{
+            color: $color-secondary;
+            width: 280px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+    
+            &-icon{
+                width: 22px;
+                height: 22px;
+                background-image: url('/assets/icons/comment.png');
+                background-size: contain;
+                display: inline-block;
+                margin-left: -15px;
+                margin-right: 15px;
+            }
         }
     }
 
-    &-comment-separation{
+    &-comments-separator{
         display: block;
         height: 1px;
         border: 0;
         border-top: 1px solid #dfdfdf;
         width: 100%;
         padding: 0;
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }    
+
+
+    &-comment{
+        max-width: 650px;
+        margin: auto;
+    }
+
+    &-add-comment{
+        width: 650px;
+        margin: auto;   
+        margin-top: 60px;     
     }
 
     &-content ::ng-deep{
@@ -226,6 +296,10 @@
         &-image{
             height: 280px;
         }
+
+        &-comment, &-add-comment{
+            width: 540px;
+        }
     }
     
     @media screen and (max-width: $break-small) {
@@ -241,6 +315,10 @@
         }
         &-image{
             height: 240px;
+        }
+
+        &-comment, &-add-comment{
+            width: 85%;
         }
     }    
 }

@@ -9,13 +9,30 @@
 
   <div class="post-content" [innerHTML]="post.content"></div>
 
-  <div class="post-comments-no">
-    <span class="post-comments-no-icon"></span>
-    {{post.comments.length}} comments
-  </div>
-  <hr class="post-comment-separation">
 
-  <app-comment *ngFor="let comment of post.comments"
+  <div class="post-footer">
+
+    <a *ngIf="post.previous" href="{{post.previous.link}}" class="post-footer-link post-footer-previous" >
+      <h4>PREVIOUS ARTICLE</h4>
+      <h3>{{post.previous.title}}</h3>
+    </a>
+
+    <div class="post-footer-comments-badge">
+        <span class="post-footer-comments-badge-icon"></span>
+        {{post.comments.length}} comments
+      </div>
+
+    <a *ngIf="post.next" href="{{post.next.link}}" class="post-footer-link post-footer-next">
+        <h4>NEXT ARTICLE</h4>
+        <h3>{{post.next.title}}</h3>
+    </a>
+
+  </div>
+
+  <hr class="post-comments-separator">
+  
+
+  <app-comment class="post-comment" *ngFor="let comment of post.comments"
     content="{{comment.content}}"
     author="{{comment.author}}"
     date="{{comment.date}}"
@@ -23,6 +40,8 @@
     [replies]="comment.replies"
     >
   </app-comment>
+
+  <app-add-comment class="post-add-comment" #commentForm (onSubmit)="postComment($event)"></app-add-comment>
 
 
 </ng-container>

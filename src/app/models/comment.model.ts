@@ -4,7 +4,8 @@ export class CommentModel{
         public content:string,
         public date:string,
         public avatar?:string,
-        public replies?:CommentModel[]
+        public replies?:CommentModel[],
+        public email?:string
     ){}
 
     static getFakeComments(){

@@ -1,5 +1,5 @@
 import prettify from "../../../libs/code-prettify-mod/src/prettify";
-import { Component, OnInit, Inject, PLATFORM_ID, ElementRef } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { map, switchMap } from 'rxjs/operators';
@@ -7,6 +7,8 @@ import { WordpressService } from '../../services/wordpress.service';
 import { PostModel } from '../../models/post.model';
 import { isPlatformBrowser } from '@angular/common';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
+import { CommentModel } from "../../models/comment.model";
+import { AddCommentComponent } from "../add-comment/add-comment.component";
 
 @Component({
   selector: 'app-post-detail',
@@ -15,6 +17,7 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 })
 export class PostDetailComponent implements OnInit {
 
+  @ViewChild('commentForm') commentForm: AddCommentComponent;
   public content:string = null;
   public title:string = null;
   public featuredImage:string = null;
@@ -58,6 +61,14 @@ export class PostDetailComponent implements OnInit {
         });
       }
     }, err=> console.log("error: ", err));    
+  }
+
+  postComment(comment:CommentModel){
+    //in case of success
+      //this.commentForm.clearForm();
+
+    //in case of error
+      //this.commentForm.cancelSubmit();
   }
 
 }

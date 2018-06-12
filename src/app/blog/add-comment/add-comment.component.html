@@ -1,0 +1,21 @@
+<form class="add-comment-form" #form="ngForm" (ngSubmit)="submitForm()">
+  <ng-container *ngIf="!submitInProcess">
+    <div class="add-comment-form-contact-info">
+        <label for="comment-author"></label>
+        <input required type="text" name="comment-author" placeholder="Name" [(ngModel)]="model.author">
+      
+        <label for="comment-email"></label>
+        <input required email type="email" name="comment-email" placeholder="email" [(ngModel)]="model.email">
+    </div>
+  
+    <label for="comment-content"></label>
+    <textarea required name="comment-content" placeholder="Write your comment..." [(ngModel)]="model.content"></textarea>
+  
+    <button type="submit" [disabled]="!form.valid">Submit Content</button>
+  </ng-container>
+</form>
+
+<div *ngIf="submitInProcess" class="add-comment-processing">
+  <app-spinner></app-spinner>
+  <p class="add-comment-processing-message">Submitting</p>
+</div>

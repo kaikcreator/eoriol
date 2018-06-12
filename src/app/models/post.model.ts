@@ -9,5 +9,7 @@ export class PostModel {
     public link:string;//absolute path to the post in wordpress site
     public image:string;
     public content?:string;
-    public comments?:CommentModel[]
+    public comments?:CommentModel[];
+    public previous:PostModel;
+    public next:PostModel;
 }
