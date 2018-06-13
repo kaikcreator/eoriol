@@ -126,5 +126,13 @@ export class WpPost {
     return this.post.media;
   }
 
+  next(){
+    return this.post.next_post;
+  }
+
+  prev(){
+    return this.post.prev_post;
+  }  
+
   
 }

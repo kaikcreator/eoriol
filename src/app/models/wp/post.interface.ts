@@ -1,4 +1,5 @@
 import { WpMedia } from "./wp-media.interface";
+import { IPostOverview } from "./post-overview.interface";
 
 export interface IPost {
     id: string;
@@ -23,4 +24,6 @@ export interface IPost {
     author: any;
     _embedded: any;
     media:WpMedia;
+    next_post:IPostOverview;
+    prev_post:IPostOverview;
   }

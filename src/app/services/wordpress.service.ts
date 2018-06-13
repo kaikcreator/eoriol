@@ -8,6 +8,7 @@ import { ContactModel } from '../models/contact.model';
 import { WpMedia } from '../models/wp/wp-media.interface';
 import { WpPostOverview } from '../models/wp/wp-post-overview.model';
 import { Observable } from 'rxjs';
+import { IPostOverview } from '../models/wp/post-overview.interface';
 
 
 
@@ -40,23 +41,11 @@ export class WordpressService {
         map(data => {
           /* this must be an array of posts*/
           return data.map(item => {
-            let wpItem = new WpPostOverview(item);
-
-            let post = <PostModel>{
-              date: wpItem.date(),
-              title: wpItem.title(),
-              slug: wpItem.slug(),
-              path: 'blog/' + wpItem.path(),
-              link: wpItem.link(),
-              image: wpItem.featuredMediaSrc()
-            };
-
-            return post;
+            return this.wpPostOverviewToPostModelSerializer(item);
           });
         })
       );
-  } 
-  
+  }  
   
   retrievePostBySlug(slug:string):Observable<PostModel>{
     return this.http.get<any>(`${environment.wordpressUrl}/posts?slug=${slug}`)
@@ -67,10 +56,15 @@ export class WordpressService {
             let wpItem = new WpPost(item);
 
             let post = <PostModel>{
+              slug:slug,
+              link: wpItem.link(),              
               date: wpItem.date(),
               title: wpItem.title(),
-              link: wpItem.link(),
-              content: wpItem.content()
+              content: wpItem.content(),
+              //comments: CommentModel.getFakeComments(),
+              comments: [],
+              previous: this.wpPostOverviewToPostModelSerializer(wpItem.prev()),
+              next: this.wpPostOverviewToPostModelSerializer(wpItem.next())
             };
 
             //if there's featuredMedia, retrieve it async and update the post model in the future
@@ -142,5 +136,23 @@ export class WordpressService {
       })
     );
   }
+
+  private wpPostOverviewToPostModelSerializer(item:IPostOverview){
+    if(!item)
+      return null;
+
+    let postOverview = new WpPostOverview(item);
+
+    let post = <PostModel>{
+      date: postOverview.date(),
+      title: postOverview.title(),
+      slug: postOverview.slug(),
+      path: 'blog/' + postOverview.path(),
+      link: postOverview.link(),
+      image: postOverview.featuredMediaSrc()
+    };
+
+    return post;
+  }  
 
 }

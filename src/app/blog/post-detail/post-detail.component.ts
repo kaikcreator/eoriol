@@ -53,7 +53,6 @@ export class PostDetailComponent implements OnInit {
       })
     )
     .subscribe(post => {
-      console.log(post);
       if(post){
         this.post = post;
         setTimeout(()=>{

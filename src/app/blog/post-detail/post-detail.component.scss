@@ -52,26 +52,22 @@
         width: 100%;
         margin-top: 170px;
 
-        &-previous{
+        [left]{
             margin-left: 50px;
-
-            &:before{
-                content: '<';
-                position: absolute;
-                left: -26px;
-                color: $color-primary;
-            }
         }
-        &-next{
-            align-items: flex-end;
-            text-align: right;
+
+        [right]{
             margin-right: 50px;
-            &:after{
-                content: '>';
-                position: absolute;
-                right: -26px;                
-                color: $color-primary;
-            }
+            align-items: flex-end;
+            text-align: right;            
+        }
+
+        &-no-link{
+            align-self: center;
+            text-transform: uppercase;
+            color: $color-primary;
+            font-size: 12px;
+            font-weight: 300;
         }
 
         &-link{
@@ -81,6 +77,21 @@
             justify-content: center;
             text-decoration: none;
             color: inherit;
+
+            &[left]:before{
+                content: '<';
+                position: absolute;
+                left: -26px;
+                color: $color-primary;
+            }
+
+            &[right]:after{
+                content: '>';
+                position: absolute;
+                right: -26px;                
+                color: $color-primary;
+            }
+
             h4{
                 color: $color-primary;
                 font-size: 12px;

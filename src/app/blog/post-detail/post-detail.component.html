@@ -12,26 +12,31 @@
 
   <div class="post-footer">
 
-    <a *ngIf="post.previous" href="{{post.previous.link}}" class="post-footer-link post-footer-previous" >
+    <a left *ngIf="post.previous" routerLink="/{{post.previous.path}}" class="post-footer-link" >
       <h4>PREVIOUS ARTICLE</h4>
       <h3>{{post.previous.title}}</h3>
     </a>
+    <div left *ngIf="!post.previous" class="post-footer-no-link">
+      No older articles available
+    </div>
 
-    <div class="post-footer-comments-badge">
+    <div class="post-footer-comments-badge" *ngIf="post.comments">
         <span class="post-footer-comments-badge-icon"></span>
         {{post.comments.length}} comments
       </div>
 
-    <a *ngIf="post.next" href="{{post.next.link}}" class="post-footer-link post-footer-next">
+    <a right *ngIf="post.next" routerLink="/{{post.next.path}}" class="post-footer-link">
         <h4>NEXT ARTICLE</h4>
         <h3>{{post.next.title}}</h3>
     </a>
+    <div right *ngIf="!post.next" class="post-footer-no-link">
+      No newer articles available
+    </div>
 
   </div>
 
   <hr class="post-comments-separator">
   
-
   <app-comment class="post-comment" *ngFor="let comment of post.comments"
     content="{{comment.content}}"
     author="{{comment.author}}"
