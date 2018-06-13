@@ -2,6 +2,7 @@ import { CommentModel } from "./comment.model";
 
  
 export class PostModel {
+    public id:number;
     public date:string;
     public title:string;
     public slug:string;//unique name as identifier of the article

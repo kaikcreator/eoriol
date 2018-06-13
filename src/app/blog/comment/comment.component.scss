@@ -5,8 +5,6 @@
     flex-direction: column;
     justify-content: center;
     align-content: space-between;
-    margin-top: 80px;
-    margin-bottom: 80px;
 }
 
 .comment{
@@ -39,8 +37,8 @@
         font-size: 16px;
         line-height: 30px;
         color: $color-secondary;
-        margin-top: 49px;
-        margin-bottom: 60px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     &-footer{

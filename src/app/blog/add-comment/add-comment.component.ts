@@ -15,7 +15,7 @@ export class AddCommentComponent implements OnInit {
   constructor() { }
 
   @Output() onSubmit:EventEmitter<CommentModel> = new EventEmitter<CommentModel>();
-  public model = new CommentModel('','','');
+  public model = new CommentModel();
 
 
   ngOnInit() {

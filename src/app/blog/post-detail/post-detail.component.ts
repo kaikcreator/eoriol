@@ -23,6 +23,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   public title:string = null;
   public featuredImage:string = null;
   public post:PostModel = null;
+  public comments:CommentModel[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -63,6 +64,10 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         }
         if(isPlatformBrowser(this.platformId)){
           setTimeout(()=>{prettify.prettyPrint()});
+          this.wordpressService.retrievePostComments(this.post.id)
+          .subscribe(comments => {
+            this.comments = comments;
+          })
         }
       }
     }, err=> console.log("error: ", err));    

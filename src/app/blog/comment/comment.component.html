@@ -3,17 +3,17 @@
       <app-avatar image="{{avatar}}" name="{{author}}"></app-avatar>
       <h1>{{author}}</h1>
   </div>
-  <div class="comment-header-date">{{date}}</div>
+  <div class="comment-header-date">{{date | date:'medium':'es-ES'}}</div>
 </div>
 
-<p class="comment-content">{{content}}</p>
+<p class="comment-content" innerHTML="{{content}}"></p>
 
 <div class="comment-footer">
   <button class="comment-footer-reply">Reply</button>
-  <hr>
+  <hr *ngIf="!replies || replies.length == 0">
 </div>
 
-<div class="comment-replies" *ngIf="replies">
+<div class="comment-replies" *ngIf="replies && replies.length > 0">
     <app-comment *ngFor="let reply of replies"
       content="{{reply.content}}"
       author="{{reply.author}}"

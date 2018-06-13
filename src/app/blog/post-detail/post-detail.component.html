@@ -20,9 +20,9 @@
       No older articles available
     </div>
 
-    <div class="post-footer-comments-badge" *ngIf="post.comments">
+    <div class="post-footer-comments-badge" *ngIf="comments">
         <span class="post-footer-comments-badge-icon"></span>
-        {{post.comments.length}} comments
+        {{comments.length}} comments
       </div>
 
     <a right *ngIf="post.next" routerLink="/{{post.next.path}}" class="post-footer-link">
@@ -37,7 +37,7 @@
 
   <hr class="post-comments-separator">
   
-  <app-comment class="post-comment" *ngFor="let comment of post.comments"
+  <app-comment class="post-comment" *ngFor="let comment of comments"
     content="{{comment.content}}"
     author="{{comment.author}}"
     date="{{comment.date}}"
