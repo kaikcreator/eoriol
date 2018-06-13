@@ -57,9 +57,10 @@ export class PostDetailComponent implements OnInit {
     .subscribe(post => {
       if(post){
         this.post = post;
-        //add metas
-        for (let key in this.post.metas){
-          this.meta.addTag({name:key, content:this.post.metas[key]});
+        //add meta data
+        debugger;
+        for (let key in this.post.meta){
+          this.meta.addTag({name:key, content:this.post.meta[key]});
         }
         setTimeout(()=>prettify.prettyPrint());
       }

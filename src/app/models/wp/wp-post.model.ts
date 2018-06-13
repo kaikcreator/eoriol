@@ -135,10 +135,8 @@ export class WpPost {
     return this.post.prev_post;
   }  
 
-  metas(){
-    let metas = new PostMetaTagsModel();
-    //return this.post.metas;
-    return metas;
+  meta(){
+    return this.post.meta;
   }
 
   

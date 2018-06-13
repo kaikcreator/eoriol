@@ -65,7 +65,7 @@ export class WordpressService {
               comments: [],
               previous: this.wpPostOverviewToPostModelSerializer(wpItem.prev()),
               next: this.wpPostOverviewToPostModelSerializer(wpItem.next()),
-              metas: wpItem.metas()
+              meta: wpItem.meta()
             };
 
 
@@ -75,8 +75,8 @@ export class WordpressService {
               this.retrieveMedia(wpItem.featuredMedia()).subscribe(media =>{
                 wpItem.setMedia(media);
                 post.image = wpItem.featuredImage('large');
-                post.metas["og:image"] = post.image;
-                post.metas["twitter:image"] = post.image;
+                post.meta["og:image"] = post.image;
+                post.meta["twitter:image"] = post.image;
               });
             }
 
