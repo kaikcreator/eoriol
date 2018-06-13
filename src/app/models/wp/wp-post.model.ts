@@ -1,7 +1,6 @@
 import { WpUser } from './wp-user.interface';
 import { WpMedia } from './wp-media.interface';
 import { IPost } from './post.interface';
-import { PostMetaTagsModel } from '../post-meta-tags.model';
 
 export class WpPost {
 

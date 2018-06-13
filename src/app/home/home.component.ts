@@ -2,13 +2,12 @@ import { Component, OnInit, HostListener, PLATFORM_ID, Inject, OnDestroy, ViewCh
 import { BookCoursesService } from '../services/book-courses.service';
 import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
-import { isPlatformBrowser } from '@angular/common';
 import { WindowScrollService } from '../services/window-scroll.service';
 import { Subscription } from 'rxjs';
-import { auditTime } from 'rxjs/operators';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { BookCardComponent } from '../book-card/book-card.component';
 import { WindowRefService, DocumentRefService } from '../services/globals.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -33,6 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private scrollTo: ScrollToService,
     private winRef: WindowRefService,
     private docRef: DocumentRefService,
+    private meta: Meta,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
     this.scrollOffsetMap = new Map();
@@ -42,10 +42,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    //add meta tags
+    this.meta.updateTag({name:'description', content:'Tutoriales, guias, blogs y cursos de Angular, Ionic, TypeScript, JavaScript y programacion frontend'});
+    this.meta.updateTag({name:'keywords', content:'Enrique Oriol, Angular, Ionic, Cursos, Tutoriales, Desarrollo, Javascript, Frontend, Programacion, Desarrollo web, Aprender a programar, Aprender Javascript, HTML5, CSS, TypeScript, SaSS, Node'});
+    
+    //get courses
     this.bookCourses.getItems().subscribe(list =>{
       this.bookCourseItems = list;
     });
 
+    //get blog posts
     this.blogPosts.getLastItems(3).subscribe(list => {
       this.blogPostItems = list;
     })

@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
 export class AddCommentComponent implements OnInit {
 
   @ViewChild('form') form: NgForm;
-  private submitInProcess:boolean = false;
+  public submitInProcess:boolean = false;
 
   constructor() { }
 

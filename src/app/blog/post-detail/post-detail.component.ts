@@ -1,5 +1,5 @@
 import prettify from "../../../libs/code-prettify-mod/src/prettify";
-import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { map, switchMap } from 'rxjs/operators';
@@ -16,7 +16,7 @@ import { Meta } from "@angular/platform-browser";
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.scss']
 })
-export class PostDetailComponent implements OnInit {
+export class PostDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild('commentForm') commentForm: AddCommentComponent;
   public content:string = null;
@@ -58,13 +58,24 @@ export class PostDetailComponent implements OnInit {
       if(post){
         this.post = post;
         //add meta data
-        debugger;
         for (let key in this.post.meta){
-          this.meta.addTag({name:key, content:this.post.meta[key]});
+          this.meta.updateTag({name:key, content:this.post.meta[key]});
         }
         setTimeout(()=>prettify.prettyPrint());
       }
     }, err=> console.log("error: ", err));    
+  }
+
+  ngOnDestroy(){
+    //remove meta data associated with this specific route
+    for (let key in this.post.meta){
+      let metakey = `name="${key}"`;
+      try{
+        this.meta.removeTag(metakey);
+      }catch(err){
+        console.log(err);
+      }
+    }
   }
 
   postComment(comment:CommentModel){
