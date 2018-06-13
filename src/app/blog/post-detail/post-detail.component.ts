@@ -57,7 +57,12 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         this.post = post;
         //add meta data
         for (let key in this.post.meta){
-          this.meta.updateTag({name:key, content:this.post.meta[key]});
+          if(key.indexOf('og:') == 0 || key.indexOf('twitter') == 0 ){
+            this.meta.updateTag({property:key, content:this.post.meta[key]});
+          }
+          else{
+            this.meta.updateTag({name:key, content:this.post.meta[key]});
+          }
         }
         if(isPlatformBrowser(this.platformId)){
           this.scrollTop();
