@@ -36,14 +36,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    //scroll top
-    if(isPlatformBrowser(this.platformId)){
-      this.scrollTo.scrollTo({
-        offset:this.element.nativeElement.getBoundingClientRect().top,
-        duration: 0
-      });
-    }
-    
+    //request content based on route slug param
     this.route.paramMap.pipe(
       //switch map will cancel http request if there's a change in the meantime
       switchMap((params: ParamMap) => {
@@ -52,6 +45,10 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         if(extensionPos > 0){
           slug = slug.slice(0, extensionPos);
         }
+        //every time the route change, clear content and scroll top
+        this.post = null;
+        this.scrollTop();
+        
         return this.wordpressService.retrievePostBySlug(slug);
       })
     )
@@ -63,6 +60,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
           this.meta.updateTag({name:key, content:this.post.meta[key]});
         }
         if(isPlatformBrowser(this.platformId)){
+          this.scrollTop();
           setTimeout(()=>{prettify.prettyPrint()});
           this.wordpressService.retrievePostComments(this.post.id)
           .subscribe(comments => {
@@ -91,6 +89,15 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
     //in case of error
       //this.commentForm.cancelSubmit();
+  }
+
+  private scrollTop(){
+    if(isPlatformBrowser(this.platformId)){
+      this.scrollTo.scrollTo({
+        offset:this.element.nativeElement.getBoundingClientRect().top,
+        duration: 0
+      });
+    }
   }
 
 }
