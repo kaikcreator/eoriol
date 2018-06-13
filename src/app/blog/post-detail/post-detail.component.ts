@@ -1,4 +1,4 @@
-import prettify from "../../../libs/code-prettify-mod/src/prettify";
+import prettify from "@prettify/prettify";
 import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -61,7 +61,9 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         for (let key in this.post.meta){
           this.meta.updateTag({name:key, content:this.post.meta[key]});
         }
-        setTimeout(()=>prettify.prettyPrint());
+        if(isPlatformBrowser(this.platformId)){
+          setTimeout(()=>{prettify.prettyPrint()});
+        }
       }
     }, err=> console.log("error: ", err));    
   }
