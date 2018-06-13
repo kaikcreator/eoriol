@@ -9,6 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { CommentModel } from "../../models/comment.model";
 import { AddCommentComponent } from "../add-comment/add-comment.component";
+import { Meta } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-post-detail',
@@ -28,6 +29,7 @@ export class PostDetailComponent implements OnInit {
     private wordpressService: WordpressService,
     private element: ElementRef,
     private scrollTo:ScrollToService,
+    private meta:Meta,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
@@ -55,9 +57,11 @@ export class PostDetailComponent implements OnInit {
     .subscribe(post => {
       if(post){
         this.post = post;
-        setTimeout(()=>{
-          prettify.prettyPrint();
-        });
+        //add metas
+        for (let key in this.post.metas){
+          this.meta.addTag({name:key, content:this.post.metas[key]});
+        }
+        setTimeout(()=>prettify.prettyPrint());
       }
     }, err=> console.log("error: ", err));    
   }

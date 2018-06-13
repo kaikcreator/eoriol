@@ -1,6 +1,7 @@
 import { CommentModel } from "./comment.model";
+import { PostMetaTagsModel } from "./post-meta-tags.model";
 
-
+ 
 export class PostModel {
     public date:string;
     public title:string;
@@ -10,6 +11,8 @@ export class PostModel {
     public comments?:CommentModel[];
     public previous:PostModel;
     public next:PostModel;
+    public metas:PostMetaTagsModel
     public image?:string;    
     public path?:string;//local path to the post    
+    
 }

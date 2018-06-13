@@ -26,4 +26,5 @@ export interface IPost {
     media:WpMedia;
     next_post:IPostOverview;
     prev_post:IPostOverview;
+    metas:any;
   }
