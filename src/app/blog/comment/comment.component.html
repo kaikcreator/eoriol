@@ -9,17 +9,19 @@
 <p class="comment-content" innerHTML="{{content}}"></p>
 
 <div class="comment-footer">
-  <button class="comment-footer-reply">Reply</button>
+  <button class="comment-footer-reply" (click)="reply()">Reply</button>
   <hr *ngIf="!replies || replies.length == 0">
 </div>
 
 <div class="comment-replies" *ngIf="replies && replies.length > 0">
     <app-comment *ngFor="let reply of replies"
+      id="{{reply.id}}"
       content="{{reply.content}}"
       author="{{reply.author}}"
       date="{{reply.date}}"
       avatar="{{reply.avatar}}"
       [replies]="reply.replies"
+      (onReply)="replyChild($event)"
     ></app-comment>
 </div>
 

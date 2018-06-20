@@ -158,6 +158,14 @@
         margin-top: 60px;     
     }
 
+    &-reply-comment{
+        margin-top: -80px !important;
+        background-color: white;
+        width: 100%;
+        padding: 20px;
+        margin-left: -20px;
+    }
+
     &-content ::ng-deep{
         @include centered-text;
 

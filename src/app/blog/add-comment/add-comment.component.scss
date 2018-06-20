@@ -3,6 +3,9 @@
 :host{
     display: block;
     position: relative;
+    &[hidden]{
+        display:none!important;
+    };
 }
 
 .add-comment{

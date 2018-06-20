@@ -36,4 +36,8 @@ export class AddCommentComponent implements OnInit {
     this.submitInProcess = false;
   }
 
+  setParent(parent:number){
+    this.model.parent = parent;
+  }
+
 }

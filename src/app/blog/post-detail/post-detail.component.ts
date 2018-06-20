@@ -1,5 +1,5 @@
 import prettify from "@prettify/prettify";
-import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild, OnDestroy, Renderer2 } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { switchMap } from 'rxjs/operators';
@@ -20,12 +20,17 @@ import { AlertComponentType } from "../../ui-common/alert/alert.component";
 export class PostDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild('commentForm') commentForm: AddCommentComponent;
+  @ViewChild('replyForm') replyForm: AddCommentComponent;
+  @ViewChild('replyForm', {read:ElementRef}) replyFormEl: ElementRef;
+  
+  
   public content:string = null;
   public title:string = null;
   public featuredImage:string = null;
   public post:PostModel = null;
   public comments:CommentModel[] = [];
   public commentSubmissionFeedack:{type:AlertComponentType, title:string, message:string} = null;
+  public isReplyFormVisible:boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +38,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     private element: ElementRef,
     private scrollTo:ScrollToService,
     private meta:Meta,
+    private renderer:Renderer2,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
@@ -94,7 +100,13 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
     this.wordpressService.postNewComment(this.post.id, comment).subscribe(
       data => {
-      this.commentForm.clearForm();
+      if(comment.parent){
+        this.replyForm.clearForm();
+        this.isReplyFormVisible = false;
+      }
+      else{
+        this.commentForm.clearForm();
+      }
       this.commentSubmissionFeedack = {
         type: AlertComponentType.SUCCESS,
         title: "Success",
@@ -104,7 +116,12 @@ export class PostDetailComponent implements OnInit, OnDestroy {
       },
       error => {
         console.log(error);
-        this.commentForm.cancelSubmit();
+        if(comment.parent){
+          this.replyForm.cancelSubmit();
+        }
+        else{
+          this.commentForm.cancelSubmit();
+        }
         this.commentSubmissionFeedack = {
           type: AlertComponentType.ERROR,
           title: "Error",
@@ -113,6 +130,13 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         setTimeout(()=>{this.commentSubmissionFeedack = null}, 3500);        
       }
     )
+  }
+
+  showReplyBox(event){
+    this.isReplyFormVisible = true;
+    this.replyForm.clearForm();
+    this.renderer.appendChild(event.element.nativeElement, this.replyFormEl.nativeElement);
+    this.replyForm.setParent(event.id);
   }
 
   private scrollTop(){
