@@ -2,7 +2,7 @@ import prettify from "@prettify/prettify";
 import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { map, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { WordpressService } from '../../services/wordpress.service';
 import { PostModel } from '../../models/post.model';
 import { isPlatformBrowser } from '@angular/common';
@@ -10,6 +10,7 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { CommentModel } from "../../models/comment.model";
 import { AddCommentComponent } from "../add-comment/add-comment.component";
 import { Meta } from "@angular/platform-browser";
+import { AlertComponentType } from "../../ui-common/alert/alert.component";
 
 @Component({
   selector: 'app-post-detail',
@@ -24,6 +25,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   public featuredImage:string = null;
   public post:PostModel = null;
   public comments:CommentModel[] = [];
+  public commentSubmissionFeedack:{type:AlertComponentType, title:string, message:string} = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -93,10 +95,22 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     this.wordpressService.postNewComment(this.post.id, comment).subscribe(
       data => {
       this.commentForm.clearForm();
+      this.commentSubmissionFeedack = {
+        type: AlertComponentType.SUCCESS,
+        title: "Success",
+        message: "Your message has been successfully uploaded. It might take some time until it becomes publised"
+      }
+      setTimeout(()=>{this.commentSubmissionFeedack = null}, 3500);
       },
       error => {
         console.log(error);
         this.commentForm.cancelSubmit();
+        this.commentSubmissionFeedack = {
+          type: AlertComponentType.ERROR,
+          title: "Error",
+          message: "Oooops! Some error happened. Your comment cannot be uploaded :("
+        }
+        setTimeout(()=>{this.commentSubmissionFeedack = null}, 3500);        
       }
     )
   }

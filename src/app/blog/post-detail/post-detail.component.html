@@ -47,6 +47,12 @@
   </app-comment>
 
   <app-add-comment class="post-add-comment" #commentForm (onSubmit)="postComment($event)"></app-add-comment>
+    <app-alert *ngIf="commentSubmissionFeedack"
+    title="{{commentSubmissionFeedack.title}}"
+    message="{{commentSubmissionFeedack.message}}"
+    type="{{commentSubmissionFeedack.type}}"
+    >
+  </app-alert>
 
 
 </ng-container>
