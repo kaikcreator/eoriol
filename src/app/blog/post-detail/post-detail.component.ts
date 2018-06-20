@@ -89,11 +89,16 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   }
 
   postComment(comment:CommentModel){
-    //in case of success
-      //this.commentForm.clearForm();
 
-    //in case of error
-      //this.commentForm.cancelSubmit();
+    this.wordpressService.postNewComment(this.post.id, comment).subscribe(
+      data => {
+      this.commentForm.clearForm();
+      },
+      error => {
+        console.log(error);
+        this.commentForm.cancelSubmit();
+      }
+    )
   }
 
   private scrollTop(){

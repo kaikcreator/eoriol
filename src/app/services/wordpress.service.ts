@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'; 
-import { map } from 'rxjs/operators';
+import { map, share } from 'rxjs/operators';
 import { PostModel } from '../models/post.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { WpPost } from '../models/wp/wp-post.model';
 import { environment } from '../../environments/environment';
 import { ContactModel } from '../models/contact.model';
@@ -99,6 +99,21 @@ export class WordpressService {
           return comments.filter(item => item.parent == 0);
         })
       )
+  }
+
+  postNewComment(postId, comment:CommentModel){
+    let headers = new HttpHeaders();  
+    headers = headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    let parentParameter = comment.parent ? '&parent=' + comment.parent : '';
+    let observable =  this.http.post(
+      `${environment.wordpressUrl}/comments?post=${postId}${parentParameter}&content=${comment.content}&author_name=${comment.author}&author_email=${encodeURIComponent(comment.email)}`, 
+      {}, 
+    {observe: 'events', headers}).pipe(share());
+
+    observable.subscribe();
+
+    return observable;
   }
   
   contact(data:ContactModel){
