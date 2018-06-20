@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 export enum AlertComponentType{
   SUCCESS= 'success',
@@ -8,7 +9,16 @@ export enum AlertComponentType{
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss']
+  styleUrls: ['./alert.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        'opacity': '0',
+      })),
+      transition('* => *', [
+        animate('200ms ease-in-out')
+      ])
+    ])]     
 })
 export class AlertComponent implements OnInit {
 

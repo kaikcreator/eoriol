@@ -1,69 +1,71 @@
-<div class="alert-content">
-  <svg *ngIf="type == alertTypes.SUCCESS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92"
-    height="92" viewBox="0 0 92 92">
-    <defs>
-      <path id="6cl7a" d="M420.54 174.77l12.06 11.91 25.63-23.82" />
-      <path id="6cl7b" d="M439 130a46 46 0 1 1 0 92 46 46 0 0 1 0-92z" />
-      <clipPath id="6cl7c">
-        <use fill="#fff" xlink:href="#6cl7a" />
-      </clipPath>
-      <clipPath id="6cl7d">
-        <use fill="#fff" xlink:href="#6cl7b" />
-      </clipPath>
-    </defs>
-    <g>
-      <g transform="translate(-393 -130)">
-        <use fill="#fff" fill-opacity="0" stroke="#98cd83" stroke-miterlimit="50" stroke-width="6" clip-path="url(&quot;#6cl7c&quot;)"
-          xlink:href="#6cl7a" />
-      </g>
-      <g transform="translate(-393 -130)">
-        <use fill="#fff" fill-opacity="0" stroke="#98cd83" stroke-miterlimit="50" stroke-width="6" clip-path="url(&quot;#6cl7d&quot;)"
-          xlink:href="#6cl7b" />
-      </g>
-    </g>
-  </svg>
-
-  <svg *ngIf="type == alertTypes.ERROR" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-    preserveAspectRatio="xMidYMid meet" viewBox="-0.05089743589742568 -0.17647058823528994 98.00000000000001 98.00000000000001"
-    width="92" height="92">
-    <defs>
-      <path d="M36.05 62.5L63.95 36.56" id="c8bP9oJubN"></path>
-      <path d="M63.95 62.5L36.05 36.56" id="a5Kmkubpt"></path>
-
-      <path id="aR4yQRuFk" d="M439 130a46 46 0 1 1 0 92 46 46 0 0 1 0-92z" />
-      <clipPath id="6cl7c1">
-        <use fill="#fff" xlink:href="#c8bP9oJubN" />
-      </clipPath>
-      <clipPath id="6cl7e1">
-          <use fill="#fff" xlink:href="#a5Kmkubpt" />
-        </clipPath>      
-      <clipPath id="6cl7d1">
-        <use fill="#fff" xlink:href="#aR4yQRuFk" />
-      </clipPath>
-    </defs>
-
-    <g>
-      <g transform="translate(-393 -130)">
-        <use fill="#fff" fill-opacity="0" stroke="#cd8383" stroke-miterlimit="50" stroke-width="6" clip-path="url(&quot;#6cl7d1&quot;)"
-          xlink:href="#aR4yQRuFk" />
-      </g>
-
-      <g transform="translate(-4 -2)">
-        <use xlink:href="#c8bP9oJubN" opacity="1" fill="#ffffff" fill-opacity="0"></use>
-        <g>
-          <use xlink:href="#c8bP9oJubN" opacity="1" fill-opacity="0" stroke="#cd8383" stroke-width="4" stroke-opacity="1"></use>
-        </g>
-      </g>
+<div class="alert" @fadeInOut>
+    <div class="alert-content">
+        <svg *ngIf="type == alertTypes.SUCCESS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92"
+          height="92" viewBox="0 0 92 92">
+          <defs>
+            <path id="6cl7a" d="M420.54 174.77l12.06 11.91 25.63-23.82" />
+            <path id="6cl7b" d="M439 130a46 46 0 1 1 0 92 46 46 0 0 1 0-92z" />
+            <clipPath id="6cl7c">
+              <use fill="#fff" xlink:href="#6cl7a" />
+            </clipPath>
+            <clipPath id="6cl7d">
+              <use fill="#fff" xlink:href="#6cl7b" />
+            </clipPath>
+          </defs>
+          <g>
+            <g transform="translate(-393 -130)">
+              <use fill="#fff" fill-opacity="0" stroke="#98cd83" stroke-miterlimit="50" stroke-width="6" clip-path="url(&quot;#6cl7c&quot;)"
+                xlink:href="#6cl7a" />
+            </g>
+            <g transform="translate(-393 -130)">
+              <use fill="#fff" fill-opacity="0" stroke="#98cd83" stroke-miterlimit="50" stroke-width="6" clip-path="url(&quot;#6cl7d&quot;)"
+                xlink:href="#6cl7b" />
+            </g>
+          </g>
+        </svg>
       
-      <g transform="translate(-4 -2)">
-        <use xlink:href="#a5Kmkubpt" opacity="1" fill="#ffffff" fill-opacity="0"></use>
-        <g>
-          <use xlink:href="#a5Kmkubpt" opacity="1" fill-opacity="0" stroke="#cd8383" stroke-width="4" stroke-opacity="1"></use>
-        </g>
-      </g>
-    </g>
-  </svg>
-  
-  <h1 class="alert-title">{{title}}</h1>
-  <p class="alert-message">{{message}}</p>
+        <svg *ngIf="type == alertTypes.ERROR" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          preserveAspectRatio="xMidYMid meet" viewBox="-0.05089743589742568 -0.17647058823528994 98.00000000000001 98.00000000000001"
+          width="92" height="92">
+          <defs>
+            <path d="M36.05 62.5L63.95 36.56" id="c8bP9oJubN"></path>
+            <path d="M63.95 62.5L36.05 36.56" id="a5Kmkubpt"></path>
+      
+            <path id="aR4yQRuFk" d="M439 130a46 46 0 1 1 0 92 46 46 0 0 1 0-92z" />
+            <clipPath id="6cl7c1">
+              <use fill="#fff" xlink:href="#c8bP9oJubN" />
+            </clipPath>
+            <clipPath id="6cl7e1">
+                <use fill="#fff" xlink:href="#a5Kmkubpt" />
+              </clipPath>      
+            <clipPath id="6cl7d1">
+              <use fill="#fff" xlink:href="#aR4yQRuFk" />
+            </clipPath>
+          </defs>
+      
+          <g>
+            <g transform="translate(-393 -130)">
+              <use fill="#fff" fill-opacity="0" stroke="#cd8383" stroke-miterlimit="50" stroke-width="6" clip-path="url(&quot;#6cl7d1&quot;)"
+                xlink:href="#aR4yQRuFk" />
+            </g>
+      
+            <g transform="translate(-4 -2)">
+              <use xlink:href="#c8bP9oJubN" opacity="1" fill="#ffffff" fill-opacity="0"></use>
+              <g>
+                <use xlink:href="#c8bP9oJubN" opacity="1" fill-opacity="0" stroke="#cd8383" stroke-width="4" stroke-opacity="1"></use>
+              </g>
+            </g>
+            
+            <g transform="translate(-4 -2)">
+              <use xlink:href="#a5Kmkubpt" opacity="1" fill="#ffffff" fill-opacity="0"></use>
+              <g>
+                <use xlink:href="#a5Kmkubpt" opacity="1" fill-opacity="0" stroke="#cd8383" stroke-width="4" stroke-opacity="1"></use>
+              </g>
+            </g>
+          </g>
+        </svg>
+        
+        <h1 class="alert-title">{{title}}</h1>
+        <p class="alert-message">{{message}}</p>
+      </div>
 </div>
