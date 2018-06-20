@@ -14,7 +14,7 @@ import { Meta } from '@angular/platform-browser';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
   @ViewChildren(BookCardComponent, {read: ElementRef}) bookCardElements: QueryList<ElementRef>;
 
@@ -23,12 +23,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   public blogPostItems:any[];
   public scrollOffsetMap:Map<number, number>;
   public subscribeCTAWhite:boolean = true;
-  public scrollSubscription:Subscription = null;
 
   constructor(
     public bookCourses: BookCoursesService,
     public blogPosts: BlogPostsService,
-    private windowScroll: WindowScrollService,
     private scrollTo: ScrollToService,
     private winRef: WindowRefService,
     private docRef: DocumentRefService,
@@ -55,23 +53,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.blogPosts.getLastItems(3).subscribe(list => {
       this.blogPostItems = list;
     })
-
-    /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
-    this.scrollSubscription = this.windowScroll.scroll$.subscribe((scroll)=>{
-      if(scroll > 225){
-        if(this.subscribeCTAWhite)
-          this.subscribeCTAWhite = false;
-      }
-      else{
-        if(!this.subscribeCTAWhite)
-          this.subscribeCTAWhite = true;
-      }
-    })
-  }
-
-  ngOnDestroy(){
-    if(this.scrollSubscription)
-      this.scrollSubscription.unsubscribe();
   }
 
   onBookCourseCardExpand(expands:boolean, index){

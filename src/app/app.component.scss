@@ -4,6 +4,13 @@
     display: block;
     background: white;
 }
+
+app-subscribe-cta{
+    @media screen and (max-width: $break-medium){
+        display: none;
+    }
+}
+
 footer{
     @media screen and (max-width: $break-large){
         margin-left: 40px;
