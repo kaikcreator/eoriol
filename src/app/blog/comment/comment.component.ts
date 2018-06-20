@@ -26,8 +26,4 @@ export class CommentComponent implements OnInit {
     this.onReply.emit({id:this.id, element:this.element});
   }
 
-  public replyChild(event){
-    this.onReply.emit(event);
-  }
-
 }

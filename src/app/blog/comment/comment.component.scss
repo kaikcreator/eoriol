@@ -66,28 +66,4 @@
         }
     }
 
-    &-replies{
-        margin-left: 28px;
-        margin-top: 26px;
-        border-left: 3px solid #dfdfdf;
-
-        & app-comment{
-            margin-left: 60px;
-
-            &:first-child{
-                margin-top: 20px;
-            }
-
-            &:last-child{
-                margin-bottom: 4px;
-            }
-        }
-
-        @media screen and (max-width: $break-medium){
-            margin-left: 14px;
-            & app-comment{
-                margin-left: 20px;
-            }            
-        }
-    }
 }

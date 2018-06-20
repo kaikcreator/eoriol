@@ -1,63 +1,69 @@
 <ng-container *ngIf="post">
   <div class="post-image" *ngIf="post.image" [style.background-image]="'url(' + post.image + ')'"></div>
   <div class="post-no-image-spacer" *ngIf="!post.image"></div>
-
   <h1 class="post-title" [innerHTML]="post.title"></h1>
   <div class="post-date">{{post.date | date:'longDate':'es-ES' }}</div>
-
   <div class="post-tags"></div>
-
   <div class="post-content" [innerHTML]="post.content"></div>
 
-
   <div class="post-footer">
-
-    <a left *ngIf="post.previous" routerLink="/{{post.previous.path}}" class="post-footer-link" >
+    <a left *ngIf="post.previous" routerLink="/{{post.previous.path}}" class="post-footer-link">
       <h4>PREVIOUS ARTICLE</h4>
       <h3>{{post.previous.title}}</h3>
     </a>
     <div left *ngIf="!post.previous" class="post-footer-no-link">
       No older articles available
     </div>
-
     <div class="post-footer-comments-badge" *ngIf="comments">
-        <span class="post-footer-comments-badge-icon"></span>
-        {{comments.length}} comments
-      </div>
-
+      <span class="post-footer-comments-badge-icon"></span>
+      {{comments.length}} comments
+    </div>
     <a right *ngIf="post.next" routerLink="/{{post.next.path}}" class="post-footer-link">
-        <h4>NEXT ARTICLE</h4>
-        <h3>{{post.next.title}}</h3>
+      <h4>NEXT ARTICLE</h4>
+      <h3>{{post.next.title}}</h3>
     </a>
     <div right *ngIf="!post.next" class="post-footer-no-link">
       No newer articles available
     </div>
-
   </div>
 
   <hr class="post-comments-separator">
-  
-  <app-comment class="post-comment" *ngFor="let comment of comments"
-    id="{{comment.id}}"
-    content="{{comment.content}}"
-    author="{{comment.author}}"
-    date="{{comment.date}}"
-    avatar="{{comment.avatar}}"
-    [replies]="comment.replies"
-    (onReply)="showReplyBox($event)"
-    >
-  </app-comment>
 
+  <!-- recursive comments list -->
+  <ng-template #recursiveCommentsList let-comments>
+    <ng-container *ngFor="let comment of comments">
+
+      <!-- display current comment -->
+      <app-comment class="post-comment" id="{{comment.id}}" content="{{comment.content}}" author="{{comment.author}}" date="{{comment.date}}"
+        avatar="{{comment.avatar}}" (onReply)="showReplyBox($event)">
+      </app-comment>
+
+      <!-- display recursive list of replies to the current comment -->
+      <div class="post-replies" *ngIf="comment.replies.length > 0">
+        <ng-container *ngTemplateOutlet="recursiveCommentsList; context:{ $implicit:comment.replies}"></ng-container>
+      </div>
+
+    </ng-container>
+  </ng-template>
+
+
+  <!-- insert into the DOM the recursive list of comments -->
+  <ng-container *ngIf="comments.length">
+    <ng-container *ngTemplateOutlet="recursiveCommentsList; context: {$implicit:comments}"></ng-container>
+  </ng-container>
+
+  <!-- form to add post comment -->
   <app-add-comment #commentForm class="post-add-comment" (onSubmit)="postComment($event)"></app-add-comment>
-  
-  <app-add-comment #replyForm [hidden]="!isReplyFormVisible" class="post-reply-comment" (onSubmit)="postComment($event)"></app-add-comment>
-  
-  <app-alert *ngIf="commentSubmissionFeedack" title="{{commentSubmissionFeedack.title}}"
-    message="{{commentSubmissionFeedack.message}}" type="{{commentSubmissionFeedack.type}}">
+
+  <!-- form to add reply to some specific comment, it will be appended as a child of the comment node -->
+  <app-add-comment #replyForm [hidden]="!isReplyFormVisible" class="post-add-reply" (onSubmit)="postComment($event)"></app-add-comment>
+
+  <!-- feedback about the comment submission -->
+  <app-alert *ngIf="commentSubmissionFeedack" title="{{commentSubmissionFeedack.title}}" message="{{commentSubmissionFeedack.message}}"
+    type="{{commentSubmissionFeedack.type}}">
   </app-alert>
 
 
 </ng-container>
 
 <app-spinner *ngIf="!post"></app-spinner>
-
