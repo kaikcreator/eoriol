@@ -19,6 +19,7 @@ script:
   - npm run build:universal
 
 after_success:
+  - ls
   - html browser/index-1.html
   - if [ $TRAVIS_BRANCH == "master" ]; then
       firebase use eoriolfront;
