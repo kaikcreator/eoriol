@@ -1,9 +1,7 @@
-import { Component, OnInit, HostListener, PLATFORM_ID, Inject, OnDestroy, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { BookCoursesService } from '../services/book-courses.service';
 import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
-import { WindowScrollService } from '../services/window-scroll.service';
-import { Subscription } from 'rxjs';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { BookCardComponent } from '../book-card/book-card.component';
 import { WindowRefService, DocumentRefService } from '../services/globals.service';
@@ -22,7 +20,6 @@ export class HomeComponent implements OnInit {
   public bookCoursesLimit:number = 3;
   public blogPostItems:any[];
   public scrollOffsetMap:Map<number, number>;
-  public subscribeCTAWhite:boolean = true;
 
   constructor(
     public bookCourses: BookCoursesService,
