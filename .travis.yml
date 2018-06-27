@@ -1,6 +1,10 @@
 #.travis.yml
 
 language: node_js
+
+before_install:
+  - npm i -g npm@latest
+
 node_js:
   - "8.11.3"
 
