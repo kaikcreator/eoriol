@@ -66,7 +66,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         this.post = post;
         //add meta data
         for (let key in this.post.meta){
-          if(key.indexOf('og:') == 0 || key.indexOf('twitter') == 0 ){
+          if(key.indexOf('og:') == 0){
             this.meta.updateTag({property:key, content:this.post.meta[key]});
           }
           else{
