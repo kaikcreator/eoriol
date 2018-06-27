@@ -10,6 +10,10 @@
             
             <input #email="ngModel" email type="email" placeholder="email" name="email" [(ngModel)]="model.email" autocomplete="email">
             <input type="text" placeholder="name" name="name" [(ngModel)]="model.name" required autocomplete="name">
+            <div class="gdpr-checkbox">
+                <input type="checkbox" name="gdpr" [(ngModel)]="model.gdpr" required>
+                <span>YES! I'd like to receive your latests news and occasional promotions by email. This site treats your personal details with the utmost care, and will never sell them to other companies for marketing purposes.</span>
+              </div>
     
             <div class="subscribe-cta-form-error">
                 <div class="response" *ngIf="error" [innerHTML]="error"></div>
@@ -19,7 +23,7 @@
             <div style="position: absolute; left: -5000px;" aria-hidden="true">
                 <input type="text" name="whoareyou" tabindex="-1" value="" [(ngModel)]="botDetector" autocomplete="off">
             </div>
-            <button type="submit" id="subscribe-cta-form-button" [disabled]="!email.valid || !model.name">Subscribe</button>
+            <button type="submit" id="subscribe-cta-form-button" [disabled]="!email.valid || !model.name || !model.gdpr">Subscribe</button>
         </form>
     </ng-container>  
 

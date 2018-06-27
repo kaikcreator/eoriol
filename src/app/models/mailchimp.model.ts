@@ -13,7 +13,8 @@ export class MailchimpProfileModel {
     constructor(
         public email:string="",
         public name:string="",
-        public status:string=MailchimpSubscriptionStatus.pending
+        public status:string=MailchimpSubscriptionStatus.pending,
+        public gdpr:boolean= false
     ){
 
     }

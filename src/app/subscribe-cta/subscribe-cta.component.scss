@@ -24,8 +24,8 @@ app-action-button{
     position: absolute;
     right: 130px;
     top: -128px;
-    width: 360px;
-    height: 220px;
+    width: 400px;
+    height: 280px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
     background-color: $color-white;
     padding: 38px 40px;
@@ -58,6 +58,19 @@ app-action-button{
 
     input, button{
         width: 100%;
+    }
+
+    .gdpr-checkbox{
+        margin-top: 6px;
+        width: 100%;
+        font-size: 0.7em;
+        color: $color-secondary;
+        input{
+            width: initial;
+            height: initial;
+            margin-top: 0px;
+            margin-bottom: 0px;            
+        }
     }
 
     .subscribe-cta-form-error{
