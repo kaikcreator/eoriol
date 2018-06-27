@@ -19,7 +19,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BlogPostsService } from './services/blog-posts.service';
 import { ContactComponent } from './contact/contact.component';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
-import { WindowRefService, DocumentRefService } from './services/globals.service';
+import { WindowRefService } from './services/globals.service';
 import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { HeaderComponent } from './header/header.component';
 import { SocialIconsBarComponent } from './social-icons-bar/social-icons-bar.component';
@@ -77,7 +77,6 @@ import { UiCommonModule } from './ui-common/ui-common.module';
     BookCoursesService, 
     BlogPostsService, 
     WindowRefService,
-    DocumentRefService,
     WordpressService,
     MailchimpService,
     WindowScrollService,

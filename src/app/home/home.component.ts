@@ -4,8 +4,9 @@ import { BookCourseModel } from '../models/book-course.model';
 import { BlogPostsService } from '../services/blog-posts.service';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { BookCardComponent } from '../book-card/book-card.component';
-import { WindowRefService, DocumentRefService } from '../services/globals.service';
+import { WindowRefService } from '../services/globals.service';
 import { Meta } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -26,8 +27,8 @@ export class HomeComponent implements OnInit {
     public blogPosts: BlogPostsService,
     private scrollTo: ScrollToService,
     private winRef: WindowRefService,
-    private docRef: DocumentRefService,
     private meta: Meta,
+    @Inject(DOCUMENT) private document:any,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
     this.scrollOffsetMap = new Map();
@@ -60,7 +61,7 @@ export class HomeComponent implements OnInit {
 
     let offset = 0;
 
-    let windowsWidth = this.docRef.nativeDocument.body.clientWidth || this.docRef.nativeDocument.documentElement.clientWidth || this.winRef.nativeWindow.innerWidth;
+    let windowsWidth = this.document.body.clientWidth || this.document.documentElement.clientWidth || this.winRef.nativeWindow.innerWidth;
 
     if(windowsWidth >= 600){
       offset = -100;
