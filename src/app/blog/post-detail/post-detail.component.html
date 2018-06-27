@@ -4,7 +4,7 @@
   <h1 class="post-title" [innerHTML]="post.title"></h1>
   <div class="post-date">{{post.date | date:'longDate':'es-ES' }}</div>
   <div class="post-tags"></div>
-  <div class="post-content" [innerHTML]="post.content"></div>
+  <div class="post-content" [innerHTML]="sanitizedHtml"></div>
 
   <div class="post-footer">
     <a left *ngIf="post.previous" routerLink="/{{post.previous.path}}" class="post-footer-link">

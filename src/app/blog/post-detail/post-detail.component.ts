@@ -9,7 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { CommentModel } from "../../models/comment.model";
 import { AddCommentComponent } from "../add-comment/add-comment.component";
-import { Meta } from "@angular/platform-browser";
+import { Meta, DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { AlertComponentType } from "../../ui-common/alert/alert.component";
 
 @Component({
@@ -23,7 +23,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   @ViewChild('replyForm') replyForm: AddCommentComponent;
   @ViewChild('replyForm', {read:ElementRef}) replyFormEl: ElementRef;
   
-  
+  private sanitizedHtml:SafeHtml = null;
   public content:string = null;
   public title:string = null;
   public featuredImage:string = null;
@@ -39,6 +39,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     private scrollTo:ScrollToService,
     private meta:Meta,
     private renderer:Renderer2,
+    public sanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
@@ -72,6 +73,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
             this.meta.updateTag({name:key, content:this.post.meta[key]});
           }
         }
+        this.sanitizeHtml();
         if(isPlatformBrowser(this.platformId)){
           this.scrollTop();
           setTimeout(()=>{prettify.prettyPrint()});
@@ -145,6 +147,12 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         offset:this.element.nativeElement.getBoundingClientRect().top,
         duration: 0
       });
+    }
+  }
+
+  private sanitizeHtml(){
+    if(this.post.content){
+      this.sanitizedHtml = this.sanitizer.bypassSecurityTrustHtml(this.post.content);
     }
   }
 
