@@ -34,7 +34,8 @@ export class SubscribeMobileComponent implements OnInit {
   }
 
   subscribe(){
-    this.mailchimp.subscribeMember(this.model).subscribe(
+    this.mailchimp.subscribeMember(this.model)
+    .subscribe(
       data =>{
         if(data.result == MailchimpSubscriptionResults.error){
           this.error = data.msg;
@@ -42,6 +43,9 @@ export class SubscribeMobileComponent implements OnInit {
         else{
           this.success = data.msg;
         }
+      },
+      err => {
+        this.error = "Oops! Sorry, something went wrong. Try it later";
       }
     )
   }
