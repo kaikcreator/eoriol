@@ -1,6 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { WindowScrollService } from './services/window-scroll.service';
 import { Subscription } from 'rxjs';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { DOCUMENT } from '@angular/common';
+import { environment } from 'environments/environment.prod';
+
 
 @Component({
   selector: 'app-root',
@@ -14,9 +18,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private windowScroll: WindowScrollService,
+    private angulartics2GA: Angulartics2GoogleAnalytics,
+    @Inject(DOCUMENT) private document:any
   ){}
 
   ngOnInit(){
+
+    //add GA script. retrieve UA code from environment
+    this.setAnalytics();
+
     /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
     this.scrollSubscription = this.windowScroll.scroll$.subscribe((scroll)=>{
       if(scroll > 225){
@@ -29,6 +39,30 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     })
   }
+
+  private setAnalytics() {
+    console.log("SET ANALYTICS");
+    const head = this.document.getElementsByTagName('head')[0];
+    //initialize google analytics
+    const gaScript = this.document.createElement('script');
+    gaScript.id = 'ga1-script';
+    gaScript.type = 'text/javascript';
+    gaScript.innerHTML = `window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', '${environment.googleAnalyticsId}', 'auto');`;
+    //download asyncronously google analytics file
+    const asyncScript = this.document.createElement('script');
+    asyncScript.id = 'ga2-script';
+    asyncScript.type = 'text/javascript';
+    asyncScript.async = true;
+    asyncScript.src = 'https://www.google-analytics.com/analytics.js';
+    //prevent the scripts from being loaded twice (in case of SSR for example)
+    if(!this.document.getElementById('ga1-script')){
+      head.appendChild(gaScript);
+    }
+    if(!this.document.getElementById('ga2-script')){
+      head.appendChild(asyncScript);
+    }
+  }  
 
   ngOnDestroy(){
     if(this.scrollSubscription)

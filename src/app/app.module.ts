@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { Angulartics2Module} from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 
@@ -67,6 +69,7 @@ import { UiCommonModule } from './ui-common/ui-common.module';
         //initialNavigation: 'enabled'
       }
     ),
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     ScrollToModule.forRoot(),
     PageNotFoundModule,
     HttpClientJsonpModule,

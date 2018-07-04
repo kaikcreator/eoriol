@@ -5,9 +5,9 @@
 
 export const environment = {
   production: false,
+  googleAnalyticsId: 'UA-2769438-12',
   /* api used with json-server
-  apiUrl:'http://localhost:3000/',
-  */
+  apiUrl:'http://localhost:3000/',*/
   //apiUrl: 'http://localhost:4000/assets/fixtures',
   apiUrl: 'assets/fixtures', //this relative URL causes error on angular universal. Use full URL instead
   wordpressUrl: 'https://blog.enriqueoriol.com/wp-json/wp/v2',
