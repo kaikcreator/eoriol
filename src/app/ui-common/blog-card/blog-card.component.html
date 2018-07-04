@@ -1,9 +1,11 @@
-<div *ngIf="item.image" class="image" [style.background-image]="'url(' + item.image + ')'"></div>
-<div *ngIf="!item.image" class="imageplaceholder">E</div>
+<a routerLink="/{{item.path}}">
+    <div *ngIf="item.image" class="image" [style.background-image]="'url(' + item.image + ')'"></div>
+    <div *ngIf="!item.image" class="imageplaceholder">E</div>
 
-<div class="content">
-    <header>
-        <div class="date">{{item.date | date: 'longDate'}}</div>
-    </header>
-    <h1 [innerHTML]="item.title"></h1>
-</div>
+    <div class="content">
+        <header>
+            <div class="date">{{item.date | date: 'longDate'}}</div>
+        </header>
+        <h1 [innerHTML]="item.title"></h1>
+    </div>
+</a>

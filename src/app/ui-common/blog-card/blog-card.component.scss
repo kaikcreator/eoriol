@@ -2,12 +2,15 @@
 
 :host{
     cursor: pointer;
+    &>a{
+        text-decoration:none;
+    }
 }
 
 
 .content{
     @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse !important;
     }
     align-items: center;
 }

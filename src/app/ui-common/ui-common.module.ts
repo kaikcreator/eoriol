@@ -6,11 +6,13 @@ import { SearchBoxComponent } from './search-box/search-box.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AvatarComponent } from './avatar/avatar.component';
 import { AlertComponent } from './alert/alert.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [BlogCardComponent, SpinnerComponent, SearchBoxComponent, AvatarComponent, AlertComponent],
   exports: [BlogCardComponent, SpinnerComponent, SearchBoxComponent, AvatarComponent, AlertComponent]
