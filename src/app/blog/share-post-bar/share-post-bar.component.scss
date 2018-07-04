@@ -1,0 +1,12 @@
+@import '~variables.scss';
+
+:host{
+    display: flex;
+    width: 350px;
+    margin: auto;
+    justify-content: space-around;
+
+    svg:hover path{
+        fill: $color-primary;
+    }
+}

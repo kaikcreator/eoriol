@@ -5,7 +5,7 @@ import { BlogPostsService } from '../services/blog-posts.service';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { BookCardComponent } from '../book-card/book-card.component';
 import { WindowRefService } from '../services/globals.service';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     private scrollTo: ScrollToService,
     private winRef: WindowRefService,
     private meta: Meta,
+    private titleService:Title,
     @Inject(DOCUMENT) private document:any,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { 
@@ -38,6 +39,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    //update title
+    this.titleService.setTitle("Enrique Oriol: Frontend tips, courses and trainning - Angular & Ionic evangelist, blockchain lover");
+
     //add meta tags
     this.meta.updateTag({name:'description', content:'Tutoriales, guias, blogs y cursos de Angular, Ionic, TypeScript, JavaScript y programacion frontend'});
     this.meta.updateTag({name:'keywords', content:'Enrique Oriol, Angular, Ionic, Cursos, Tutoriales, Desarrollo, Javascript, Frontend, Programacion, Desarrollo web, Aprender a programar, Aprender Javascript, HTML5, CSS, TypeScript, SaSS, Node'});

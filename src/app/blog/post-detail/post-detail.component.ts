@@ -5,11 +5,11 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { WordpressService } from '../../services/wordpress.service';
 import { PostModel } from '../../models/post.model';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { CommentModel } from "../../models/comment.model";
 import { AddCommentComponent } from "../add-comment/add-comment.component";
-import { Meta, DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { Meta, DomSanitizer, SafeHtml, Title } from "@angular/platform-browser";
 import { AlertComponentType } from "../../ui-common/alert/alert.component";
 
 @Component({
@@ -24,9 +24,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   @ViewChild('replyForm', {read:ElementRef}) replyFormEl: ElementRef;
   
   private sanitizedHtml:SafeHtml = null;
-  public content:string = null;
-  public title:string = null;
-  public featuredImage:string = null;
+  public currentUrl:string = "";
   public post:PostModel = null;
   public comments:CommentModel[] = [];
   public commentSubmissionFeedack:{type:AlertComponentType, title:string, message:string} = null;
@@ -40,11 +38,16 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     private meta:Meta,
     private renderer:Renderer2,
     public sanitizer: DomSanitizer,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private titleService: Title,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document
   ) { }
 
 
   ngOnInit() {
+
+    this.currentUrl = this.document.location.href;
+    
     //request content based on route slug param
     this.route.paramMap.pipe(
       //switch map will cancel http request if there's a change in the meantime
@@ -64,6 +67,8 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     .subscribe(post => {
       if(post){
         this.post = post;
+        //update title
+        this.titleService.setTitle(this.post.title);
         //add meta data
         for (let key in this.post.meta){
           if(key.indexOf('og:') == 0){
@@ -73,10 +78,14 @@ export class PostDetailComponent implements OnInit, OnDestroy {
             this.meta.updateTag({name:key, content:this.post.meta[key]});
           }
         }
+        //sanitize HTML
         this.sanitizeHtml();
+        //only in browser side
         if(isPlatformBrowser(this.platformId)){
           this.scrollTop();
+          //pretty print code fragments
           setTimeout(()=>{prettify.prettyPrint()});
+          //get comments
           this.wordpressService.retrievePostComments(this.post.id)
           .subscribe(comments => {
             this.comments = comments;

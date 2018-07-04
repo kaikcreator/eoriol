@@ -9,6 +9,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { UiCommonModule } from '../ui-common/ui-common.module';
 import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { SharePostBarComponent } from './share-post-bar/share-post-bar.component';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     BlogRoutingModule,
     UiCommonModule
   ],
-  declarations: [PostsListComponent, PostDetailComponent, CommentComponent, AddCommentComponent]
+  declarations: [PostsListComponent, PostDetailComponent, CommentComponent, AddCommentComponent, SharePostBarComponent]
 })
 export class BlogModule { }

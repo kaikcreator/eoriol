@@ -51,6 +51,20 @@
 
     }
 
+    &-share{
+        margin-top: 120px;
+        width: 100%;
+        text-align: center;
+        h2{
+            font-weight: 600;
+            letter-spacing: 5.28px;
+            font-size: 12px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            color: $color-secondary;
+        }
+    }
+
     &-footer{
         display: flex;
         flex-direction: row;

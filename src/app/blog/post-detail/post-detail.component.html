@@ -6,6 +6,11 @@
   <div class="post-tags"></div>
   <div class="post-content" [innerHTML]="sanitizedHtml"></div>
 
+  <div class="post-share">
+    <h2>SHARE WITH:</h2>
+    <app-share-post-bar url="{{currentUrl}}" title="{{post.title}}"></app-share-post-bar>
+  </div>
+
   <div class="post-footer">
     <a left *ngIf="post.previous" routerLink="/{{post.previous.path}}" class="post-footer-link">
       <h4>PREVIOUS ARTICLE</h4>

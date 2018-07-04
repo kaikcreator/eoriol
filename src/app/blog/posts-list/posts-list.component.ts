@@ -4,6 +4,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { SearchBoxComponent } from '../../ui-common/search-box/search-box.component';
 import { switchMap, tap } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -22,10 +23,13 @@ export class PostsListComponent implements OnInit {
     private blogPosts: BlogPostsService,
     private element: ElementRef,
     private scrollTo:ScrollToService,
+    private titleService:Title,
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
 
   ngOnInit() {
+        //update title
+        this.titleService.setTitle("Enrique Oriol: Frontend tips, courses and trainning - Angular & Ionic evangelist, blockchain lover");
     //scroll top
     if(isPlatformBrowser(this.platformId)){
       this.scrollTo.scrollTo({
