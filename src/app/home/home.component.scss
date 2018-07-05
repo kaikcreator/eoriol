@@ -374,6 +374,12 @@ app-subscribe-cta{
             } 
         }
 
+        @media screen and (max-width: $break-small){
+            .card{
+                width: 320px;
+            }
+        }
+
         .card{
             margin-left: 15px;
             margin-right: 15px;

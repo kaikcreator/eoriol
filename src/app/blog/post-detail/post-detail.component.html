@@ -21,7 +21,7 @@
     </div>
     <div class="post-footer-comments-badge" *ngIf="comments">
       <span class="post-footer-comments-badge-icon"></span>
-      {{comments.length}} comments
+      {{numComments}} <span class="post-footer-comments-badge-text">&nbsp;comments</span>
     </div>
     <a right *ngIf="post.next" routerLink="/{{post.next.path}}" class="post-footer-link">
       <h4>NEXT ARTICLE</h4>
@@ -58,10 +58,10 @@
   </ng-container>
 
   <!-- form to add post comment -->
-  <app-add-comment #commentForm class="post-add-comment" (onSubmit)="postComment($event)"></app-add-comment>
+  <app-add-comment #commentForm class="post-add-comment" (onSubmit)="addComment($event)"></app-add-comment>
 
   <!-- form to add reply to some specific comment, it will be appended as a child of the comment node -->
-  <app-add-comment #replyForm [hidden]="!isReplyFormVisible" class="post-add-reply" (onSubmit)="postComment($event)"></app-add-comment>
+  <app-add-comment #replyForm [hidden]="!isReplyFormVisible" class="post-add-reply" (onSubmit)="addComment($event)"></app-add-comment>
 
   <!-- feedback about the comment submission -->
   <app-alert *ngIf="commentSubmissionFeedack" title="{{commentSubmissionFeedack.title}}" message="{{commentSubmissionFeedack.message}}"

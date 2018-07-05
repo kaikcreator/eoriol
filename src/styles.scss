@@ -147,6 +147,9 @@ textarea{
 
 .card-content{
 
+    @media screen and (max-width: $break-small){
+        max-width: 320px;
+    }  
     @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
         width: 100%;
         flex-direction: row;
@@ -173,6 +176,9 @@ textarea{
         margin-right: 24px;
         margin-bottom: 70px;
         overflow: hidden;
+        @media screen and (max-width: $break-small){
+            max-width: 270px;
+        }        
     }
 
     header{
@@ -185,6 +191,9 @@ textarea{
     .image{
         @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
             width: 180px;
+        }
+        @media screen and (max-width: $break-small){
+            width: 320px;
         }
         width: 349px;
         height: 319px;
@@ -219,6 +228,8 @@ textarea{
         &:first-child{
             margin-top: 50px;
         }
+        margin-left: 0px !important;
+        margin-right: 0px !important;
     }
 
     @media screen and (min-width: $break-small) and (max-width: $break-card-row) {

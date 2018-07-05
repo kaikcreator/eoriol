@@ -19,4 +19,8 @@ export class BlogPostsService {
     return this.wordpress.retrievePostsOverview(0, n, '');
   }
 
+  getItemBySlug(slug){
+    return this.wordpress.retrievePostBySlug(slug);
+  }
+
 }

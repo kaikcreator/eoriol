@@ -3,7 +3,6 @@ import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild, OnDestro
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { switchMap } from 'rxjs/operators';
-import { WordpressService } from '../../services/wordpress.service';
 import { PostModel } from '../../models/post.model';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
@@ -11,6 +10,8 @@ import { CommentModel } from "../../models/comment.model";
 import { AddCommentComponent } from "../add-comment/add-comment.component";
 import { Meta, DomSanitizer, SafeHtml, Title } from "@angular/platform-browser";
 import { AlertComponentType } from "../../ui-common/alert/alert.component";
+import { BlogPostsService } from "../../services/blog-posts.service";
+import { CommentsService } from "../services/comments.service";
 
 @Component({
   selector: 'app-post-detail',
@@ -27,18 +28,20 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   public currentUrl:string = "";
   public post:PostModel = null;
   public comments:CommentModel[] = [];
+  public numComments:number = 0;
   public commentSubmissionFeedack:{type:AlertComponentType, title:string, message:string} = null;
   public isReplyFormVisible:boolean = false;
 
   constructor(
     private route: ActivatedRoute,
-    private wordpressService: WordpressService,
     private element: ElementRef,
     private scrollTo:ScrollToService,
     private meta:Meta,
     private renderer:Renderer2,
     public sanitizer: DomSanitizer,
     private titleService: Title,
+    private blogPostsService: BlogPostsService,
+    private commentsService: CommentsService,
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(DOCUMENT) private document
   ) { }
@@ -61,7 +64,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         this.post = null;
         this.scrollTop();
         
-        return this.wordpressService.retrievePostBySlug(slug);
+        return this.blogPostsService.getItemBySlug(slug);
       })
     )
     .subscribe(post => {
@@ -86,9 +89,10 @@ export class PostDetailComponent implements OnInit, OnDestroy {
           //pretty print code fragments
           setTimeout(()=>{prettify.prettyPrint()});
           //get comments
-          this.wordpressService.retrievePostComments(this.post.id)
+          this.commentsService.getCommentsFromPostId(this.post.id)
           .subscribe(comments => {
             this.comments = comments;
+            this.numComments = this.commentsService.getTotalCountComments(this.comments);
           })
         }
       }
@@ -107,9 +111,9 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  postComment(comment:CommentModel){
+  addComment(comment:CommentModel){
 
-    this.wordpressService.postNewComment(this.post.id, comment).subscribe(
+    this.commentsService.createComment(this.post.id, comment).subscribe(
       data => {
       if(comment.parent){
         this.replyForm.clearForm();

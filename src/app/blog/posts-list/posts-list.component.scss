@@ -8,9 +8,7 @@
     margin-right: auto;
 
     @media screen and (max-width: $break-small){
-        padding: 0 $side-margin-small;
-        padding-left: calc(4.5vw + 32px);
-        width: calc(100% - 2*#{$side-margin-small} - 32px);
+        width: 100%;        
     }
 }
 
@@ -18,7 +16,19 @@
     padding-top: 190px;
 
     @media screen and (max-width: $break-small){
+        padding: 0 $side-margin-small;
+        padding-left: calc(4.5vw + 32px);        
         padding-top: 128px;
+        h1{
+            font-size: 1.6em;
+        }
+        app-search-box ::ng-deep{
+            overflow-x: hidden;
+            margin-left: 20px;
+            input{
+                font-size: 20px;
+            }
+        }
     }    
 
     &-text{

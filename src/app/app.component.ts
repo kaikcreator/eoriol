@@ -41,7 +41,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private setAnalytics() {
-    console.log("SET ANALYTICS");
     const head = this.document.getElementsByTagName('head')[0];
     //initialize google analytics
     const gaScript = this.document.createElement('script');

@@ -18,7 +18,10 @@
 .imageplaceholder{
     @media screen and (min-width: $break-small) and (max-width: $break-card-row) {
         width: 180px;
-    }    
+    }
+    @media screen and (max-width: $break-small){
+        width: 320px;
+    }        
     width: 349px;
     height: 319px;  
     flex-shrink: 0;      
