@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  googleAnalyticsId: 'UA-2769438-12',
+  googleAnalyticsId: 'UA-XXXXXX-YY',
   /* api used with json-server
   apiUrl:'http://localhost:3000/',*/
   //apiUrl: 'http://localhost:4000/assets/fixtures',

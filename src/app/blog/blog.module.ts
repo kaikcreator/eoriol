@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { BlogRoutingModule } from './blog-routing.module';
@@ -18,7 +19,8 @@ import { SharePostBarComponent } from './share-post-bar/share-post-bar.component
     FormsModule,
     InfiniteScrollModule,
     BlogRoutingModule,
-    UiCommonModule
+    UiCommonModule,
+    NgxJsonLdModule
   ],
   declarations: [PostsListComponent, PostDetailComponent, CommentComponent, AddCommentComponent, SharePostBarComponent]
 })

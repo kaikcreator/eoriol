@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   public bookCoursesLimit:number = 3;
   public blogPostItems:any[];
   public scrollOffsetMap:Map<number, number>;
+  public jsonLdSchema: {};
 
   constructor(
     public bookCourses: BookCoursesService,
@@ -45,6 +46,19 @@ export class HomeComponent implements OnInit {
     //add meta tags
     this.meta.updateTag({name:'description', content:'Tutoriales, guias, blogs y cursos de Angular, Ionic, TypeScript, JavaScript y programacion frontend'});
     this.meta.updateTag({name:'keywords', content:'Enrique Oriol, Angular, Ionic, Cursos, Tutoriales, Desarrollo, Javascript, Frontend, Programacion, Desarrollo web, Aprender a programar, Aprender Javascript, HTML5, CSS, TypeScript, SaSS, Node'});
+
+    //add json-ld-schema (for google)
+    this.jsonLdSchema = {
+      '@context': 'http://schema.org',
+      '@type': 'Person',
+      'name': 'Enrique Oriol',
+      'url': 'https://enriqueoriol.com',
+      "sameAs": [
+        "https://twitter.com/Enrique_oriol",
+        "https://www.linkedin.com/in/enrique-oriol-berm%C3%BAdez-830a3528/",
+        "https://plus.google.com/+EnriqueOriol"
+      ]
+    };
     
     //get courses
     this.bookCourses.getItems().subscribe(list =>{

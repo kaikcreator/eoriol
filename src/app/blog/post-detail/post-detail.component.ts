@@ -25,6 +25,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   @ViewChild('replyForm', {read:ElementRef}) replyFormEl: ElementRef;
   
   private sanitizedHtml:SafeHtml = null;
+  public jsonLdSchema:{};
   public currentUrl:string = "";
   public post:PostModel = null;
   public comments:CommentModel[] = [];
@@ -81,6 +82,14 @@ export class PostDetailComponent implements OnInit, OnDestroy {
             this.meta.updateTag({name:key, content:this.post.meta[key]});
           }
         }
+        //add json-ld-schema (for google)
+        this.jsonLdSchema = {
+          '@context': 'http://schema.org',
+          '@type': 'BlogPosting',
+          'headline': this.post.title,
+          'image': [ this.post.meta['og:image'] ]
+        };
+
         //sanitize HTML
         this.sanitizeHtml();
         //only in browser side

@@ -22,6 +22,7 @@
     "@angular/service-worker": "^6.0.6",
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
+    "@ngx-lite/json-ld": "^0.4.2",
     "@nicky-lenaers/ngx-scroll-to": "^1.0.0",
     "angulartics2": "^6.2.0",
     "compression": "^1.7.2",
