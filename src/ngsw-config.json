@@ -7,9 +7,8 @@
         "files": [
           "/assets/favicons/favicon.ico",
           "/index-1.html",
-          "/*.bundle.css",
-          "/*.bundle.js",
-          "/*.chunk.js"
+          "/*.css",
+          "/*.js"
         ]
       }
     }, {
