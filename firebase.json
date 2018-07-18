@@ -34,8 +34,11 @@
           "value": "https://eoriolfront-staging.firebaseapp.com"
         }]
       },
-      { "source":"/ngsw-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
-      { "source":"/ngsw.json", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }    
+      { "source":"/ngsw-worker.js", "headers": [
+        {"key": "Cache-Control", "value": "max-age=0, no-cache, no-store, must-revalidate"},
+        {"key": "Pragma", "value": "no-cache"}
+        ] },
+      { "source":"/ngsw.json", "headers": [{"key": "Cache-Control", "value": "max-age=0, no-cache, no-store, must-revalidate"}] }    
     ]
   },
   "functions": {
