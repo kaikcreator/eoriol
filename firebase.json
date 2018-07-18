@@ -13,8 +13,6 @@
       }
     ],
     "headers": [
-      { "source":"/ngsw-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
-      { "source":"/ngsw.json", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
       {
         "source" : "**/*.@(js|css)",
         "headers": [{
@@ -35,7 +33,9 @@
           "key": "Access-Control-Allow-Origin",
           "value": "https://eoriolfront-staging.firebaseapp.com"
         }]
-      }      
+      },
+      { "source":"/ngsw-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
+      { "source":"/ngsw.json", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },     
     ]
   },
   "functions": {
