@@ -1,5 +1,5 @@
-import { Component, OnInit, HostListener, ElementRef, Renderer2, OnDestroy } from '@angular/core';
-import { trigger, state, style, animate, transition, query, animateChild } from '@angular/animations';
+import { Component, OnInit, ElementRef, Renderer2, OnDestroy } from '@angular/core';
+import { trigger, transition, query, animateChild } from '@angular/animations';
 import { PageNotFoundService } from '../page-not-found/page-not-found.service';
 import { WindowScrollService } from '../services/window-scroll.service';
 import { pairwise } from 'rxjs/operators';
