@@ -13,8 +13,10 @@
       }
     ],
     "headers": [
+      { "source":"/ngsw-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
+      { "source":"/ngsw.json", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
       {
-        "source" : "**/*.@(bundle|chunk).@(js|css)",
+        "source" : "**/*.@(js|css)",
         "headers": [{
           "key": "Cache-Control",
           "value": "max-age=31536000"
