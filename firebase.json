@@ -14,7 +14,7 @@
     ],
     "headers": [
       {
-        "source" : "**/*.@(js|css)",
+        "source" : "**/*.*.@(js|css)",
         "headers": [{
           "key": "Cache-Control",
           "value": "max-age=31536000"
@@ -35,7 +35,7 @@
         }]
       },
       { "source":"/ngsw-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
-      { "source":"/ngsw.json", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },     
+      { "source":"/ngsw.json", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }    
     ]
   },
   "functions": {
