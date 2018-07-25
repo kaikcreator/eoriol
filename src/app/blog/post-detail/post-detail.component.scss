@@ -241,6 +241,7 @@
 
         &:not(.prettyprint){
             code{
+                word-wrap: break-word;
                 padding: 0.3em 1em;
                 background-color: $color-post-code-bg;
                 color: $color-black;
