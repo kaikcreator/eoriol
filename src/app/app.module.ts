@@ -58,7 +58,7 @@ import { UiCommonModule } from './ui-common/ui-common.module';
     ReviewRatingComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId:'MySampleProject'}),
+    BrowserModule.withServerTransition({appId:'EoriolFront'}),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     BrowserAnimationsModule,
     HttpClientModule,

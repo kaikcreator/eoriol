@@ -23,4 +23,8 @@ export class BlogPostsService {
     return this.wordpress.retrievePostBySlug(slug);
   }
 
+  clearSearch(){
+    this.search = '';
+  }
+
 }

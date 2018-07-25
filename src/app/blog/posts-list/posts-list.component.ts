@@ -5,6 +5,7 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 import { SearchBoxComponent } from '../../ui-common/search-box/search-box.component';
 import { switchMap, tap } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -24,12 +25,13 @@ export class PostsListComponent implements OnInit {
     private element: ElementRef,
     private scrollTo:ScrollToService,
     private titleService:Title,
+    private route:ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
 
   ngOnInit() {
-        //update title
-        this.titleService.setTitle("Enrique Oriol: Frontend tips, courses and trainning - Angular & Ionic evangelist, blockchain lover");
+    //update title
+    this.titleService.setTitle("Enrique Oriol: Frontend tips, courses and trainning - Angular & Ionic evangelist, blockchain lover");
     //scroll top
     if(isPlatformBrowser(this.platformId)){
       this.scrollTo.scrollTo({
@@ -38,8 +40,14 @@ export class PostsListComponent implements OnInit {
       });
     }
 
-    //get first page of items
-    this.blogPosts.getItems().subscribe(items => this.postsList = items); 
+    //everytime this route becomes the active one (on load, but also on nav. back for example)
+    //clear the search input and get first page of items 
+    this.route.url.subscribe(()=>{
+      this.blogPosts.clearSearch();
+       this.blogPosts.getItems().subscribe(items => {
+         this.postsList = items;
+       }); 
+    });
 
     //subscribe to search-box and perform async search with latest value
     this.searchBox.value.pipe(
