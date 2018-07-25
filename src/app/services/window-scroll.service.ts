@@ -36,4 +36,8 @@ export class WindowScrollService {
     }
   }
 
+  getCurrentScroll(){
+    return this.winRef.nativeWindow.scrollY || this.document.documentElement.scrollTop;
+  }
+
 }

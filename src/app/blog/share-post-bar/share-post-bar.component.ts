@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, ElementRef, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
 import { WindowScrollService } from '../../services/window-scroll.service';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { WindowRefService } from '../../services/globals.service';
 
 enum ShareBarState {
   fixed = "fixed",
@@ -21,11 +20,10 @@ export class SharePostBarComponent implements OnInit {
   public scrollSubscription:Subscription = null;
   private fixedState = ShareBarState.noFixed;
   private offsetFromTop = 0;
+  private fixedViewOffset = 0;
 
   constructor(
-    @Inject(DOCUMENT) private document:any,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private winRef: WindowRefService,
     private windowScroll:WindowScrollService,
     private element: ElementRef,
     private renderer:Renderer2,) { 
@@ -35,28 +33,49 @@ export class SharePostBarComponent implements OnInit {
   }
 
   public enableStickyFeature(){
-    let currentElementOffset = this.element.nativeElement.getBoundingClientRect().bottom;
-    let currentScroll = this.winRef.nativeWindow.scrollY || this.document.documentElement.scrollTop;
-    let viewportHeight = this.winRef.nativeWindow.innerHeight || this.document.documentElement.clientHeight || this.document.body.clientHeight;
-    this.offsetFromTop = currentElementOffset + currentScroll - viewportHeight;
+    this.getInitialOffset();
+    this.getFixedViewportOffset();
 
     if(isPlatformBrowser(this.platformId)){
       this.scrollSubscription = this.windowScroll.scroll$
       .subscribe(this.handleScroll.bind(this));
     }
   }
+
+  private getInitialOffset(){
+    let currentElementOffset = this.element.nativeElement.getBoundingClientRect().top;
+    let currentScroll = this.windowScroll.getCurrentScroll();
+    this.offsetFromTop = currentElementOffset + currentScroll;
+  }
+
+  private getFixedViewportOffset(){
+      //set the fixed class
+      this.renderer.addClass(this.element.nativeElement, 'fixed');
+      //save the view offset in fixed position
+      this.fixedViewOffset = this.element.nativeElement.getBoundingClientRect().top;
+      //remove again the fixed class
+      this.renderer.removeClass(this.element.nativeElement, 'fixed');
+  }
   
   private handleScroll(currentScroll){
-
-    if(currentScroll < this.offsetFromTop + 20 && 
-      this.fixedState == ShareBarState.noFixed ){
+    
+    //if not fixed
+    //and we have not yet scrolled until the original position of the element
+    //fix it
+    if(this.fixedState == ShareBarState.noFixed &&
+      currentScroll + this.fixedViewOffset < this.offsetFromTop){
         this.fixedState = ShareBarState.fixed;
         this.renderer.addClass(this.element.nativeElement, 'fixed');
     }
-    else if(currentScroll >= this.offsetFromTop + 20 && 
-    this.fixedState == ShareBarState.fixed ){
-      this.fixedState = ShareBarState.noFixed;
-      this.renderer.removeClass(this.element.nativeElement, 'fixed');
+    //if fixed
+    else if(this.fixedState == ShareBarState.fixed){
+      let currentOffsetFromTop = currentScroll + this.element.nativeElement.getBoundingClientRect().top;
+      //and the current offset from top is greater or equal than the original
+      //unfix it
+      if (currentOffsetFromTop >= this.offsetFromTop){
+        this.fixedState = ShareBarState.noFixed;
+        this.renderer.removeClass(this.element.nativeElement, 'fixed');
+      }
     }
 
   }
