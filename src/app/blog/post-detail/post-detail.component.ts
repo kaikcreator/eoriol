@@ -12,7 +12,7 @@ import { Meta, DomSanitizer, SafeHtml, Title } from "@angular/platform-browser";
 import { AlertComponentType } from "../../ui-common/alert/alert.component";
 import { BlogPostsService } from "../../services/blog-posts.service";
 import { CommentsService } from "../services/comments.service";
-import { SharePostBarComponent } from "../share-post-bar/share-post-bar.component";
+import { StickyBelowViewDirective } from "app/ui-common/directives/sticky-below-view.directive";
 
 @Component({
   selector: 'app-post-detail',
@@ -24,7 +24,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   @ViewChild('commentForm') commentForm: AddCommentComponent;
   @ViewChild('replyForm') replyForm: AddCommentComponent;
   @ViewChild('replyForm', {read:ElementRef}) replyFormEl: ElementRef;
-  @ViewChild('shareBar') shareBar: SharePostBarComponent;
+  @ViewChild(StickyBelowViewDirective) shareBar: StickyBelowViewDirective;
   
   private sanitizedHtml:SafeHtml = null;
   public jsonLdSchema:{};
@@ -106,7 +106,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
             this.numComments = this.commentsService.getTotalCountComments(this.comments);
           });
           //once view is completely rendered, allow shareBar to be sticky
-          setTimeout(()=>{this.shareBar.enableStickyFeature();}, 3000);
+          setTimeout(()=>{this.shareBar.initStickyElement();}, 3000);
         }
       }
     }, err=> console.log("error: ", err));    

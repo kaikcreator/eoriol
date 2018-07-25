@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AvatarComponent } from './avatar/avatar.component';
 import { AlertComponent } from './alert/alert.component';
 import { RouterModule } from '@angular/router';
+import { StickyBelowViewDirective } from './directives/sticky-below-view.directive';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [BlogCardComponent, SpinnerComponent, SearchBoxComponent, AvatarComponent, AlertComponent],
-  exports: [BlogCardComponent, SpinnerComponent, SearchBoxComponent, AvatarComponent, AlertComponent]
+  declarations: [BlogCardComponent, SpinnerComponent, SearchBoxComponent, AvatarComponent, AlertComponent, StickyBelowViewDirective],
+  exports: [BlogCardComponent, SpinnerComponent, SearchBoxComponent, AvatarComponent, AlertComponent, StickyBelowViewDirective]
 })
 export class UiCommonModule { }
