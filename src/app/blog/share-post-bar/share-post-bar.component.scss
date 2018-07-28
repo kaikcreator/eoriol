@@ -21,4 +21,14 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+
+    @media screen and (max-width: $break-small){
+        bottom: 0;
+        left: 0;
+        transform: none;
+        padding-left: 15%;
+        padding-right: 15%;
+        width: 70%;
+        border-radius: unset;
+    }
 }
