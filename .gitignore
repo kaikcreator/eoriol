@@ -33,6 +33,7 @@ npm-debug.log
 testem.log
 /typings
 /env
+/env-*
 /firebase-debug.log
 cloud-functions-emulator.log
 

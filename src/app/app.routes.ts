@@ -7,7 +7,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 export function appRoutes(relPath='.'): Routes{
   return [
-    // { path: 'post/:id',      component: PostComponent },
     {
       path: 'home',
       component: HomeComponent,

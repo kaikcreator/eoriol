@@ -114,12 +114,14 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     //remove meta data associated with this specific route
-    for (let key in this.post.meta){
-      let metakey = `name="${key}"`;
-      try{
-        this.meta.removeTag(metakey);
-      }catch(err){
-        console.log(err);
+    if(this.post){
+      for (let key in this.post.meta){
+        let metakey = `name="${key}"`;
+        try{
+          this.meta.removeTag(metakey);
+        }catch(err){
+          console.log(err);
+        }
       }
     }
   }
