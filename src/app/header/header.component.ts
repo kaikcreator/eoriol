@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer2, OnDestroy } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, OnDestroy, NgZone } from '@angular/core';
 import { trigger, transition, query, animateChild } from '@angular/animations';
 import { PageNotFoundService } from '../page-not-found/page-not-found.service';
 import { WindowScrollService } from '../services/window-scroll.service';
@@ -42,6 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private renderer:Renderer2,
     private windowScroll: WindowScrollService,
     private scrollTo:ScrollToService,
+    private ngZone:NgZone
   ) {
     try{
       this.initialTop = this.element.nativeElement.getBoundingClientRect().top;
@@ -51,15 +52,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    this.scrollSubscription = this.windowScroll.scroll$
-    .pipe(
-      pairwise())
-    .subscribe(this.handleStickyHeader.bind(this));
+    this.ngZone.runOutsideAngular(()=>{
+      this.scrollSubscription = this.windowScroll.scroll$
+      .pipe(
+        pairwise())
+      .subscribe(this.handleStickyHeader.bind(this));
+    });
   }
 
   ngOnDestroy(){
-    if(this.scrollSubscription)
+    if(this.scrollSubscription){
       this.scrollSubscription.unsubscribe();
+      this.scrollSubscription = null;
+    }
   }
 
   scrollTop(isActive){
