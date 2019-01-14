@@ -44,3 +44,4 @@ cloud-functions-emulator.log
 # System Files
 .DS_Store
 Thumbs.db
+env-6.11.5/*
