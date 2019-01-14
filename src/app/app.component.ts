@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, NgZone, ChangeDetectorRef } from '@angular/core';
 import { WindowScrollService } from './services/window-scroll.service';
 import { Subscription } from 'rxjs';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -19,6 +19,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private windowScroll: WindowScrollService,
     private angulartics2GA: Angulartics2GoogleAnalytics,
+    private ngZone:NgZone,
+    private cdRef:ChangeDetectorRef,
     @Inject(DOCUMENT) private document:any
   ){}
 
@@ -28,16 +30,23 @@ export class AppComponent implements OnInit, OnDestroy {
     this.setAnalytics();
 
     /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
-    this.scrollSubscription = this.windowScroll.scroll$.subscribe((scroll)=>{
-      if(scroll > 225){
-        if(this.subscribeCTAWhite)
-          this.subscribeCTAWhite = false;
-      }
-      else{
-        if(!this.subscribeCTAWhite)
-          this.subscribeCTAWhite = true;
-      }
-    })
+    this.ngZone.runOutsideAngular(()=>{
+      //running scroll subscription outside Angular zone for performance
+      this.scrollSubscription = this.windowScroll.scroll$.subscribe((scroll)=>{
+        if(scroll > 225){
+          if(this.subscribeCTAWhite){
+            this.subscribeCTAWhite = false;
+            this.cdRef.detectChanges();
+          }
+        }
+        else{
+          if(!this.subscribeCTAWhite){
+            this.subscribeCTAWhite = true;
+            this.cdRef.detectChanges();
+          }
+        }
+      });
+    });
   }
 
   private setAnalytics() {
@@ -64,7 +73,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }  
 
   ngOnDestroy(){
-    if(this.scrollSubscription)
+    if(this.scrollSubscription){
       this.scrollSubscription.unsubscribe();
+      this.scrollSubscription = null;
+    }
   }  
 }

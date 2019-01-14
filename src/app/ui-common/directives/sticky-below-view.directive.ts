@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Inject, PLATFORM_ID, NgZone, OnDestroy } from '@angular/core';
 import { WindowScrollService } from '../../services/window-scroll.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ enum StickyState {
 @Directive({
   selector: '[app-sticky-below-view]'
 })
-export class StickyBelowViewDirective {
+export class StickyBelowViewDirective implements OnDestroy {
 
   public scrollSubscription:Subscription = null;
   private fixedState = StickyState.noFixed;
@@ -22,17 +22,26 @@ export class StickyBelowViewDirective {
     @Inject(PLATFORM_ID) private platformId: Object,
     private windowScroll:WindowScrollService,
     private element: ElementRef,
-    private renderer:Renderer2,) { 
+    private renderer:Renderer2,
+    private ngZone: NgZone) { 
     }
 
+  public ngOnDestroy(){
+    if(this.scrollSubscription){
+      this.scrollSubscription.unsubscribe();
+      this.scrollSubscription = null;
+    }
+  }  
     
   public initStickyElement(){
     this.getInitialOffset();
     this.getFixedViewportOffset();
 
     if(isPlatformBrowser(this.platformId)){
-      this.scrollSubscription = this.windowScroll.scroll$
-      .subscribe(this.handleScroll.bind(this));
+      this.ngZone.runOutsideAngular(()=>{
+        this.scrollSubscription = this.windowScroll.scroll$
+        .subscribe(this.handleScroll.bind(this));
+      });
     }
   }
 
