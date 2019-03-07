@@ -211,11 +211,11 @@ textarea{
             margin-bottom: 0px;
             line-height: 14px;
             height: auto;
-            padding-bottom: 10px;
+            padding-bottom: 6px;
             padding-top: 10px;
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba(255,255,255,0.6);
             text-decoration: none;
-            color: $color-secondary;
+            color: $color-black;
 
             &:hover{
                 text-decoration: underline;
