@@ -11,6 +11,42 @@
         "reviews":[]
     },
     {
+        "image":"assets/fixtures/rxjs_nivel_pro_logo_blog.jpg",
+        "type":"Course",
+        "lang":"Spanish",
+        "title":"RxJS Nivel PRO",
+        "description":"Entiende qué es y cómo usar RxJS: Aprende infinidad de Operadores RxJS y Domina laProgramación Reactiva",
+        "price":"19,9 €",
+        "old_price":"125 €",
+        "link":"https://www.udemy.com/rxjs-nivel-pro/?couponCode=RXJS-LANDING",
+        "reviews":[
+            {
+                "user": "Johan Navarro",
+                "content": "Los vídeos son cortos y precisos, así como cuando se hacer programación funcional. Muy buenos para repasar y hasta el momento se me ha hecho muy útil.",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/32084708_62f5.jpg"
+            },  
+            {
+                "user": "Javier Salvador Ruiz Sámano",
+                "content": "",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/33030470_7dba.jpg"
+            },  
+            {
+                "user": "Javier López Úbeda",
+                "content": "Este curso es justo lo que estaba buscando, es claro y conciso. Un repaso completo a la librería RxJS, con todo lujo de detalles!",
+                "rating": 5,
+                "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/19790742_7250.jpg"
+            },  
+            {
+                "user": "KaiK",
+                "content": "Me está encantando. Directo, al grano y desde el principio, sin dar conocimientos por sentados. Además el contenido tiene muy buena calidad.",
+                "rating": 5,
+                "user_img_50x50": ""
+            }                                               
+        ]
+    },     
+    {
         "image":"assets/fixtures/angularPRO-course.png",
         "type":"Course",
         "lang":"Spanish",
