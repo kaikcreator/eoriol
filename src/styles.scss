@@ -200,6 +200,27 @@ textarea{
         background-position: center;
         background-size: cover;
         flex-shrink: 0;
+        position: relative;
+
+        &-attribution{
+            font-size: 9px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 0px;
+            margin-bottom: 0px;
+            line-height: 14px;
+            height: auto;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            background-color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            color: $color-secondary;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
     
     h1, h2{
