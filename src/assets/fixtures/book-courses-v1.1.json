@@ -8,7 +8,7 @@
         "price":"",
         "old_price":"",
         "link":"https://blog.enriqueoriol.com/2016/05/aprende-es6-guia-practica.html",
-        "reviews":[]
+        "reviews":[ ]
     },
     {
         "image":"assets/fixtures/angularPRO-course.png",

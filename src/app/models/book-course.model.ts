@@ -20,4 +20,6 @@ export class BookCourseModel {
     public old_price:string;
     public link:string;
     public reviews:ReviewModel[];
+    public attributionMsg:string;
+    public attributionLink:string;
 }
