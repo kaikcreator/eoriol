@@ -29,7 +29,7 @@
     "core-js": "~2.5.7",
     "express": "~4.16.3",
     "firebase-admin": "~5.12.1",
-    "firebase-functions": "~0.8.2",
+    "firebase-functions": "^3.2.0",
     "ngx-infinite-scroll": "~6.0.1",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.2.2",
@@ -39,5 +39,8 @@
   "devDependencies": {
     "typescript": "~2.7.2"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": "8"
+  }
 }
