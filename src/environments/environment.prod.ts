@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   googleAnalyticsId: 'UA-2769438-8',
+  coursesJsonVersion: 'v1.3',
   apiUrl: 'https://enriqueoriol.com/assets/fixtures',
   wordpressUrl: 'https://blog.enriqueoriol.com/wp-json/wp/v2',
   wordpressCustomUrl: 'https://blog.enriqueoriol.com/wp-json/custom/v1',
