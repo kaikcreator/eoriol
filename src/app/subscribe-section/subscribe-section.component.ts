@@ -16,7 +16,7 @@ export class SubscribeSectionComponent implements OnInit {
   public botDetector = "";  
   public error:string = '';
   public success:string = '';
-  @ViewChild('email') email: NgModel;
+  @ViewChild('email', {static:false}) email: NgModel;
 
   constructor(private mailchimp:MailchimpService) { }
 

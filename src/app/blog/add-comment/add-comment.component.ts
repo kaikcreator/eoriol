@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AddCommentComponent implements OnInit {
 
-  @ViewChild('form') form: NgForm;
+  @ViewChild('form', {static:true} ) form: NgForm;
   public submitInProcess:boolean = false;
 
   constructor() { }

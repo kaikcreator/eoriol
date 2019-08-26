@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { Angulartics2Module} from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
@@ -70,7 +69,7 @@ import { UiCommonModule } from './ui-common/ui-common.module';
         //initialNavigation: 'enabled'
       }
     ),
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    Angulartics2Module.forRoot(),
     ScrollToModule.forRoot(),
     PageNotFoundModule,
     HttpClientJsonpModule,

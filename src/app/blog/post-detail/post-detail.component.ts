@@ -21,10 +21,10 @@ import { StickyBelowViewDirective } from "app/ui-common/directives/sticky-below-
 })
 export class PostDetailComponent implements OnInit, OnDestroy {
 
-  @ViewChild('commentForm') commentForm: AddCommentComponent;
-  @ViewChild('replyForm') replyForm: AddCommentComponent;
-  @ViewChild('replyForm', {read:ElementRef}) replyFormEl: ElementRef;
-  @ViewChild(StickyBelowViewDirective) shareBar: StickyBelowViewDirective;
+  @ViewChild('commentForm', {static:false}) commentForm: AddCommentComponent;
+  @ViewChild('replyForm', {static:false}) replyForm: AddCommentComponent;
+  @ViewChild('replyForm', {static:false, read:ElementRef}) replyFormEl: ElementRef;
+  @ViewChild(StickyBelowViewDirective, {static:false}) shareBar: StickyBelowViewDirective;
   
   private sanitizedHtml:SafeHtml = null;
   public jsonLdSchema:{};

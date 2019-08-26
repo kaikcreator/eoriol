@@ -22,7 +22,9 @@ export class AppComponent implements OnInit, OnDestroy {
     private ngZone:NgZone,
     private cdRef:ChangeDetectorRef,
     @Inject(DOCUMENT) private document:any
-  ){}
+  ){
+    this.angulartics2GA.startTracking();
+  }
 
   ngOnInit(){
 

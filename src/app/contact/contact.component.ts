@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
   public model:ContactModel = new ContactModel();
   public success:string = "";
   public error:string ="";
-  @ViewChild('form') form: NgForm;
+  @ViewChild('form', {static:true}) form: NgForm;
 
   constructor(private wordpress:WordpressService) { 
     for(let item in ContactTopic){

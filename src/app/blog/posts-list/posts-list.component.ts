@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostsListComponent implements OnInit {
 
-  @ViewChild(SearchBoxComponent) searchBox:SearchBoxComponent;
+  @ViewChild(SearchBoxComponent, {static: true}) searchBox:SearchBoxComponent;
   public postsList:any[] = null;
   public loading:boolean = false;
 
