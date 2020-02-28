@@ -13,37 +13,33 @@ import { NgModel } from '@angular/forms';
 export class SubscribeSectionComponent implements OnInit {
 
   public model = new MailchimpProfileModel();
-  public botDetector = "";  
-  public error:string = '';
-  public success:string = '';
-  @ViewChild('email') email: NgModel;
+  public botDetector = '';
+  public error = '';
+  public success = '';
+  @ViewChild('email', { static: false }) email: NgModel;
 
-  constructor(private mailchimp:MailchimpService) { }
+  constructor(private mailchimp: MailchimpService) { }
 
   ngOnInit() {
   }
 
-  subscribe(){
-    if(this.botDetector != ""){
-      this.error = "Mmm quite suspicious, you look like a bot";
-    }
-    else if(!this.email.valid){
-      this.error = "Sorry, invalid email";
-    }
-    else if(this.model.name.length <= 0){
-      this.error = "Sorry, missing name";
-    }
-    else{
+  subscribe() {
+    if (this.botDetector != '') {
+      this.error = 'Mmm quite suspicious, you look like a bot';
+    } else if (!this.email.valid) {
+      this.error = 'Sorry, invalid email';
+    } else if (this.model.name.length <= 0) {
+      this.error = 'Sorry, missing name';
+    } else {
       this.mailchimp.subscribeMember(this.model).subscribe(
-        response =>{
-          if(response.result == MailchimpSubscriptionResults.error){
+        response => {
+          if (response.result == MailchimpSubscriptionResults.error) {
             this.error = response.msg;
-          }
-          else{
+          } else {
             this.success = response.msg;
           }
         }
-      )
+      );
     }
   }
 

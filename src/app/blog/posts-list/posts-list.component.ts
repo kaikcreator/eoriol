@@ -15,38 +15,38 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostsListComponent implements OnInit {
 
-  @ViewChild(SearchBoxComponent) searchBox:SearchBoxComponent;
-  public postsList:any[] = null;
-  public loading:boolean = false;
+  @ViewChild(SearchBoxComponent, { static: true }) searchBox: SearchBoxComponent;
+  public postsList: any[] = null;
+  public loading = false;
 
 
   constructor(
     private blogPosts: BlogPostsService,
     private element: ElementRef,
-    private scrollTo:ScrollToService,
-    private titleService:Title,
-    private route:ActivatedRoute,
+    private scrollTo: ScrollToService,
+    private titleService: Title,
+    private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
 
   ngOnInit() {
     //update title
-    this.titleService.setTitle("Enrique Oriol: Frontend tips, courses and trainning - Angular & Ionic evangelist, blockchain lover");
+    this.titleService.setTitle('Enrique Oriol: Frontend tips, courses and trainning - Angular & Ionic evangelist, blockchain lover');
     //scroll top
-    if(isPlatformBrowser(this.platformId)){
+    if (isPlatformBrowser(this.platformId)) {
       this.scrollTo.scrollTo({
-        offset:this.element.nativeElement.getBoundingClientRect().top,
+        offset: this.element.nativeElement.getBoundingClientRect().top,
         duration: 0
       });
     }
 
     //everytime this route becomes the active one (on load, but also on nav. back for example)
-    //clear the search input and get first page of items 
-    this.route.url.subscribe(()=>{
+    //clear the search input and get first page of items
+    this.route.url.subscribe(() => {
       this.blogPosts.clearSearch();
-       this.blogPosts.getItems().subscribe(items => {
-         this.postsList = items;
-       }); 
+      this.blogPosts.getItems().subscribe(items => {
+        this.postsList = items;
+      });
     });
 
     //subscribe to search-box and perform async search with latest value
@@ -58,24 +58,25 @@ export class PostsListComponent implements OnInit {
   }
 
   //get next bunch of posts
-  getMoreItems(){
-    if(!this.postsList || this.postsList.length == 0)
+  getMoreItems() {
+    if (!this.postsList || this.postsList.length == 0) {
       return;
+    }
 
     this.loading = true;
-    let offset = this.postsList.length;
+    const offset = this.postsList.length;
     this.blogPosts.getItems(offset)
-    .subscribe(items => {
-      this.postsList = [...this.postsList, ...items];
-      this.loading = false;
-    }, err =>{
-      console.log("error detected: ", err);
-      this.loading = false;
-    });
+      .subscribe(items => {
+        this.postsList = [...this.postsList, ...items];
+        this.loading = false;
+      }, err => {
+        console.log('error detected: ', err);
+        this.loading = false;
+      });
   }
 
 
-  search(value){
+  search(value) {
     this.blogPosts.search = value;
     this.postsList = null;
     return this.blogPosts.getItems(0);

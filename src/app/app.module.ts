@@ -70,7 +70,7 @@ import { UiCommonModule } from './ui-common/ui-common.module';
         //initialNavigation: 'enabled'
       }
     ),
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    Angulartics2Module.forRoot(),
     ScrollToModule.forRoot(),
     PageNotFoundModule,
     HttpClientJsonpModule,

@@ -13,34 +13,35 @@ import { environment } from 'environments/environment.prod';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  public subscribeCTAWhite:boolean = true;
-  public scrollSubscription:Subscription = null;
+  public subscribeCTAWhite = true;
+  public scrollSubscription: Subscription = null;
 
   constructor(
     private windowScroll: WindowScrollService,
     private angulartics2GA: Angulartics2GoogleAnalytics,
-    private ngZone:NgZone,
-    private cdRef:ChangeDetectorRef,
-    @Inject(DOCUMENT) private document:any
-  ){}
+    private ngZone: NgZone,
+    private cdRef: ChangeDetectorRef,
+    @Inject(DOCUMENT) private document: any
+  ) {
+    this.angulartics2GA.startTracking();
+  }
 
-  ngOnInit(){
+  ngOnInit() {
 
     //add GA script. retrieve UA code from environment
     this.setAnalytics();
 
     /** Scroll event listener, in order to modify subscribe CTA behavior based on scroll */
-    this.ngZone.runOutsideAngular(()=>{
+    this.ngZone.runOutsideAngular(() => {
       //running scroll subscription outside Angular zone for performance
-      this.scrollSubscription = this.windowScroll.scroll$.subscribe((scroll)=>{
-        if(scroll > 225){
-          if(this.subscribeCTAWhite){
+      this.scrollSubscription = this.windowScroll.scroll$.subscribe((scroll) => {
+        if (scroll > 225) {
+          if (this.subscribeCTAWhite) {
             this.subscribeCTAWhite = false;
             this.cdRef.detectChanges();
           }
-        }
-        else{
-          if(!this.subscribeCTAWhite){
+        } else {
+          if (!this.subscribeCTAWhite) {
             this.subscribeCTAWhite = true;
             this.cdRef.detectChanges();
           }
@@ -64,18 +65,18 @@ export class AppComponent implements OnInit, OnDestroy {
     asyncScript.async = true;
     asyncScript.src = 'https://www.google-analytics.com/analytics.js';
     //prevent the scripts from being loaded twice (in case of SSR for example)
-    if(!this.document.getElementById('ga1-script')){
+    if (!this.document.getElementById('ga1-script')) {
       head.appendChild(gaScript);
     }
-    if(!this.document.getElementById('ga2-script')){
+    if (!this.document.getElementById('ga2-script')) {
       head.appendChild(asyncScript);
     }
-  }  
+  }
 
-  ngOnDestroy(){
-    if(this.scrollSubscription){
+  ngOnDestroy() {
+    if (this.scrollSubscription) {
       this.scrollSubscription.unsubscribe();
       this.scrollSubscription = null;
     }
-  }  
+  }
 }

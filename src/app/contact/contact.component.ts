@@ -10,32 +10,32 @@ import { NgForm } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  public topics:[{key:string,value:string}] =<any>[];
-  public model:ContactModel = new ContactModel();
-  public success:string = "";
-  public error:string ="";
-  @ViewChild('form') form: NgForm;
+  public topics: [{ key: string, value: string }] = <any>[];
+  public model: ContactModel = new ContactModel();
+  public success = '';
+  public error = '';
+  @ViewChild('form', { static: true }) form: NgForm;
 
-  constructor(private wordpress:WordpressService) { 
-    for(let item in ContactTopic){
-      this.topics.push({key:item, value:ContactTopic[item]});
+  constructor(private wordpress: WordpressService) {
+    for (const item in ContactTopic) {
+      this.topics.push({ key: item, value: ContactTopic[item] });
     }
   }
 
   ngOnInit() {
   }
 
-  submit(){
+  submit() {
     this.wordpress.contact(this.model).subscribe(
       response => {
         this.success = response;
-        setTimeout(()=>{this.success="";}, 3500);
+        setTimeout(() => { this.success = ''; }, 3500);
         this.model = new ContactModel();
         this.form.reset();
       },
       err => {
         this.error = err.message;
-        setTimeout(()=>{this.success="";}, 3500);
+        setTimeout(() => { this.success = ''; }, 3500);
       }
     );
   }

@@ -9,34 +9,34 @@ import { NgForm } from '@angular/forms';
 })
 export class AddCommentComponent implements OnInit {
 
-  @ViewChild('form') form: NgForm;
-  public submitInProcess:boolean = false;
+  @ViewChild('form', { static: true }) form: NgForm;
+  public submitInProcess = false;
 
   constructor() { }
 
-  @Output() onSubmit:EventEmitter<CommentModel> = new EventEmitter<CommentModel>();
+  @Output() onSubmit: EventEmitter<CommentModel> = new EventEmitter<CommentModel>();
   public model = new CommentModel();
 
 
   ngOnInit() {
   }
 
-  submitForm(){
+  submitForm() {
     this.onSubmit.emit(this.model);
     this.submitInProcess = true;
   }
 
-  clearForm(){
-    this.model = new CommentModel('','','');
+  clearForm() {
+    this.model = new CommentModel('', '', '');
     this.form.reset();
     this.submitInProcess = false;
   }
 
-  cancelSubmit(){
+  cancelSubmit() {
     this.submitInProcess = false;
   }
 
-  setParent(parent:number){
+  setParent(parent: number) {
     this.model.parent = parent;
   }
 
