@@ -3,13 +3,15 @@
 <article>
   <section id="hero-section">
     <div class="detail">
-        <div class="detail-name">
-            <div class="small-picture" appLQImgPlaceholder style="background-image: url('/assets/hero-photo-mobile.jpg')"></div>
-            <h1>I'm Enrique.</h1>
+      <div class="detail-name">
+        <div class="small-picture" appLQImgPlaceholder style="background-image: url('/assets/hero-photo-mobile.jpg')">
         </div>
-        <p>Chief Innovation Officer at Napptilus Tech Labs. CTO at Dada Career. Full-stack engineer interested in ML, 3D and modern technologies. Angular & Ionic evangelist. </p>
-        <a class="anchor-link" ngx-scroll-to="blog" [ngx-scroll-to-offset-map]="scrollOffsetMap">check my blog</a>
-    </div>    
+        <h1>I'm Enrique.</h1>
+      </div>
+      <p>Senior Software Engineer at Dynatrace. Love innovation and startups. Angular evangelist. Father / lover /
+        blogger / trainer at AprendeAngular.com </p>
+      <a class="anchor-link" ngx-scroll-to="blog" [ngx-scroll-to-offset-map]="scrollOffsetMap">check my blog</a>
+    </div>
     <div class="picture" appLQImgPlaceholder style="background-image: url('/assets/hero-photo.jpg')"></div>
   </section>
 
@@ -17,14 +19,21 @@
   <a name="about" id="about"></a>
   <section class="white-section" id="about-section">
     <h1>About me</h1>
-    <p>I'm MSc in Software Engineering, working in a cool place in Barcelona. I've developed and lead teams in frontend, backend and hybrid and native apps projects. Now I play with startups and drive innovation at Napptilus Tech Labs. </p>
-    <p>I love technology and I write frequently about  topics like Angular, Ionic, Node and Django on my <a routerLink="/blog">blog</a> (in spanish) and on <a target="_blank" rel="noopener" href="https://medium.com/@enriqueoriol">medium</a> (in english).</p>
+
+    <p>I'm MSc in Software Engineering in Barcelona. After years as a developer, I've lead technical teams, as well as
+      the
+      innovation department of a Venture Builder. Now, I'm enjoying frontend again as a Team Lead with my amazing
+      colleagues at Dynatrace.</p>
+    <p>I love technology and I write frequently about topics like Angular, Ionic, Node and Django on my <a
+        routerLink="/blog">blog</a> (in spanish) and on <a target="_blank" rel="noopener"
+        href="https://medium.com/@enriqueoriol">medium</a> (in english).</p>
     <div class="highlights">
       <div class="highlights-item">Coder</div>
       <div class="highlights-item">Trainer</div>
       <div class="highlights-item">Speaker</div>
     </div>
-    <a class="anchor-link" ngx-scroll-to="books-and-courses" [ngx-scroll-to-offset-map]="scrollOffsetMap">check my courses</a>
+    <a class="anchor-link" ngx-scroll-to="books-and-courses" [ngx-scroll-to-offset-map]="scrollOffsetMap">check my
+      courses</a>
   </section>
 
 
@@ -35,38 +44,39 @@
     <h1>Books & Courses</h1>
     <a class="anchor-link" (click)="bookCoursesLimit = bookCourseItems.length">View All</a>
     <div class="cards-container">
-        <div class="cards">
-            <app-book-card *ngFor="let item of bookCourseItems | slice:0:bookCoursesLimit; let i = index" 
-            [item]="item" (expand)="onBookCourseCardExpand($event, i)">
-            </app-book-card>
-        </div> 
+      <div class="cards">
+        <app-book-card *ngFor="let item of bookCourseItems | slice:0:bookCoursesLimit; let i = index"
+          [item]="item" (expand)="onBookCourseCardExpand($event, i)">
+        </app-book-card>
+      </div>
     </div>
   </section>
-  
+
 
   <section class="black-section" id="trainning">
-      <div>
-          <h1>I've trained teams on Angular 2+, Typescript and Ionic 2+</h1>
-          <p>I am currently only taking on small and specific consulting/training work. If you are interested, contact me.</p>
-      </div>
-      <div>
-          <button ngx-scroll-to="contact">Get in touch</button>
-      </div>
+    <div>
+      <h1>I've trained teams on Angular 2+, Typescript and Ionic 2+</h1>
+      <p>I am currently only taking on small and specific consulting/training work. If you are interested, contact me.
+      </p>
+    </div>
+    <div>
+      <button ngx-scroll-to="contact">Get in touch</button>
+    </div>
   </section>
-    
-    
+
+
   <a name="blog" id="blog"></a>
   <section class="white-section" id="blog-section">
-      <h1>Blog</h1>
-    
-      <a routerLink="/blog" routerLinkActive="active" class="anchor-link">
-          View All
-      </a>
+    <h1>Blog</h1>
 
-      <div class="cards">
-          <app-blog-card *ngFor="let item of blogPostItems" [item]="item">
-          </app-blog-card>
-      </div>       
+    <a routerLink="/blog" routerLinkActive="active" class="anchor-link">
+      View All
+    </a>
+
+    <div class="cards">
+      <app-blog-card *ngFor="let item of blogPostItems" [item]="item">
+      </app-blog-card>
+    </div>
   </section>
 
 
@@ -75,14 +85,15 @@
   </section>
 
   <section class="black-section" id="speak-section">
-      <div>
-          <h1>Want me to speak at your event?</h1>
-          <p>Contact me if you are interested. We can openly discuss all the details about topic, target, travel, accomodation...</p>
-      </div>
-      <div>
-          <button ngx-scroll-to="contact">Get in touch</button>
-      </div>
-    </section>
+    <div>
+      <h1>Want me to speak at your event?</h1>
+      <p>Contact me if you are interested. We can openly discuss all the details about topic, target, travel,
+        accomodation...</p>
+    </div>
+    <div>
+      <button ngx-scroll-to="contact">Get in touch</button>
+    </div>
+  </section>
 
 
   <!-- <section class="white-section" id="jobs">
@@ -92,8 +103,6 @@
   <a name="contact" id="contact"></a>
   <section class="contact-section">
     <app-contact></app-contact>
-  </section>  
+  </section>
 
 </article>
-
-
