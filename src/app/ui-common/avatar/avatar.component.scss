@@ -1,6 +1,10 @@
 @import '~variables.scss';
 
 .avatar{
+    &-image {
+        margin-left: -7px;
+        margin-top: -2px;
+    }
     &-letter-container{
         background-color: #ffd285;
         height: 100%;

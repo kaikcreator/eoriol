@@ -1,0 +1,341 @@
+[
+  {
+    "image": "assets/fixtures/AngularPRO-bundle.jpg",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "Angular PRO",
+    "description": "Todo lo que siempre has deseado saber, explicado con claridad: la forma más eficaz de ponerte al día con Angular 9 y RxJS",
+    "price": "15% DTO",
+    "old_price": "79 €",
+    "link": "https://www.aprendeangular.com/p/angular-pro/?coupon_code=NGLANDING",
+    "reviews": [
+      {
+        "user": "Marco Ruiz",
+        "content": "Este curso sobrepasa todas mis expectativas. No es solo que sea muy completo y con explicaciones claras, es que además se ve muy trabajado. Felicidades!",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Miquel Subirats",
+        "content": "Brutal! Necesitaba pasar de AngularJS a la nueva versión de Angular y con este curso me he puesto al día en un momento. Muy bien explicado todo.",
+        "rating": 5,
+        "user_img_50x50": "/assets/fixtures/m-subirats.jpg"
+      },
+      {
+        "user": "Francisco Javier Martínez Gómez",
+        "content": "Imprescindible para ir al siguiente nivel",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Alberto García Alvarez",
+        "content": "Excelente curso para fijar los conceptos. Muy recomendable para todos los que quieran fijar y ampliar conceptos con una dinámica de aprendizaje basada en ejemplos prácticos y reales.",
+        "rating": 5,
+        "user_img_50x50": "/assets/fixtures/45877696_8611.jpg"
+      },
+      {
+        "user": "Michael Daniel Suarez Rivera",
+        "content": "El curso está muy bien estructurado y se toma el tiempo de al final hacer el resumen de lo que se hizo, excelente curso.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Juan Manuel Pulgarin Serna",
+        "content": "Gran explicación y preparación del curso",
+        "rating": 5,
+        "user_img_50x50": "/assets/fixtures/12729060_dd2a.jpg"
+      },
+      {
+        "user": "KaiK",
+        "content": "Genial el curso y gran profesor. Aprendes desde cero y con vídeos cortitos, es perfecto!!",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Ricardo Cruz",
+        "content": "Interesante, Muy directo y claro",
+        "rating": 5,
+        "user_img_50x50": ""
+      }
+    ]
+  },
+  {
+    "image": "assets/fixtures/rxjs_nivel_pro_logo_blog.jpg",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "RxJS Nivel PRO",
+    "description": "Entiende qué es y cómo usar RxJS: Aprende infinidad de Operadores RxJS y Domina la Programación Reactiva",
+    "price": "40% DTO",
+    "old_price": "49 €",
+    "link": "https://www.aprendeangular.com/p/rxjs-nivel-pro?coupon_code=RXJS-PROMO",
+    "attributionMsg": "Original image from Billie Ward, modified under CC BY 4.0 license",
+    "attributionLink": "https://www.flickr.com/photos/wwward0/16205435108",
+    "reviews": [
+      {
+        "user": "Johan Navarro",
+        "content": "Los vídeos son cortos y precisos, así como cuando se hacer programación funcional. Muy buenos para repasar y hasta el momento se me ha hecho muy útil.",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/32084708_62f5.jpg"
+      },
+      {
+        "user": "Javier Salvador Ruiz Sámano",
+        "content": "",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/33030470_7dba.jpg"
+      },
+      {
+        "user": "Javier López Úbeda",
+        "content": "Este curso es justo lo que estaba buscando, es claro y conciso. Un repaso completo a la librería RxJS, con todo lujo de detalles!",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/19790742_7250.jpg"
+      },
+      {
+        "user": "KaiK",
+        "content": "Me está encantando. Directo, al grano y desde el principio, sin dar conocimientos por sentados. Además el contenido tiene muy buena calidad.",
+        "rating": 5,
+        "user_img_50x50": ""
+      }
+    ]
+  },
+  {
+    "image": "assets/fixtures/ES6-book.png",
+    "type": "Book",
+    "lang": "Spanish",
+    "title": "Aprende ES6, guía práctica",
+    "description": "Guía práctica con las principales novedades de ES6, con ejemplos de código, para profundizar a tu ritmo.",
+    "price": "",
+    "old_price": "",
+    "link": "https://blog.enriqueoriol.com/2016/05/aprende-es6-guia-practica.html",
+    "reviews": []
+  },
+  {
+    "image": "assets/fixtures/AngularFormsCover.jpg",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "Angular - Formularios: curso intensivo (Angular 8+)",
+    "description": "Domina los formularios de Angular como un profesional: Formularios de templates y reactivos",
+    "price": "19 €",
+    "old_price": "",
+    "link": "https://www.aprendeangular.com/p/formularios-angular",
+    "reviews": [
+      {
+        "user": "Octavio Elsacte",
+        "content": "Cubre dos temas que no he visto en otros cursos: creación de controles dinámicos y el uso de formularios como observables. Fundamental esto último para las arquitecturas tipo push.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Felix Angel Abalia",
+        "content": "Muy interesante, directo y bien explicado.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Diego Vallejo",
+        "content": "Buen curso para dominar el flujo y manejo de forms, desde el nativo hasta los Forms Reactivos que angular provee, y el profesor domina y explica super bien.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Jorge Castillo Moreno",
+        "content": "Excelente. el instructor explica muy bien... Es totalmente recomendado",
+        "rating": 5,
+        "user_img_50x50": "/assets/fixtures/58916732_c1c1.jpg"
+      },
+      {
+        "user": "Eusebio Tomás Cruz",
+        "content": "Excelente curso de sobre formularios en angular, ahora a implementar estos conocimientos en futuros proyectos. !!! :)",
+        "rating": 5,
+        "user_img_50x50": ""
+      }
+    ]
+  },
+  {
+    "image": "assets/fixtures/angularRouter.png",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "Angular - Router: curso intensivo (Angular 9+)",
+    "description": "Domina el sistema de navegación y rutas de Angular, sin esfuerzo.",
+    "price": "19 €",
+    "old_price": "",
+    "link": "https://www.aprendeangular.com/p/router-de-angular",
+    "reviews": []
+  },
+  {
+    "image": "assets/fixtures/AngularHttp.jpg",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "Angular - HTTP: curso intensivo (Angular 9+)",
+    "description": "Entiende a la perfección la comunicación cliente - servidor en Angular",
+    "price": "19 €",
+    "old_price": "",
+    "link": "https://www.aprendeangular.com/p/angular-http",
+    "reviews": []
+  },
+  {
+    "image": "assets/fixtures/AngularIntermediate.jpg",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "Angular - nivel intermedio",
+    "description": "Todo lo que necesitas saber de Angular para dejar de sentirte como un novato",
+    "price": "19 €",
+    "old_price": "",
+    "link": "https://www.aprendeangular.com/p/angular-nivel-intermedio",
+    "reviews": []
+  },
+  {
+    "image": "assets/fixtures/angularBackgroundNubes.png",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "Fundamentos de Angular",
+    "description": "¿Acabas de llegar a Angular? Este es el curso que necesitas para ponerte al día.",
+    "price": "GRATIS",
+    "old_price": "",
+    "link": "https://www.aprendeangular.com/p/fundamentos-angular",
+    "reviews": []
+  },
+  {
+    "image": "assets/fixtures/angularPRO-course.png",
+    "type": "Course",
+    "lang": "Spanish",
+    "title": "Componentes Angular nivel PRO",
+    "description": "Domina los componentes de Angular (v2/4/5+) como un PRO y crea componentes técnicamente brillantes.",
+    "price": "19 €",
+    "old_price": "110 €",
+    "link": "https://www.udemy.com/componentes-angular-pro/?couponCode=BLOGREADER",
+    "reviews": [
+      {
+        "user": "Leonardo Jose R Ruiz Sanchez",
+        "content": "Super interesante, las nuevas cosas que puedes aprender cada dia.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Miguel Angel Leyva Guadalupe",
+        "content": "Buen curso, tiene cierta complejidad en sus ejercicios, me ayudo a reforzar mis conocimientos de angular.",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/893236_8a77_3.jpg"
+      },
+      {
+        "user": "María Barona Andrade",
+        "content": "Muy bien explicado y organizado el contenido. Muy condensado pero muy completo al mismo tiempo.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Francisco Gonzalez",
+        "content": "Curso bastante completo y que profundiza en el funcionamiento de los elementos de angular. Buen instructor y que se nota que sabe de lo que habla",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Alex Fuentes",
+        "content": "De los muchos cursos que he realizado de Angular este es, sin duda, el más claro, aplicable, avanzado y esclarecedor... ¡súper satisfecho!",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/255425_d3f9_2.jpg"
+      },
+      {
+        "user": "Alberto García Álvarez",
+        "content": "Es magnifica la explicación, quizás algún detalle de arquitectura de los componentes para completar la visión del desarrollo del tema que se realiza. Incluso como material de referencia, dado que la extension de la explicación se debe limitar lógicamente a los 5/6 minutos para no perder el gancho de la explicación. Pero no te equivoques, es un curso FANTASTICO, muy bien estructurado, con un hilo conductor que te hace crecer en conocimiento y habilidades. Sin duda es una inversión esplendida de tiempo el seguirla. El instructor es un excelente conocedor del tema e instructor. Gracias.",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/45877696_8611.jpg"
+      },
+      {
+        "user": "David Josué García",
+        "content": "Excelente curso, me ha ayudado a comprender varias cosas que antes no entendía sobre el framework, además de aprender buenas prácticas, lo recomiendo bastante. Se nota que el instructor conoce bastante sobre el tema, espero su siguiente curso, si es posible me gustaria que hiciera un curso sobre arquitectura flux usando redux y angular, eso seria genial.",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/8697846_b6c8.jpg"
+      },
+      {
+        "user": "Oscar Jorge Castillo",
+        "content": "Excelente, vídeos cortos pero densos, sin paja. Absoluto dominio de la materia.",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/26032384_e63e.jpg"
+      },
+      {
+        "user": "Ezequiel Martín",
+        "content": "Ahora gracias a este curso aprendi mucho y ahora por fin voy a poder usar los componentes como corresponden y como queria en realidad que funcionen :) Muchisimas gracias me encanto",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/34693110_5e0d.jpg"
+      },
+      {
+        "user": "Miguel Angel Garcia Chavez",
+        "content": "Es una pasada de curso. Conceptos tecnicos que realmente buscaba a gritos en algun tipo de curso especializado. Muy buena explicacion de los temas y puntos a tratar. Si quieres hacer algo con un nivel mas profesional, este es el curso que buscas.",
+        "rating": 5,
+        "user_img_50x50": ""
+      }
+    ]
+  },
+  {
+    "image": "assets/fixtures/angularPRO-course.png",
+    "type": "Course",
+    "lang": "English",
+    "title": "Angular Components - like a PRO!",
+    "description": "Master the Angular (v2/4/5+) Components like a PRO to create technically brilliant components",
+    "price": "19 €",
+    "old_price": "125 €",
+    "link": "https://www.udemy.com/angular-components-like-a-pro/?couponCode=BLOGREADER",
+    "reviews": [
+      {
+        "user": "Chris Cassella",
+        "content": "Excellent course! Very detailed and the material was well covered.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Augustin Calin",
+        "content": "Definitely not for the beginners but very enlightening. You will not suddenly become an expert but this tutorial will give you a very solid starting point. You will learn also not only how to create components but also: why a stateless component is better, what is Shadow DOM, change detection. A must see.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Roland",
+        "content": "I'm learning a lot, very complex stuff explained easily.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Jhon El.",
+        "content": "Very good and advanced tips. Not a generic course, it's mainly focused on components. I love it!",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Richard Moore",
+        "content": "A very interesting course, it fitted my needs perfectly, would recommend it to students looking for more information on advanced Angular coding. The tutor does talk very fast, had to rewind a few times to re-listen.",
+        "rating": 5,
+        "user_img_50x50": "https://udemy-images.udemy.com/user/50x50/4207294_4adc.jpg"
+      },
+      {
+        "user": "Keerthi Prakash R",
+        "content": "Fully hands on course. Good learning for real angular hands on. Can be improved, by providing the design consideration aspects like, what concepts to be applied in which scenarios.",
+        "rating": 4,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Goureige",
+        "content": "Good Explication",
+        "rating": 4,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Yassine Msiah",
+        "content": "So Good So Far I'm Looking Forward To Finish This Course :D",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Mike",
+        "content": "What I've seen until now is excellent material. High level on content and explanations. I'm learning a lot.",
+        "rating": 5,
+        "user_img_50x50": ""
+      },
+      {
+        "user": "Perry Biava",
+        "content": "The instructor is a little difficult to understand. But, his instruction is excellent. This course will enable you to learn some very advanced technology. I am learning a lot from this course.",
+        "rating": 5,
+        "user_img_50x50": ""
+      }
+    ]
+  }
+]
