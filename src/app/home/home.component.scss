@@ -84,6 +84,7 @@ app-subscribe-cta{
             }
 
             .small-picture{
+                filter: grayscale(60%);
                 @media screen and (max-width: $break-small){
                     height: calc(90vw *1.1);
                     background-position-x: center;
@@ -134,6 +135,7 @@ app-subscribe-cta{
     }
 
     .picture{
+        filter: grayscale(60%);
         flex:1;
         background-position-x: center;
         background-size: cover;

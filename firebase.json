@@ -8,6 +8,18 @@
     ],
     "rewrites": [
       {
+        "source": "/assets/**",
+        "destination": "/assets/**"
+      },
+      {
+        "source": "/favicon.ico",
+        "destination": "/favicon.ico"
+      },
+      {
+        "source": "/*.js",
+        "destination": "/$1.js"
+      },
+      {
         "source": "**",
         "function": "ssr"
       }
