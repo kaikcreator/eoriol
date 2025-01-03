@@ -93,22 +93,34 @@ app-subscribe-cta{
             }           
         }
 
+        .marker {
+            background-color: lightgrey;
+            border-color: lightgrey;            
+            border-style: solid;
+            border-width: 0.3em 0.2em; 
+            box-decoration-break: clone;
+            font-size: 1.2em;
+        }
+
         p{
             @media screen and (max-width: $break-small){
                 font-size: 13px;
                 line-height: 24px;
-                margin-bottom: 26px;
             }
             font-family: $lora-font;
             color: $color-home-paragraph;
 
-            max-width: 414px;
-            //height: 87px;
+            max-width: 540px;
             margin-top: 0px;
-            margin-bottom: 80px;
-            font-size: 16px;
+            font-size: 1.1em;
             font-weight: 400;
             line-height: 35px;
+        }
+        p:last-of-type{
+            margin-bottom: 80px;
+            @media screen and (max-width: $break-small){
+                margin-bottom: 26px;
+            }            
         }
 
         .anchor-link{
