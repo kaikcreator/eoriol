@@ -60,10 +60,11 @@ app-subscribe-cta{
             }
             position: relative;
             margin-bottom: 40px;
+            margin-top: 40px;
 
             h1{
                 color: $color-black;
-                font-size: 89px;
+                font-size: 70px;
                 font-weight: 700;
                 margin-top: 20px;
                 margin-bottom: 20px;
@@ -73,20 +74,20 @@ app-subscribe-cta{
                     bottom:0px;
                     left: 19px;
                     margin-bottom: 0px;  
-                    font-size: 9.5vw;
+                    font-size: 9vw;
                     line-height: 20vw;
                     color: white;
                     letter-spacing: -0.97px;                  
                 }
                 @media screen and (min-width: $break-small) and (max-width: $break-large){
-                    font-size: 9vw;
+                    font-size: 50px;
                 }               
             }
 
             .small-picture{
                 filter: grayscale(60%);
                 @media screen and (max-width: $break-small){
-                    height: calc(90vw *1.1);
+                    height: 90vw;
                     background-position-x: center;
                     background-size: cover;
                 }                 
@@ -104,8 +105,7 @@ app-subscribe-cta{
 
         p{
             @media screen and (max-width: $break-small){
-                font-size: 13px;
-                line-height: 24px;
+                line-height: 1.8em;
             }
             font-family: $lora-font;
             color: $color-home-paragraph;
@@ -267,8 +267,7 @@ app-subscribe-cta{
 
     &>h1{
         @media screen and (max-width:$break-small){
-            font-size: 10px;
-            letter-spacing: 4.3px;
+             letter-spacing: 4.3px;
         }        
         color: $color-secondary;
         font-size: 12px;
@@ -280,8 +279,7 @@ app-subscribe-cta{
 
     &>p{
         @media screen and (max-width:$break-small){
-            font-size: 14px;
-            line-height: 24px;
+            line-height: 1.8em;
         }
         max-width: 691px;
         color: $color-black;

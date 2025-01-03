@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Install dependencies
 
 * In order to install the exact dependencies, please run `npm ci` (as per npm clean install).
-* **Using Node v16**
+* **Using Node v22**
 * You also need to install an old version of Angular CLI:
 `npm install -g @angular/cli@8.3.29`
 
