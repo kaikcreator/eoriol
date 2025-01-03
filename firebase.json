@@ -20,6 +20,10 @@
         "destination": "/$1.js"
       },
       {
+        "source": "/*.css",
+        "destination": "/$1.css"
+      },
+      {
         "source": "**",
         "function": "ssr"
       }

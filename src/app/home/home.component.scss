@@ -95,8 +95,8 @@ app-subscribe-cta{
         }
 
         .marker {
-            background-color: lightgrey;
-            border-color: lightgrey;            
+            background-color: $color-marker;
+            border-color: $color-marker;            
             border-style: solid;
             border-width: 0.3em 0.2em; 
             box-decoration-break: clone;
@@ -288,6 +288,10 @@ app-subscribe-cta{
         font-weight: 400;
         line-height: 37px;
         text-align: center;
+    }
+
+    .highlight { 
+        background-color: $color-marker;
     }
 
     .anchor-link{
