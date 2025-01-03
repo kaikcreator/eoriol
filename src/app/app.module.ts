@@ -38,12 +38,14 @@ import { WindowScrollService } from './services/window-scroll.service';
 import { ReviewComponent } from './review/review.component';
 import { ReviewRatingComponent } from './review-rating/review-rating.component';
 import { UiCommonModule } from './ui-common/ui-common.module';
+import { ExperienceCardComponent } from './experience-card/experience-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ExperienceCardComponent,
     BookCardComponent,
     ContactComponent,
     HamburgerMenuComponent,

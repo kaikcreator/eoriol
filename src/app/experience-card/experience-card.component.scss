@@ -1,0 +1,92 @@
+@import '~variables.scss';
+
+.experienceCard{
+    @media screen and (max-width: $break-small){
+        width: 349px;
+        flex-direction: column;
+    }
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;  
+    max-width: 85vw;
+    margin: auto;
+    background:  white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.09);
+    background-color: $color-white;    
+
+    .header{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        margin-top: 30px;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .detail{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 40px;
+        overflow: hidden;
+    
+    }
+    
+    .date{
+        @media screen and (max-width: $break-small){
+            width: 100%;
+        }        
+        right: 0px;
+        color: $color-secondary;
+        font-size: 12px;
+    }
+    
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    .company{
+        color: #938e8e;
+        line-height: 28px;
+        font-size: 15px;
+        font-weight: 200;
+        width: 100%;    
+    }
+
+    .description{
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 28px;
+        margin-bottom: 25px;
+    }
+    
+    .tag {
+        display: inline-block;
+        color: white;
+        background-color: #757575;
+        font-size: 12px;
+        font-weight: 700;
+        border-color: #757575;
+        border-style: solid;
+        border-width: 0.3em;
+        box-decoration-break: clone;
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+    
+    p {
+        height: 0px;
+        margin: 0px;
+    }    
+}
