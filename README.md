@@ -29,6 +29,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Deploy a new version of the website in firebase
 
+0 - Make sure you're logged in to Firebase. If not, or if you get auth errors:
+```
+firebase login
+# or, if your token has expired:
+firebase login --reauth
+```
+
 1 - Select the project you want to use (g.e. `use eoriolfront-staging`)
-2 - Deploy the hosting **and the functions** (otherwise the updated `dist` folder won't be available to the function): 
+2 - Deploy the hosting **and the functions** (otherwise the updated `dist` folder won't be available to the function):
 `firebase deploy --only functions,hosting`
