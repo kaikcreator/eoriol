@@ -38,7 +38,7 @@
     "code-prettify": "^0.1.0",
     "compression": "^1.7.2",
     "core-js": "^2.5.7",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "firebase-admin": "^8.9.2",
     "firebase-functions": "^3.3.0",
     "ngx-infinite-scroll": "^8.0.1",
